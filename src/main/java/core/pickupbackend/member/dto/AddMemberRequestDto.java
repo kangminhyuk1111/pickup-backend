@@ -10,19 +10,17 @@ public class AddMemberRequestDto {
     private String email;
     private String password;
     private String nickname;
-    private String profileImage;
     private Integer height;
     private Integer weight;
     private Position position;
     private Level level;
 
     // 생성자
-    public AddMemberRequestDto(String email, String password, String nickname, String profileImage,
+    public AddMemberRequestDto(String email, String password, String nickname,
                                Integer height, Integer weight, Position position, Level level) {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
-        this.profileImage = profileImage;
         this.height = height;
         this.weight = weight;
         this.position = position;
@@ -30,6 +28,6 @@ public class AddMemberRequestDto {
     }
 
     public Member toEntity() {
-        return new Member(email, password, nickname, profileImage, height, weight, position, level);
+        return new Member(email, password, nickname, height, weight, position, level);
     }
 }

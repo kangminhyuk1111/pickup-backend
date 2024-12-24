@@ -1,11 +1,11 @@
 package core.pickupbackend.member.domain.type;
 
 public enum Position {
-    PG("Point Guard"),
-    SG("Shooting Guard"),
-    SF("Small Forward"),
-    PF("Power Forward"),
-    C("Center");
+    PG("PG"),
+    SG("SG"),
+    SF("SF"),
+    PF("PF"),
+    C("C");
 
     private final String position;
 

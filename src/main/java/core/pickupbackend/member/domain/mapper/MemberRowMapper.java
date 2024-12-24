@@ -9,17 +9,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MemberRowMapper implements RowMapper<Member> {
-        @Override
-        public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-            return new Member(
-                    rs.getString("email"),
-                    rs.getString("password"),
-                    rs.getString("nickname"),
-                    rs.getString("profile_image"),
-                    rs.getInt("height"),
-                    rs.getInt("weight"),
-                    Position.valueOf(rs.getString("position")),
-                    Level.valueOf(rs.getString("level"))
-            );
-        }
+    @Override
+    public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+        return new Member(
+                rs.getString("email"),
+                rs.getString("password"),
+                rs.getString("nickname"),
+                rs.getInt("height"),
+                rs.getInt("weight"),
+                Position.valueOf(rs.getString("position")),
+                Level.valueOf(rs.getString("level"))
+        );
     }
+}

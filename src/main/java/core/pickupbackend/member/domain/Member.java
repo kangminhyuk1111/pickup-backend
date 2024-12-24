@@ -23,7 +23,7 @@ public class Member {
     private LocalDateTime updatedAt;    // 수정 일시
     private LocalDateTime lastLoginAt;  // 마지막 로그인 일시
 
-    public Member(String email, String password, String nickname, String profileImage,
+    public Member(String email, String password, String nickname,
                   Integer height, Integer weight, Position position, Level level) {
 
         validateEmail(email);
@@ -33,7 +33,6 @@ public class Member {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
-        this.profileImage = profileImage;
         this.height = height;
         this.weight = weight;
         this.position = position;
