@@ -1,7 +1,9 @@
 # 구현 기능 목록
 
+## 공통
+- [ ] 공통 exception 관리
 ## logging
-- slf4j를 통한 logging 처리
+- [ ] slf4j를 통한 logging 처리
 ## sign up
 - [x] users 테이블 구현 및 crud 작성
 - [ ] users validate 작성 - 중복, 유효성
