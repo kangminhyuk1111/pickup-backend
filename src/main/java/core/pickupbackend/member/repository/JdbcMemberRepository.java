@@ -2,6 +2,7 @@ package core.pickupbackend.member.repository;
 
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.domain.mapper.MemberRowMapper;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -22,6 +23,7 @@ public class JdbcMemberRepository implements MemberRepository {
         this.template = template;
     }
 
+    @Override
     public Member save(Member member) {
         String sql = """
             INSERT INTO users (email, password, nickname, profile_image, 
@@ -48,30 +50,94 @@ public class JdbcMemberRepository implements MemberRepository {
             return ps;
         }, keyHolder);
 
-        return findById(keyHolder.getKey().longValue())
+        // 생성된 키 값을 확인
+        Number key = keyHolder.getKey();
+        System.out.println("Generated Key: " + key);  // 키 값 출력
+
+        // member 객체에 직접 ID 설정
+        Long generatedId = key.longValue();
+        member.setId(generatedId);
+
+        // 설정된 ID 확인
+        System.out.println("Member ID after setting: " + member.getId());
+
+        // 데이터베이스에서 조회
+        Member foundMember = findById(generatedId)
                 .orElseThrow(() -> new RuntimeException("Failed to save member"));
+
+        // 조회된 member의 ID 확인
+        System.out.println("Found Member ID: " + foundMember.getId());
+
+        return foundMember;
     }
 
-    public List<Member> findAll() {
-        String sql = "SELECT * FROM users";
-        return template.query(sql, rowMapper);
-    }
-
+    @Override
     public Optional<Member> findById(Long id) {
-        String sql = "SELECT * FROM users WHERE id = ?";
-        List<Member> results = template.query(sql, rowMapper, id);
-        return results.isEmpty() ? Optional.empty() : Optional.of(results.get(0));
+        try {
+            String sql = "SELECT * FROM users WHERE id = ?";
+            return Optional.ofNullable(
+                    template.queryForObject(sql, rowMapper, id)  // id 파라미터 전달
+            );
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
 
+    @Override
     public Optional<Member> findByEmail(String email) {
         String sql = "SELECT * FROM users WHERE email = ?";
         List<Member> results = template.query(sql, rowMapper, email);
         return results.isEmpty() ? Optional.empty() : Optional.of(results.get(0));
     }
 
-    public boolean delete(Long id) {
+    @Override
+    public Optional<Member> findByNickname(final String nickname) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<Member> findAll() {
+        String sql = "SELECT * FROM users";
+        return template.query(sql, rowMapper);
+    }
+
+    @Override
+    public void update(final Member member) {
+        final Member findById = findById(member.getId()).orElseThrow(() -> new RuntimeException("Not Found Id"));
+
+        String sql = "UPDATE users SET email = ?, password = ?, nickname = ?, profile_image = ?, " +
+                "height = ?, weight = ?, position = ?, level = ?, manner_score = ?, " +
+                "updated_at = ?, last_login_at = ? WHERE id = ?";
+
+        int updatedRows = template.update(sql,
+                member.getEmail(),
+                member.getPassword(),
+                member.getNickname(),
+                member.getProfileImage(),
+                member.getHeight(),
+                member.getWeight(),
+                member.getPosition().name(),
+                member.getLevel().name(),
+                member.getMannerScore(),
+                Timestamp.valueOf(member.getUpdatedAt()),
+                Optional.ofNullable(member.getLastLoginAt())
+                        .map(Timestamp::valueOf)
+                        .orElse(null),
+                findById.getId()
+        );
+
+        if (updatedRows == 0) {
+            throw new IllegalStateException("Failed to update member with ID: " + member.getId());
+        }
+    }
+
+    @Override
+    public void delete(Long id) {
         String sql = "DELETE FROM users WHERE id = ?";
-        int affectedRows = template.update(sql, id);
-        return affectedRows == 1;
+        int deletedRows = template.update(sql, id);
+
+        if (deletedRows == 0) {
+            throw new IllegalStateException("Failed to delete member with ID: " + id);
+        }
     }
 }

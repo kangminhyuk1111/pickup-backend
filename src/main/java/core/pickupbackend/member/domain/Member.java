@@ -3,9 +3,10 @@ package core.pickupbackend.member.domain;
 import core.pickupbackend.member.domain.type.Level;
 import core.pickupbackend.member.domain.type.Position;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Member {
+public class Member implements Serializable {
 
     public static final double DEFAULT_MANNER_SCORE = 5.0;
 
@@ -22,6 +23,26 @@ public class Member {
     private LocalDateTime createdAt;    // 생성 일시
     private LocalDateTime updatedAt;    // 수정 일시
     private LocalDateTime lastLoginAt;  // 마지막 로그인 일시
+
+    public Member(Long id, String email, String password, String nickname,
+                  Integer height, Integer weight, Position position, Level level) {
+
+        validateEmail(email);
+        validatePassword(password);
+        validateNickname(nickname);
+
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.nickname = nickname;
+        this.height = height;
+        this.weight = weight;
+        this.position = position;
+        this.level = level;
+        this.mannerScore = DEFAULT_MANNER_SCORE;  // 초기 매너 점수
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
 
     public Member(String email, String password, String nickname,
                   Integer height, Integer weight, Position position, Level level) {
@@ -62,6 +83,10 @@ public class Member {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
     }
 
     public String getEmail() {

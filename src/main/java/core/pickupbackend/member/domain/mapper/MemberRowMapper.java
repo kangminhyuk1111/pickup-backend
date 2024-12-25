@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class MemberRowMapper implements RowMapper<Member> {
     @Override
     public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return new Member(
+        final Member member = new Member(
                 rs.getString("email"),
                 rs.getString("password"),
                 rs.getString("nickname"),
@@ -20,5 +20,9 @@ public class MemberRowMapper implements RowMapper<Member> {
                 Position.valueOf(rs.getString("position")),
                 Level.valueOf(rs.getString("level"))
         );
+
+        member.setId(rs.getLong("id"));
+
+        return member;
     }
 }
