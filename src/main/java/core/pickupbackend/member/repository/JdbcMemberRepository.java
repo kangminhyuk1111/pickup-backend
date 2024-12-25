@@ -1,5 +1,7 @@
 package core.pickupbackend.member.repository;
 
+import core.pickupbackend.global.exception.ApplicationException;
+import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.domain.mapper.MemberRowMapper;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -52,7 +54,6 @@ public class JdbcMemberRepository implements MemberRepository {
 
         // 생성된 키 값을 확인
         Number key = keyHolder.getKey();
-        System.out.println("Generated Key: " + key);  // 키 값 출력
 
         // member 객체에 직접 ID 설정
         Long generatedId = key.longValue();
@@ -78,7 +79,7 @@ public class JdbcMemberRepository implements MemberRepository {
             return Optional.ofNullable(
                     template.queryForObject(sql, rowMapper, id)  // id 파라미터 전달
             );
-        } catch (EmptyResultDataAccessException e) {
+        } catch (ApplicationException e) {
             return Optional.empty();
         }
     }
@@ -103,7 +104,7 @@ public class JdbcMemberRepository implements MemberRepository {
 
     @Override
     public void update(final Member member) {
-        final Member findById = findById(member.getId()).orElseThrow(() -> new RuntimeException("Not Found Id"));
+        final Member findById = findById(member.getId()).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
 
         String sql = "UPDATE users SET email = ?, password = ?, nickname = ?, profile_image = ?, " +
                 "height = ?, weight = ?, position = ?, level = ?, manner_score = ?, " +
@@ -127,7 +128,7 @@ public class JdbcMemberRepository implements MemberRepository {
         );
 
         if (updatedRows == 0) {
-            throw new IllegalStateException("Failed to update member with ID: " + member.getId());
+            throw new ApplicationException(ErrorCode.NOT_FOUND_USER);
         }
     }
 
@@ -137,7 +138,13 @@ public class JdbcMemberRepository implements MemberRepository {
         int deletedRows = template.update(sql, id);
 
         if (deletedRows == 0) {
-            throw new IllegalStateException("Failed to delete member with ID: " + id);
+            throw new ApplicationException(ErrorCode.NOT_FOUND_USER);
         }
+    }
+
+    public boolean existsByEmail(String email) {
+        String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
+        int count = template.queryForObject(sql, Integer.class, email);
+        return count > 0;
     }
 }

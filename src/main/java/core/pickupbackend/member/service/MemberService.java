@@ -1,5 +1,7 @@
 package core.pickupbackend.member.service;
 
+import core.pickupbackend.global.exception.ApplicationException;
+import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.dto.AddMemberRequestDto;
 import core.pickupbackend.member.dto.UpdateMemberRequestDto;
@@ -26,15 +28,15 @@ public class MemberService {
     }
 
     public Member getMemberById(final Long id) {
-        return memberRepository.findById(id).orElseThrow(() -> new RuntimeException("Not Found By Id"));
+        return memberRepository.findById(id).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
     }
 
     public Member getMemberByEmail(final String email) {
-        return memberRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("Not Found By Email"));
+        return memberRepository.findByEmail(email).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_EMAIL));
     }
 
     public Member getMemberByNickname(final String nickname) {
-        return memberRepository.findByEmail(nickname).orElseThrow(() -> new RuntimeException("Not Found By Nickname"));
+        return memberRepository.findByEmail(nickname).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
     }
 
     public void deleteMemberById(final Long id) {
