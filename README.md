@@ -7,7 +7,7 @@
 ## sign up
 - [x] users 테이블 구현 및 crud 작성
 - [x] users validate 작성 - 중복, 유효성
-- [ ] passwordEncoder를 사용한 단방향 암호화
+- [x] passwordEncoder를 사용한 단방향 암호화
 - [ ] 보류 - 추후 이메일 인증 기능 구현
 ## login, auth
 - [ ] 비밀번호 검증 (passwordEncoder.matches() 사용)
