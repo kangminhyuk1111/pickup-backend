@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(DuplicateException.class)
-    public ResponseEntity<ErrorResponse> handleDuplicateException(ApplicationException e) {
+    @ExceptionHandler(ValidateException.class)
+    public ResponseEntity<ErrorResponse> handleValidateException(ValidateException e) {
         final ErrorCode errorCode = e.getErrorCode();
         final ErrorResponse response = ErrorResponse.of(errorCode);
         return new ResponseEntity<>(response, response.getStatus());
@@ -27,7 +27,8 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleException(Exception e) {
         final String message = e.getMessage();
         final HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
-        final ErrorResponse errorResponse = new ErrorResponse(message, status);
+        final Integer code = HttpStatus.INTERNAL_SERVER_ERROR.value();
+        final ErrorResponse errorResponse = new ErrorResponse(message, code, status);
         return new ResponseEntity<>(errorResponse, status);
     }
 }

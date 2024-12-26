@@ -3,9 +3,7 @@ package core.pickupbackend.member.dto;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.domain.type.Level;
 import core.pickupbackend.member.domain.type.Position;
-import lombok.Getter;
 
-@Getter
 public class AddMemberRequestDto {
     private String email;
     private String password;

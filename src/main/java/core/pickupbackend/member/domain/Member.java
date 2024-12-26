@@ -1,14 +1,19 @@
 package core.pickupbackend.member.domain;
 
+import core.pickupbackend.global.exception.ErrorCode;
+import core.pickupbackend.global.exception.ValidateException;
 import core.pickupbackend.member.domain.type.Level;
 import core.pickupbackend.member.domain.type.Position;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.regex.Pattern;
 
 public class Member implements Serializable {
 
-    public static final double DEFAULT_MANNER_SCORE = 5.0;
+    private static final double DEFAULT_MANNER_SCORE = 5.0;
+    private static final Pattern EMAIL_REGEX = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    private static final String PASSWORD_REGEX = "^.{8,16}$";
 
     private Long id;                    // Primary Key
     private String email;               // 이메일 (Unique)
@@ -65,19 +70,27 @@ public class Member implements Serializable {
 
     private void validateEmail(final String email) {
         if (email == null || email.isBlank()) {
-            throw new IllegalArgumentException("Email cannot be null or empty");
+            throw new ValidateException(ErrorCode.BLANK_EXCEPTION);
+        }
+
+        if (!EMAIL_REGEX.matcher(email).matches()) {
+            throw new ValidateException(ErrorCode.EMAIL_PATTERN_EXCEPTION);
         }
     }
 
     private void validatePassword(final String password) {
         if (password == null || password.isBlank()) {
-            throw new IllegalArgumentException("Password cannot be null or empty");
+            throw new ValidateException(ErrorCode.BLANK_EXCEPTION);
+        }
+
+        if (!password.matches(PASSWORD_REGEX)) {
+            throw new ValidateException(ErrorCode.PASSWORD_VALID_EXCEPTION);
         }
     }
 
     private void validateNickname(final String nickname) {
         if (nickname == null || nickname.isBlank()) {
-            throw new IllegalArgumentException("Nickname cannot be null or empty");
+            throw new ValidateException(ErrorCode.BLANK_EXCEPTION);
         }
     }
 
@@ -135,5 +148,25 @@ public class Member implements Serializable {
 
     public LocalDateTime getLastLoginAt() {
         return lastLoginAt;
+    }
+
+    public void setMannerScore(final Double mannerScore) {
+        this.mannerScore = mannerScore;
+    }
+
+    public void setProfileImage(final String profileImage) {
+        this.profileImage = profileImage;
+    }
+
+    public void setUpdatedAt(final LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setCreatedAt(final LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setLastLoginAt(final LocalDateTime lastLoginAt) {
+        this.lastLoginAt = lastLoginAt;
     }
 }

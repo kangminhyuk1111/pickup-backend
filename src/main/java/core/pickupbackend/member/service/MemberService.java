@@ -5,7 +5,7 @@ import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.dto.AddMemberRequestDto;
 import core.pickupbackend.member.dto.UpdateMemberRequestDto;
-import core.pickupbackend.member.repository.JdbcMemberRepository;
+import core.pickupbackend.member.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +13,9 @@ import java.util.List;
 @Service
 public class MemberService {
 
-    private final JdbcMemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
-    public MemberService(final JdbcMemberRepository memberRepository) {
+    public MemberService(final MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
 
@@ -36,7 +36,7 @@ public class MemberService {
     }
 
     public Member getMemberByNickname(final String nickname) {
-        return memberRepository.findByEmail(nickname).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
+        return memberRepository.findByNickname(nickname).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
     }
 
     public void deleteMemberById(final Long id) {
