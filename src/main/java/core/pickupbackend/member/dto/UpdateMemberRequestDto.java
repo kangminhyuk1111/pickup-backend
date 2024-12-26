@@ -3,6 +3,8 @@ package core.pickupbackend.member.dto;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.domain.type.Level;
 import core.pickupbackend.member.domain.type.Position;
+import core.pickupbackend.member.domain.vo.Password;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class UpdateMemberRequestDto {
     private Long id;
@@ -27,7 +29,7 @@ public class UpdateMemberRequestDto {
         this.level = level;
     }
 
-    public Member toEntity() {
-        return new Member(id, email, password, nickname, height, weight, position, level);
+    public Member toEntity(final PasswordEncoder passwordEncoder) {
+        return new Member(id, email, new Password(passwordEncoder, password), nickname, height, weight, position, level);
     }
 }

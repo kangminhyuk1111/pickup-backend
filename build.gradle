@@ -22,9 +22,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // DB
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'com.mysql:mysql-connector-j'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto
+    implementation 'org.springframework.security:spring-security-crypto:6.4.1'
 }
 
 tasks.named('test') {

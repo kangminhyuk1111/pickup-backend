@@ -3,6 +3,7 @@ package core.pickupbackend.member.domain.mapper;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.domain.type.Level;
 import core.pickupbackend.member.domain.type.Position;
+import core.pickupbackend.member.domain.vo.Password;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -10,13 +11,14 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 
 public class MemberRowMapper implements RowMapper<Member> {
+
     @Override
     public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
         // 필수 필드로 Member 객체 생성
         Member member = new Member(
                 rs.getLong("id"),
                 rs.getString("email"),
-                rs.getString("password"),
+                new Password(rs.getString("password")),
                 rs.getString("nickname"),
                 rs.getObject("height", Integer.class),
                 rs.getObject("weight", Integer.class),

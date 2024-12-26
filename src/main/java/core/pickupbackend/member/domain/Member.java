@@ -4,6 +4,7 @@ import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.global.exception.ValidateException;
 import core.pickupbackend.member.domain.type.Level;
 import core.pickupbackend.member.domain.type.Position;
+import core.pickupbackend.member.domain.vo.Password;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -13,11 +14,10 @@ public class Member implements Serializable {
 
     private static final double DEFAULT_MANNER_SCORE = 5.0;
     private static final Pattern EMAIL_REGEX = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
-    private static final String PASSWORD_REGEX = "^.{8,16}$";
 
     private Long id;                    // Primary Key
     private String email;               // 이메일 (Unique)
-    private String password;            // 비밀번호
+    private Password password;          // 비밀번호
     private String nickname;            // 닉네임
     private String profileImage;        // 프로필 이미지 URL
     private Integer height;             // 키
@@ -29,11 +29,10 @@ public class Member implements Serializable {
     private LocalDateTime updatedAt;    // 수정 일시
     private LocalDateTime lastLoginAt;  // 마지막 로그인 일시
 
-    public Member(Long id, String email, String password, String nickname,
+    public Member(Long id, String email, Password password, String nickname,
                   Integer height, Integer weight, Position position, Level level) {
 
         validateEmail(email);
-        validatePassword(password);
         validateNickname(nickname);
 
         this.id = id;
@@ -49,11 +48,10 @@ public class Member implements Serializable {
         this.updatedAt = LocalDateTime.now();
     }
 
-    public Member(String email, String password, String nickname,
+    public Member(String email, Password password, String nickname,
                   Integer height, Integer weight, Position position, Level level) {
 
         validateEmail(email);
-        validatePassword(password);
         validateNickname(nickname);
 
         this.email = email;
@@ -78,16 +76,6 @@ public class Member implements Serializable {
         }
     }
 
-    private void validatePassword(final String password) {
-        if (password == null || password.isBlank()) {
-            throw new ValidateException(ErrorCode.BLANK_EXCEPTION);
-        }
-
-        if (!password.matches(PASSWORD_REGEX)) {
-            throw new ValidateException(ErrorCode.PASSWORD_VALID_EXCEPTION);
-        }
-    }
-
     private void validateNickname(final String nickname) {
         if (nickname == null || nickname.isBlank()) {
             throw new ValidateException(ErrorCode.BLANK_EXCEPTION);
@@ -107,7 +95,7 @@ public class Member implements Serializable {
     }
 
     public String getPassword() {
-        return password;
+        return password.getPassword();
     }
 
     public String getNickname() {
