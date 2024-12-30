@@ -24,10 +24,10 @@ public class JdbcMemberRepository implements MemberRepository {
     @Override
     public Member save(Member member) {
         String sql = """
-                    INSERT INTO users (email, password, nickname, profile_image, 
-                                     height, weight, position, level, manner_score, 
-                                     created_at, updated_at)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO users (email, password, nickname, profile_image, 
+                                 height, weight, position, level, manner_score, 
+                                 created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """;
 
         template.update(sql,
