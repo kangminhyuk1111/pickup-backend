@@ -1,14 +1,5 @@
 package core.pickupbackend.auth.dto;
 
-public class LogoutRequestDto {
+public record LogoutRequestDto(String email) {
 
-    private final String email;
-
-    public LogoutRequestDto(final String email) {
-        this.email = email;
-    }
-
-    public String getEmail() {
-        return email;
-    }
 }

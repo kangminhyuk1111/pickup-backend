@@ -27,21 +27,23 @@ public class AuthService {
     }
 
     public AuthCredential login(final LoginRequestDto loginRequestDto) {
-        final Member member = memberService.getMemberByEmail(loginRequestDto.getEmail());
-        final boolean matches = passwordService.matches(loginRequestDto.getPassword(), member.getPassword());
+        final Member member = memberService.getMemberByEmail(loginRequestDto.email());
+        final boolean matches = passwordService.matches(loginRequestDto.password(), member.getPassword());
 
         if(!matches) {
             throw new ApplicationException(ErrorCode.PASSWORD_NOT_MATCHES);
         }
         
-        final AuthCredential authCredential = jwtService.generateAuthCredential(loginRequestDto.getEmail());
+        final AuthCredential authCredential = jwtService.generateAuthCredential(loginRequestDto.email());
 
         jwtRepository.save(authCredential);
         
         return authCredential;
     }
 
-    public void logout(final LogoutRequestDto logoutRequestDto) {
-        final Member member = memberService.getMemberByEmail(logoutRequestDto.getEmail());
+    public void logout(final String accessToken,final LogoutRequestDto logoutRequestDto) {
+        final Member member = memberService.getMemberByEmail(logoutRequestDto.email());
+
+        jwtRepository.delete(accessToken);
     }
 }

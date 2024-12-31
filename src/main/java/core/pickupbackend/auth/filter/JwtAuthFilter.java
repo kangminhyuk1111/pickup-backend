@@ -3,7 +3,6 @@ package core.pickupbackend.auth.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.pickupbackend.auth.service.JwtService;
 import core.pickupbackend.global.common.ErrorResponse;
-import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -17,7 +16,9 @@ import java.io.IOException;
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
 
-    public static final String CONTENT_TYPE = "application/json;charset=UTF-8";
+    private static final String CONTENT_TYPE = "application/json;charset=UTF-8";
+    private static final String AUTHORIZATION = "Authorization";
+    private static final String AUTHORIZATION_PREFIX = "Bearer ";
 
     private final JwtService jwtService;
     private final UrlWhiteListChecker whiteListChecker;
@@ -31,16 +32,16 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response, final FilterChain filterChain) throws ServletException, IOException {
-        final String authHeader = request.getHeader("Authorization");
-        final String uri = request.getRequestURI();
-        final String method = request.getMethod();
+        final String authHeader = request.getHeader(AUTHORIZATION);
+        final String uri = request.getRequestURI(); // /member
+        final String method = request.getMethod();// POST
 
         if (whiteListChecker.isAllowedUri(uri, method)) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+        if (authHeader == null || !authHeader.startsWith(AUTHORIZATION_PREFIX)) {
             sendErrorResponse(response);
             return;
         }

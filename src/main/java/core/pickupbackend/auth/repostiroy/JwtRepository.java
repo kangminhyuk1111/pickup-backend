@@ -53,4 +53,9 @@ public class JwtRepository {
             throw new ApplicationException(ErrorCode.BLANK_EXCEPTION);
         }
     }
+
+    public void delete(final String accessToken) {
+        final AuthCredential authCredential = findByJti(accessToken);
+        redisTemplate.delete(authCredential.jti());
+    }
 }

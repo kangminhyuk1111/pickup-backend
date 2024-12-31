@@ -2,12 +2,10 @@ package core.pickupbackend.auth.controller;
 
 import core.pickupbackend.auth.domain.AuthCredential;
 import core.pickupbackend.auth.dto.LoginRequestDto;
+import core.pickupbackend.auth.dto.LogoutRequestDto;
 import core.pickupbackend.auth.service.AuthService;
 import core.pickupbackend.auth.service.JwtService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -24,5 +22,11 @@ public class AuthController {
     @PostMapping("/login")
     public AuthCredential login(@RequestBody LoginRequestDto loginRequestDto) {
         return authService.login(loginRequestDto);
+    }
+
+    @PostMapping("/logout")
+    public void logout(@RequestHeader("Authorization") String accessToken,
+                       @RequestBody LogoutRequestDto logoutRequestDto) {
+        authService.logout(accessToken, logoutRequestDto);
     }
 }
