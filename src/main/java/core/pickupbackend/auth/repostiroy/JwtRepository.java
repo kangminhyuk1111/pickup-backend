@@ -29,7 +29,7 @@ public class JwtRepository {
     // 저장
     public void save(AuthCredential authCredential) {
         final String tokenJson = generateTokenJson(authCredential);
-        valueOperations.set(authCredential.getJti(), tokenJson, TOKEN_EXPIRATION);
+        valueOperations.set(authCredential.jti(), tokenJson, TOKEN_EXPIRATION);
     }
 
     public AuthCredential findByJti(final String jti) {

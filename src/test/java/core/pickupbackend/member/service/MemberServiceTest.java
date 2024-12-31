@@ -9,6 +9,8 @@ import core.pickupbackend.member.dto.AddMemberRequestDto;
 import core.pickupbackend.member.fake.FakeMemberRepository;
 import core.pickupbackend.member.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -16,7 +18,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class MemberServiceTest {
 
     private final MemberRepository memberRepository = new FakeMemberRepository();
-    private final MemberService memberService = new MemberService(memberRepository);
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private final MemberService memberService = new MemberService(memberRepository, passwordEncoder);
 
     @Test
     void 멤버_생성_테스트() {

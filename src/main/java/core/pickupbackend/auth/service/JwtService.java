@@ -28,8 +28,8 @@ public class JwtService {
         return new AuthCredential(jti, accessToken, refreshToken);
     }
 
-    public boolean isAlreadyLogin(TestDto testDto) {
-        final String jti = tokenProvider.extractJtiFromToken(testDto.getAccessToken());
+    public boolean isAlreadyLogin(String accessToken) {
+        final String jti = tokenProvider.extractJtiFromToken(accessToken);
         final AuthCredential findByJti = jwtRepository.findByJti(jti);
 
         return findByJti != null;

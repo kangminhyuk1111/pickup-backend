@@ -35,8 +35,7 @@ public class AuthService {
         }
         
         final AuthCredential authCredential = jwtService.generateAuthCredential(loginRequestDto.getEmail());
-        
-        // TODO repository save 추가
+
         jwtRepository.save(authCredential);
         
         return authCredential;

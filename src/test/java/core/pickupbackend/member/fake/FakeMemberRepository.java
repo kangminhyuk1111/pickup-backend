@@ -3,6 +3,7 @@ package core.pickupbackend.member.fake;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.member.domain.Member;
+import core.pickupbackend.member.domain.vo.Password;
 import core.pickupbackend.member.repository.MemberRepository;
 
 import java.util.*;
@@ -26,7 +27,7 @@ public class FakeMemberRepository implements MemberRepository {
         Member savedMember = new Member(
                 id,
                 member.getEmail(),
-                member.getPassword(),
+                new Password(member.getPassword()),
                 member.getNickname(),
                 member.getHeight(),
                 member.getWeight(),
