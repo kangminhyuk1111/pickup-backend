@@ -5,11 +5,15 @@ import core.pickupbackend.auth.dto.LoginRequestDto;
 import core.pickupbackend.auth.dto.LogoutRequestDto;
 import core.pickupbackend.auth.service.AuthService;
 import core.pickupbackend.auth.service.JwtService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
+
+    private final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     private final AuthService authService;
     private final JwtService jwtService;
@@ -20,7 +24,9 @@ public class AuthController {
     }
 
     @PostMapping("/login")
+    @ResponseBody
     public AuthCredential login(@RequestBody LoginRequestDto loginRequestDto) {
+        logger.info("Login request received: {}", loginRequestDto);
         return authService.login(loginRequestDto);
     }
 

@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(MatchException.class)
+    public ResponseEntity<ErrorResponse> handleMatchException(MatchException e) {
+        final ErrorCode errorCode = e.getErrorCode();
+        final ErrorResponse response = ErrorResponse.of(errorCode);
+        return new ResponseEntity<>(response, response.getStatus());
+    }
+
     @ExceptionHandler(ValidateException.class)
     public ResponseEntity<ErrorResponse> handleValidateException(ValidateException e) {
         final ErrorCode errorCode = e.getErrorCode();

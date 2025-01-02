@@ -10,6 +10,7 @@ public enum ErrorCode {
     NOT_FOUND_NICKNAME(HttpStatus.NOT_FOUND, "존재하지 않는 닉네임입니다."),
     KEY_NOT_INITIALIZED(HttpStatus.NOT_FOUND, "시크릿 키를 찾을 수 없습니다."),
     NOT_FOUND_UPDATE_SET(HttpStatus.NOT_FOUND, "업데이트에 실패하였습니다."),
+    NOT_FOUND_MATCH(HttpStatus.NOT_FOUND, "매치를 찾을 수 없습니다."),
 
     // 400 Bad Request - 잘못된 요청
     PASSWORD_NOT_MATCHES(HttpStatus.BAD_REQUEST, "비밀번호가 올바르지 않습니다."),
@@ -27,7 +28,19 @@ public enum ErrorCode {
     INVALID_ACCESS_TOKEN(HttpStatus.UNAUTHORIZED, "Access Token이 만료되었습니다."),
     TOKEN_NOT_FOUND(HttpStatus.UNAUTHORIZED, "토큰이 존재하지 않거나 형식이 잘못되었습니다."),
     JTI_NOT_FOUND(HttpStatus.UNAUTHORIZED, "jti 토큰을 찾을 수 없습니다."),
-    REFRESH_NOT_FOUND(HttpStatus.UNAUTHORIZED, "refresh token을 찾을 수 없습니다.");
+    REFRESH_NOT_FOUND(HttpStatus.UNAUTHORIZED, "refresh token을 찾을 수 없습니다."),
+
+    // MATCH
+    TITLE_BLANK_EXCEPTION(HttpStatus.BAD_REQUEST, "제목은 빈칸이 될 수 없습니다."),
+    TITLE_LENGTH_EXCEPTION(HttpStatus.BAD_REQUEST, "제목은 빈칸이 될 수 없습니다."),
+    DESCRIPTION_BLANK_EXCEPTION(HttpStatus.BAD_REQUEST, "글 내용은 빈칸이 될 수 없습니다."),
+    COURT_BLANK_EXCEPTION(HttpStatus.BAD_REQUEST, "코트 정보는 반드시 입력해야 합니다."),
+    LOCATION_BLANK_EXCEPTION(HttpStatus.BAD_REQUEST, "위치 정보는 반드시 입력해야 합니다."),
+    DATE_BLANK_EXCEPTION(HttpStatus.BAD_REQUEST, "날짜는 반드시 입력되어야 합니다."),
+    DATE_PAST_EXCEPTION(HttpStatus.BAD_REQUEST, "날짜는 과거가 입력될 수 없습니다."),
+    PLAYERS_NEGATIVE_EXCEPTION(HttpStatus.BAD_REQUEST, "모집 인원은 반드시 1명 이상이여야 합니다."),
+    COAST_NEGATIVE_EXCEPTION(HttpStatus.BAD_REQUEST, "금액은 반드시 입력해야 합니다.");
+
 
     private HttpStatus status;
     private Integer code;
