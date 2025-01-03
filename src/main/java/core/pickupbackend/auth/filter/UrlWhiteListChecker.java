@@ -19,6 +19,7 @@ public class UrlWhiteListChecker {
         addPattern("/member");
         addPattern("/member/{id}","GET");
         addPattern("/auth/login","POST");
+        addPattern("/matches");
     }
 
     public void addPattern(String pattern, String... methods) {

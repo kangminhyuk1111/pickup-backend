@@ -14,10 +14,13 @@ public class CreateMatchDto {
     private LocalDate date;
     private LocalTime time;
     private Level level;
-    private int currentPlayers;
-    private int maxPlayers;
-    private long cost;
+    private Integer currentPlayers;
+    private Integer maxPlayers;
+    private Long hostId;
+    private Long cost;
     private String rules;
+
+    public CreateMatchDto() {}
 
     public CreateMatchDto(final String title, final String description, final String courtName, final String location, final LocalDate date, final LocalTime time, final Level level, final int currentPlayers, final int maxPlayers, final long cost, final String rules) {
         this.title = title;
@@ -29,6 +32,21 @@ public class CreateMatchDto {
         this.level = level;
         this.currentPlayers = currentPlayers;
         this.maxPlayers = maxPlayers;
+        this.cost = cost;
+        this.rules = rules;
+    }
+
+    public CreateMatchDto(final String title, final String description, final String courtName, final String location, final LocalDate date, final LocalTime time, final Level level, final int currentPlayers, final int maxPlayers, final Long hostId, final long cost, final String rules) {
+        this.title = title;
+        this.description = description;
+        this.courtName = courtName;
+        this.location = location;
+        this.date = date;
+        this.time = time;
+        this.level = level;
+        this.currentPlayers = currentPlayers;
+        this.maxPlayers = maxPlayers;
+        this.hostId = hostId;
         this.cost = cost;
         this.rules = rules;
     }
@@ -69,6 +87,10 @@ public class CreateMatchDto {
         return maxPlayers;
     }
 
+    public Long getHostId() {
+        return hostId;
+    }
+
     public long getCost() {
         return cost;
     }
@@ -78,6 +100,10 @@ public class CreateMatchDto {
     }
 
     public Match toEntity() {
-        return new Match(title, description, courtName, location, date, time, level, currentPlayers, maxPlayers, cost, rules);
+        return new Match(title, description, courtName, location, date, time, level, currentPlayers, maxPlayers, hostId, cost, rules);
+    }
+
+    public Match toEntity(final Long hostId) {
+        return new Match(title, description, courtName, location, date, time, level, currentPlayers, maxPlayers, hostId, cost, rules);
     }
 }

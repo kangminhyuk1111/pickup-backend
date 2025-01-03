@@ -14,7 +14,7 @@ import java.time.Duration;
 @Repository
 public class JwtRepository {
 
-    private static final Duration TOKEN_EXPIRATION = Duration.ofSeconds(60);
+    private static final Duration TOKEN_EXPIRATION = Duration.ofMinutes(5);
 
     private final RedisTemplate<String, String> redisTemplate;
     private final ObjectMapper objectMapper;

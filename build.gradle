@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.4.1'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'core'
@@ -30,7 +30,7 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
 
     // https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto
-    implementation 'org.springframework.security:spring-security-crypto:6.4.1'
+    implementation 'org.springframework.security:spring-security-crypto:6.2.2'
 
     // jjwt
     implementation 'io.jsonwebtoken:jjwt-api:0.12.6'

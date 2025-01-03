@@ -1,16 +1,20 @@
 package core.pickupbackend.match.repository;
 
+import core.pickupbackend.global.exception.ApplicationMatchException;
+import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.match.domain.Match;
 import core.pickupbackend.match.domain.MatchStatus;
 import core.pickupbackend.match.mapper.MatchRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class JdbcMatchRepository implements MatchRepository{
+public class JdbcMatchRepository implements MatchRepository {
 
     private final JdbcTemplate jdbcTemplate;
     private final MatchRowMapper rowMapper;
@@ -40,7 +44,7 @@ public class JdbcMatchRepository implements MatchRepository{
                 match.getHostId(),
                 match.getStatus().name());
 
-        return findByHostIdAndStatusOrderByCreatedAtDesc(match.getHostId(), MatchStatus.OPEN).get(0);
+        return findByHostId(match.getHostId()).orElseThrow(() -> new ApplicationMatchException(ErrorCode.NOT_FOUND_MATCH));
     }
 
     @Override
@@ -55,9 +59,9 @@ public class JdbcMatchRepository implements MatchRepository{
         return jdbcTemplate.query(sql, rowMapper);
     }
 
-    public List<Match> findByHostIdAndStatusOrderByCreatedAtDesc(Long hostId, MatchStatus status) {
-        String sql = "SELECT * FROM `match` WHERE host_id = ? AND status = ? ORDER BY created_at DESC";
-        return jdbcTemplate.query(sql, rowMapper, hostId, status.name());
+    public Optional<Match> findByHostId(final Long hostId) {
+        String sql = "SELECT * FROM `match` WHERE host_id = ?";
+        return Optional.ofNullable(jdbcTemplate.queryForObject(sql, rowMapper, hostId));
     }
 
     @Override

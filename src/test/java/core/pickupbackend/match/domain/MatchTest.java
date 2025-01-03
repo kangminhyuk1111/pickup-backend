@@ -1,7 +1,7 @@
 package core.pickupbackend.match.domain;
 
 import core.pickupbackend.global.exception.ErrorCode;
-import core.pickupbackend.global.exception.MatchException;
+import core.pickupbackend.global.exception.ApplicationMatchException;
 import core.pickupbackend.member.domain.type.Level;
 import org.junit.jupiter.api.Test;
 
@@ -25,6 +25,7 @@ class MatchTest {
                 Level.INTERMEDIATE,
                 5,
                 10,
+                1L,
                 1000,
                 "공격적인 플레이 금지"
         );
@@ -52,12 +53,13 @@ class MatchTest {
                 LocalDate.now().plusDays(1),
                 LocalTime.of(18, 0),
                 Level.INTERMEDIATE,
-                5,
                 10,
+                5,
+                1L,
                 1000,
                 "규칙"
         ))
-                .isInstanceOf(MatchException.class)
+                .isInstanceOf(ApplicationMatchException.class)
                 .hasFieldOrPropertyWithValue("errorCode", ErrorCode.TITLE_BLANK_EXCEPTION);
     }
 
@@ -74,10 +76,11 @@ class MatchTest {
                 Level.INTERMEDIATE,
                 5,
                 10,
+                1L,
                 1000,
                 "규칙"
         ))
-                .isInstanceOf(MatchException.class)
+                .isInstanceOf(ApplicationMatchException.class)
                 .hasFieldOrPropertyWithValue("errorCode", ErrorCode.TITLE_LENGTH_EXCEPTION);
     }
 
@@ -93,6 +96,7 @@ class MatchTest {
                 Level.INTERMEDIATE,
                 5,
                 10,
+                1L,
                 1000,
                 "규칙"
         );
@@ -112,9 +116,10 @@ class MatchTest {
                 Level.INTERMEDIATE,
                 5,
                 10,
+                1L,
                 1000,
                 "규칙"
-        )).isInstanceOf(MatchException.class);
+        )).isInstanceOf(ApplicationMatchException.class);
     }
 
     @Test
@@ -129,9 +134,10 @@ class MatchTest {
                 Level.INTERMEDIATE,
                 5,
                 10,
+                1L,
                 1000,
                 "규칙"
-        )).isInstanceOf(MatchException.class);
+        )).isInstanceOf(ApplicationMatchException.class);
     }
 
     @Test
@@ -146,9 +152,10 @@ class MatchTest {
                 Level.INTERMEDIATE,
                 5,
                 10,
+                1L,
                 1000,
                 "규칙"
-        )).isInstanceOf(MatchException.class);
+        )).isInstanceOf(ApplicationMatchException.class);
     }
 
     @Test
@@ -163,9 +170,10 @@ class MatchTest {
                 Level.INTERMEDIATE,
                 5,
                 10,
+                1L,
                 1000,
                 "규칙"
-        )).isInstanceOf(MatchException.class);
+        )).isInstanceOf(ApplicationMatchException.class);
     }
 
     @Test
@@ -180,9 +188,10 @@ class MatchTest {
                 Level.INTERMEDIATE,
                 5,
                 10,
+                1L,
                 1000,
                 "규칙"
-        )).isInstanceOf(MatchException.class);
+        )).isInstanceOf(ApplicationMatchException.class);
     }
 
     @Test
@@ -197,9 +206,10 @@ class MatchTest {
                 Level.INTERMEDIATE,
                 -1,
                 10,
+                1L,
                 1000,
                 "규칙"
-        )).isInstanceOf(MatchException.class);
+        )).isInstanceOf(ApplicationMatchException.class);
     }
 
     @Test
@@ -214,9 +224,10 @@ class MatchTest {
                 Level.INTERMEDIATE,
                 5,
                 0,
+                1L,
                 1000,
                 "규칙"
-        )).isInstanceOf(MatchException.class);
+        )).isInstanceOf(ApplicationMatchException.class);
     }
 
     @Test
@@ -231,8 +242,9 @@ class MatchTest {
                 Level.INTERMEDIATE,
                 5,
                 10,
+                1L,
                 -1000,
                 "규칙"
-        )).isInstanceOf(MatchException.class);
+        )).isInstanceOf(ApplicationMatchException.class);
     }
 }

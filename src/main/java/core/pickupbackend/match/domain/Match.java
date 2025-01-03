@@ -1,7 +1,7 @@
 package core.pickupbackend.match.domain;
 
 import core.pickupbackend.global.exception.ErrorCode;
-import core.pickupbackend.global.exception.MatchException;
+import core.pickupbackend.global.exception.ApplicationMatchException;
 import core.pickupbackend.member.domain.type.Level;
 
 import java.time.LocalDate;
@@ -29,7 +29,7 @@ public class Match {
     public Match() {
     }
 
-    public Match(final String title, final String description, final String courtName, final String location, final LocalDate date, final LocalTime time, final Level level, final int currentPlayers, final int maxPlayers, final long cost, final String rules) {
+    public Match(final String title, final String description, final String courtName, final String location, final LocalDate date, final LocalTime time, final Level level, final int currentPlayers, final int maxPlayers, final Long hostId,final long cost, final String rules) {
         validateTitle(title);
         validateDescription(description);
         validateCourtName(courtName);
@@ -47,61 +47,64 @@ public class Match {
         this.level = level;
         this.currentPlayers = currentPlayers;
         this.maxPlayers = maxPlayers;
+        this.hostId = hostId;
         this.cost = cost;
         this.rules = rules;
+
+        this.status = MatchStatus.OPEN;
     }
 
     private void validateTitle(String title) {
         if (title == null || title.isBlank()) {
-            throw new MatchException(ErrorCode.TITLE_BLANK_EXCEPTION);
+            throw new ApplicationMatchException(ErrorCode.TITLE_BLANK_EXCEPTION);
         }
         if (title.length() > 100) {
-            throw new MatchException(ErrorCode.TITLE_LENGTH_EXCEPTION);
+            throw new ApplicationMatchException(ErrorCode.TITLE_LENGTH_EXCEPTION);
         }
     }
 
     private void validateDescription(String description) {
-        if (description != null && description.length() > 500) {
-            throw new MatchException(ErrorCode.DESCRIPTION_BLANK_EXCEPTION);
+        if (description != null && description.length() > 2000) {
+            throw new ApplicationMatchException(ErrorCode.DESCRIPTION_BLANK_EXCEPTION);
         }
     }
 
     private void validateCourtName(String courtName) {
         if (courtName == null || courtName.isBlank()) {
-            throw new MatchException(ErrorCode.COURT_BLANK_EXCEPTION);
+            throw new ApplicationMatchException(ErrorCode.COURT_BLANK_EXCEPTION);
         }
     }
 
     private void validateLocation(String location) {
         if (location == null || location.isBlank()) {
-            throw new MatchException(ErrorCode.LOCATION_BLANK_EXCEPTION);
+            throw new ApplicationMatchException(ErrorCode.LOCATION_BLANK_EXCEPTION);
         }
     }
 
     private void validateDateAndTime(LocalDate date, LocalTime time) {
         if (date == null || time == null) {
-            throw new MatchException(ErrorCode.DATE_BLANK_EXCEPTION);
+            throw new ApplicationMatchException(ErrorCode.DATE_BLANK_EXCEPTION);
         }
         if (date.isBefore(LocalDate.now())) {
-            throw new MatchException(ErrorCode.DATE_PAST_EXCEPTION);
+            throw new ApplicationMatchException(ErrorCode.DATE_PAST_EXCEPTION);
         }
     }
 
     private void validatePlayers(int currentPlayers, int maxPlayers) {
         if (currentPlayers < 0) {
-            throw new MatchException(ErrorCode.PLAYERS_NEGATIVE_EXCEPTION);
+            throw new ApplicationMatchException(ErrorCode.PLAYERS_NEGATIVE_EXCEPTION);
         }
         if (maxPlayers <= 0) {
-            throw new MatchException(ErrorCode.PLAYERS_NEGATIVE_EXCEPTION);
+            throw new ApplicationMatchException(ErrorCode.PLAYERS_NEGATIVE_EXCEPTION);
         }
         if (currentPlayers > maxPlayers) {
-            throw new MatchException(ErrorCode.PLAYERS_NEGATIVE_EXCEPTION);
+            throw new ApplicationMatchException(ErrorCode.PLAYERS_NEGATIVE_EXCEPTION);
         }
     }
 
     private void validateCost(long cost) {
         if (cost < 0) {
-            throw new MatchException(ErrorCode.COAST_NEGATIVE_EXCEPTION);
+            throw new ApplicationMatchException(ErrorCode.COAST_NEGATIVE_EXCEPTION);
         }
     }
 
@@ -231,5 +234,27 @@ public class Match {
 
     public void setUpdatedAt(final LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Match{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", courtName='" + courtName + '\'' +
+                ", location='" + location + '\'' +
+                ", date=" + date +
+                ", time=" + time +
+                ", level=" + level +
+                ", currentPlayers=" + currentPlayers +
+                ", maxPlayers=" + maxPlayers +
+                ", cost=" + cost +
+                ", rules='" + rules + '\'' +
+                ", hostId=" + hostId +
+                ", status=" + status +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }
