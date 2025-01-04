@@ -1,9 +1,9 @@
 package core.pickupbackend.member.domain.type;
 
 public enum Level {
-    BEGINNER("BEGINNER"),
-    INTERMEDIATE("INTERMEDIATE"),
-    ADVANCED("ADVANCED");
+    BEGINNER("초급"),
+    INTERMEDIATE("중급"),
+    ADVANCED("상급");
 
     private final String level;
 

@@ -1,6 +1,7 @@
 package core.pickupbackend.match.dto;
 
 import core.pickupbackend.match.domain.Match;
+import core.pickupbackend.match.domain.MatchStatus;
 import core.pickupbackend.member.domain.type.Level;
 
 import java.time.LocalDate;
@@ -19,6 +20,7 @@ public class CreateMatchDto {
     private Long hostId;
     private Long cost;
     private String rules;
+    private MatchStatus status;
 
     public CreateMatchDto() {}
 
@@ -34,6 +36,7 @@ public class CreateMatchDto {
         this.maxPlayers = maxPlayers;
         this.cost = cost;
         this.rules = rules;
+        this.status = MatchStatus.OPEN;
     }
 
     public CreateMatchDto(final String title, final String description, final String courtName, final String location, final LocalDate date, final LocalTime time, final Level level, final int currentPlayers, final int maxPlayers, final Long hostId, final long cost, final String rules) {
@@ -49,6 +52,7 @@ public class CreateMatchDto {
         this.hostId = hostId;
         this.cost = cost;
         this.rules = rules;
+        this.status = MatchStatus.OPEN;
     }
 
     public String getTitle() {
@@ -105,5 +109,23 @@ public class CreateMatchDto {
 
     public Match toEntity(final Long hostId) {
         return new Match(title, description, courtName, location, date, time, level, currentPlayers, maxPlayers, hostId, cost, rules);
+    }
+
+    @Override
+    public String toString() {
+        return "CreateMatchDto{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", courtName='" + courtName + '\'' +
+                ", location='" + location + '\'' +
+                ", date=" + date +
+                ", time=" + time +
+                ", level=" + level +
+                ", currentPlayers=" + currentPlayers +
+                ", maxPlayers=" + maxPlayers +
+                ", hostId=" + hostId +
+                ", cost=" + cost +
+                ", rules='" + rules + '\'' +
+                '}';
     }
 }

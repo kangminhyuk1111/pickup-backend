@@ -17,9 +17,9 @@ public class Match {
     private LocalDate date;
     private LocalTime time;
     private Level level;
-    private int currentPlayers;
-    private int maxPlayers;
-    private long cost;
+    private Integer currentPlayers;
+    private Integer maxPlayers;
+    private Long cost;
     private String rules;
     private Long hostId;
     private MatchStatus status;
@@ -140,15 +140,15 @@ public class Match {
         return level;
     }
 
-    public int getCurrentPlayers() {
+    public Integer getCurrentPlayers() {
         return currentPlayers;
     }
 
-    public int getMaxPlayers() {
+    public Integer getMaxPlayers() {
         return maxPlayers;
     }
 
-    public long getCost() {
+    public Long getCost() {
         return cost;
     }
 

@@ -105,7 +105,7 @@ class MatchTest {
 
     @Test
     void 설명은_최대_길이를_초과할_수_없다() {
-        String longDescription = "A".repeat(501);
+        String longDescription = "A".repeat(2001);
         assertThatThrownBy(() -> new Match(
                 "제목",
                 longDescription,

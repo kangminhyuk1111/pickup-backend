@@ -25,6 +25,7 @@ public class MatchController {
     @PostMapping
     @ResponseBody
     public Match createMatch(@RequestBody final CreateMatchDto createMatchDto, @RequestHeader("Authorization") final String accessToken) {
+        logger.info(createMatchDto.toString());
         final String token = accessToken.replace("Bearer ", "");
         return matchService.createMatch(token, createMatchDto);
     }
