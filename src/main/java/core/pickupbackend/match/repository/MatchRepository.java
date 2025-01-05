@@ -13,7 +13,7 @@ public interface MatchRepository {
 
     List<Match> findAll();
 
-    void update(Match match);
+    Match update(Long matchId, Match match);
 
     void deleteById(Long matchId);
 }

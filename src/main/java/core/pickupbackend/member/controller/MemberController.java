@@ -1,5 +1,6 @@
 package core.pickupbackend.member.controller;
 
+import core.pickupbackend.auth.provider.TokenProvider;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.dto.AddMemberRequestDto;
 import core.pickupbackend.member.dto.UpdateMemberRequestDto;
@@ -13,9 +14,11 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
+    private final TokenProvider tokenProvider;
 
-    public MemberController(final MemberService memberService) {
+    public MemberController(final MemberService memberService, final TokenProvider tokenProvider) {
         this.memberService = memberService;
+        this.tokenProvider = tokenProvider;
     }
 
     @GetMapping
@@ -31,6 +34,13 @@ public class MemberController {
     @GetMapping("/{id}")
     public Member getMemberById(@PathVariable Long id) {
         return memberService.getMemberById(id);
+    }
+
+    @GetMapping("/mypage")
+    public Member getMemberByEmail(@RequestHeader("Authorization") String accessToken) {
+        final String token = accessToken.replace("Bearer ", "");
+        final String email = tokenProvider.extractEmailFromToken(token);
+        return memberService.getMemberByEmail(email);
     }
 
     @DeleteMapping("/{id}")

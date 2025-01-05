@@ -1,5 +1,6 @@
 package core.pickupbackend.match.controller;
 
+import core.pickupbackend.match.dto.UpdateMatchDto;
 import core.pickupbackend.match.domain.Match;
 import core.pickupbackend.match.dto.CreateMatchDto;
 import core.pickupbackend.match.service.MatchService;
@@ -40,5 +41,13 @@ public class MatchController {
     @ResponseBody
     public Match getMatchById(@PathVariable("id") final Long id) {
         return matchService.findById(id);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseBody
+    public Match updateMatch(@PathVariable("id") final Long id, @RequestBody final UpdateMatchDto updateMatchDto, @RequestHeader("Authorization") final String accessToken) {
+        logger.info("Updating match with id: {}", id);
+        final String token = accessToken.replace("Bearer ", "");
+        return matchService.updateMatch(accessToken, id, updateMatchDto);
     }
 }

@@ -43,13 +43,15 @@ public class FakeMatchRepository implements MatchRepository {
     }
 
     @Override
-    public void update(Match match) {
+    public Match update(Long id, Match match) {
         if (!store.containsKey(match.getId())) {
             throw new NoSuchElementException("Match with ID " + match.getId() + " does not exist");
         }
 
         match.setUpdatedAt(LocalDateTime.now());
         store.put(match.getId(), match);
+
+        return findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override

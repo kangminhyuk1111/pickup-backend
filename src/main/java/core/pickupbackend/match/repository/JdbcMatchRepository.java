@@ -79,7 +79,7 @@ public class JdbcMatchRepository implements MatchRepository {
     }
 
     @Override
-    public void update(Match match) {
+    public Match update(Long id, Match match) {
         String sql = "UPDATE `match` SET title = ?, description = ?, court_name = ?, location = ?, date = ?, time = ?, level = ?, current_players = ?, max_players = ?, cost = ?, rules = ?, status = ?, updated_at = NOW() WHERE id = ?";
 
         jdbcTemplate.update(sql,
@@ -96,6 +96,8 @@ public class JdbcMatchRepository implements MatchRepository {
                 match.getRules(),
                 match.getStatus().name(),
                 match.getId());
+
+        return findById(id).orElseThrow(() -> new ApplicationMatchException(ErrorCode.NOT_FOUND_MATCH));
     }
 
     @Override
