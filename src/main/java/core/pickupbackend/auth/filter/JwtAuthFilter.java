@@ -33,8 +33,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response, final FilterChain filterChain) throws ServletException, IOException {
         final String authHeader = request.getHeader(AUTHORIZATION);
-        final String uri = request.getRequestURI(); // /member
-        final String method = request.getMethod();// POST
+        final String uri = request.getRequestURI();
+        final String method = request.getMethod();
 
         if (whiteListChecker.isAllowedUri(uri, method)) {
             filterChain.doFilter(request, response);
@@ -52,6 +52,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             sendErrorResponse(response);
             return;
         }
+
+        // 토큰이 유효한 경우 다음 필터로 요청을 전달
+        filterChain.doFilter(request, response);
     }
 
     private void sendErrorResponse(final HttpServletResponse response) throws IOException {

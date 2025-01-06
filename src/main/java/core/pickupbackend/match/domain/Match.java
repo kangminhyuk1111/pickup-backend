@@ -108,6 +108,10 @@ public class Match {
         }
     }
 
+    public void closeMatch() {
+        this.status = MatchStatus.CLOSED;
+    }
+
     public Long getId() {
         return id;
     }

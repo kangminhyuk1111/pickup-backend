@@ -5,29 +5,38 @@ import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.global.exception.ApplicationMatchException;
 import core.pickupbackend.match.domain.Match;
-import core.pickupbackend.match.dto.CreateMatchDto;
-import core.pickupbackend.match.dto.UpdateMatchDto;
+import core.pickupbackend.match.dto.request.CreateMatchRequest;
+import core.pickupbackend.match.dto.request.UpdateMatchRequest;
+import core.pickupbackend.match.dto.response.MatchParticipationResponse;
 import core.pickupbackend.match.repository.MatchRepository;
+import core.pickupbackend.match.repository.ParticipationRepository;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.service.MemberService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MatchService {
 
+    private static final Logger logger = LoggerFactory.getLogger(MatchService.class);
+
     private final MatchRepository matchRepository;
     private final MemberService memberService;
     private final TokenProvider tokenProvider;
+    private final ParticipationRepository participationRepository;
 
-    public MatchService(final MatchRepository matchRepository, final MemberService memberService, final TokenProvider tokenProvider) {
+    public MatchService(final MatchRepository matchRepository, final MemberService memberService, final TokenProvider tokenProvider, final ParticipationRepository participationRepository) {
         this.matchRepository = matchRepository;
         this.memberService = memberService;
         this.tokenProvider = tokenProvider;
+        this.participationRepository = participationRepository;
     }
 
-    public Match createMatch(final String accessToken, final CreateMatchDto createMatchDto) {
+    public Match createMatch(final String accessToken, final CreateMatchRequest createMatchDto) {
         final String email = tokenProvider.extractEmailFromToken(accessToken);
         final Member member = memberService.getMemberByEmail(email);
         return matchRepository.save(createMatchDto.toEntity(member.getId()));
@@ -37,27 +46,49 @@ public class MatchService {
         return matchRepository.findById(id).orElseThrow(() -> new ApplicationMatchException(ErrorCode.NOT_FOUND_MATCH));
     }
 
+    public List<MatchParticipationResponse> findMatchParticipationByMemberId(final String token) {
+        final String email = tokenProvider.extractEmailFromToken(token);
+        final Member member = memberService.getMemberByEmail(email);
+        final Long memberId = member.getId();
+
+        List<Match> matches = matchRepository.findByMemberId(memberId);
+
+        return matches.stream()
+                .map(match -> new MatchParticipationResponse(
+                        match,
+                        participationRepository.findParticipationsByMatchId(match.getId())
+                ))
+                .collect(Collectors.toList());
+    }
+
     public List<Match> findAll() {
         return matchRepository.findAll();
     }
 
-    public void deleteById(final Long id) {
-        matchRepository.deleteById(id);
+    public void deleteById(final String token, final Long matchId) {
+        matchRepository.findById(matchId)
+                .orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_MATCH));
+
+        final String email = tokenProvider.extractEmailFromToken(token);
+        memberService.getMemberByEmail(email);
+
+        matchRepository.deleteById(matchId);
     }
 
-    public Match updateMatch(final String token, final Long matchId, final UpdateMatchDto updateMatchDto) {
-        // 매치 조회
+    public Match updateMatch(final String token, final Long matchId, final UpdateMatchRequest updateMatchDto) {
         final Match match = matchRepository.findById(matchId)
                 .orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_MATCH));
 
-        // 호스트 확인
         final String email = tokenProvider.extractEmailFromToken(token);
         final Member member = memberService.getMemberByEmail(email);
 
-        // 매치 정보 업데이트
         final Match updateMatch = updateMatchDto.toEntity(member.getId());
 
-        // 업데이트된 매치 저장
         return matchRepository.update(match.getId(), updateMatch);
+    }
+
+    public void closeMatch(final Long matchId) {
+        final Match findMatch = findById(matchId);
+        findMatch.closeMatch();
     }
 }

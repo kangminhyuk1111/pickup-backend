@@ -39,7 +39,23 @@ public enum ErrorCode {
     DATE_BLANK_EXCEPTION(HttpStatus.BAD_REQUEST, "날짜는 반드시 입력되어야 합니다."),
     DATE_PAST_EXCEPTION(HttpStatus.BAD_REQUEST, "날짜는 과거가 입력될 수 없습니다."),
     PLAYERS_NEGATIVE_EXCEPTION(HttpStatus.BAD_REQUEST, "모집 인원은 반드시 1명 이상이여야 합니다."),
-    COAST_NEGATIVE_EXCEPTION(HttpStatus.BAD_REQUEST, "금액은 반드시 입력해야 합니다.");
+    COAST_NEGATIVE_EXCEPTION(HttpStatus.BAD_REQUEST, "금액은 반드시 입력해야 합니다."),
+
+    // COURT
+    COURT_NAME_NOT_NULL(HttpStatus.BAD_REQUEST, "농구장 이름은 필수입니다"),
+    COURT_LOCATION_NOT_NULL(HttpStatus.BAD_REQUEST, "지역명은 필수입니다"),
+    COURT_ADDRESS_NOT_NULL(HttpStatus.BAD_REQUEST, "주소는 필수입니다"),
+    COURT_LATITUDE_NOT_NULL(HttpStatus.BAD_REQUEST, "위도는 필수입니다"),
+    COURT_LONGITUDE_NOT_NULL(HttpStatus.BAD_REQUEST, "경도는 필수입니다"),
+    COURT_HOOPS_NOT_NULL(HttpStatus.BAD_REQUEST, "골대 개수는 필수입니다"),
+    COURT_SURFACE_NOT_NULL(HttpStatus.BAD_REQUEST, "바닥 재질은 필수입니다"),
+    COURT_LIGHTING_NOT_NULL(HttpStatus.BAD_REQUEST, "조명 여부는 필수입니다"),
+    COURT_PARKING_NOT_NULL(HttpStatus.BAD_REQUEST, "주차 가능 여부는 필수입니다"),
+    COURT_RATING_NOT_NULL(HttpStatus.BAD_REQUEST, "평점은 필수입니다"),
+    COURT_LATITUDE_RANGE(HttpStatus.BAD_REQUEST, "위도는 -90.000000에서 90.000000 사이여야 합니다"),
+    COURT_LONGITUDE_RANGE(HttpStatus.BAD_REQUEST, "경도는 -180.000000에서 180.000000 사이여야 합니다"),
+    COURT_HOOPS_RANGE(HttpStatus.BAD_REQUEST, "골대 개수는 0보다 커야 합니다"),
+    COURT_RATING_RANGE(HttpStatus.BAD_REQUEST, "평점은 0.000000에서 5.000000 사이여야 합니다");
 
 
     private HttpStatus status;

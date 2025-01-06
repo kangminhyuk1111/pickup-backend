@@ -1,8 +1,8 @@
 package core.pickupbackend.auth.service;
 
 import core.pickupbackend.auth.domain.AuthCredential;
-import core.pickupbackend.auth.dto.LoginRequestDto;
-import core.pickupbackend.auth.dto.LogoutRequestDto;
+import core.pickupbackend.auth.dto.LoginRequest;
+import core.pickupbackend.auth.dto.LogoutRequest;
 import core.pickupbackend.auth.repostiroy.JwtRepository;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
@@ -26,7 +26,7 @@ public class AuthService {
         this.jwtRepository = jwtRepository;
     }
 
-    public AuthCredential login(final LoginRequestDto loginRequestDto) {
+    public AuthCredential login(final LoginRequest loginRequestDto) {
         final Member member = memberService.getMemberByEmail(loginRequestDto.email());
         final boolean matches = passwordService.matches(loginRequestDto.password(), member.getPassword());
 
@@ -41,7 +41,7 @@ public class AuthService {
         return authCredential;
     }
 
-    public void logout(final String accessToken,final LogoutRequestDto logoutRequestDto) {
+    public void logout(final String accessToken,final LogoutRequest logoutRequestDto) {
         final Member member = memberService.getMemberByEmail(logoutRequestDto.email());
 
         jwtRepository.delete(accessToken);

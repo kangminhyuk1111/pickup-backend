@@ -5,7 +5,7 @@ import core.pickupbackend.global.exception.ValidateException;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.domain.type.Level;
 import core.pickupbackend.member.domain.type.Position;
-import core.pickupbackend.member.dto.AddMemberRequestDto;
+import core.pickupbackend.member.dto.request.AddMemberRequest;
 import core.pickupbackend.member.fake.FakeMemberRepository;
 import core.pickupbackend.member.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ class MemberServiceTest {
         final int weight = 90;
         final Position position = Position.SF;
         final Level level = Level.BEGINNER;
-        final AddMemberRequestDto createMemberRequest = new AddMemberRequestDto(email, password, nickname, height, weight, position, level);
+        final AddMemberRequest createMemberRequest = new AddMemberRequest(email, password, nickname, height, weight, position, level);
 
         final Member member = memberService.createMember(createMemberRequest);
 
@@ -47,7 +47,7 @@ class MemberServiceTest {
         final int weight = 90;
         final Position position = Position.SF;
         final Level level = Level.BEGINNER;
-        final AddMemberRequestDto createMemberRequest = new AddMemberRequestDto(email, password, nickname, height, weight, position, level);
+        final AddMemberRequest createMemberRequest = new AddMemberRequest(email, password, nickname, height, weight, position, level);
 
         memberService.createMember(createMemberRequest);
 
@@ -64,8 +64,8 @@ class MemberServiceTest {
         final int weight = 90;
         final Position position = Position.SF;
         final Level level = Level.BEGINNER;
-        final AddMemberRequestDto createMemberRequest = new AddMemberRequestDto(email, password, nickname, height, weight, position, level);
-        final AddMemberRequestDto existNicknameRequest = new AddMemberRequestDto(notExistEmail, password, nickname, height, weight, position, level);
+        final AddMemberRequest createMemberRequest = new AddMemberRequest(email, password, nickname, height, weight, position, level);
+        final AddMemberRequest existNicknameRequest = new AddMemberRequest(notExistEmail, password, nickname, height, weight, position, level);
 
         memberService.createMember(createMemberRequest);
 
@@ -81,7 +81,7 @@ class MemberServiceTest {
         final int weight = 90;
         final Position position = Position.SF;
         final Level level = Level.BEGINNER;
-        final AddMemberRequestDto createMemberRequest = new AddMemberRequestDto(email, password, nickname, height, weight, position, level);
+        final AddMemberRequest createMemberRequest = new AddMemberRequest(email, password, nickname, height, weight, position, level);
 
         assertThatThrownBy(() -> memberService.createMember(createMemberRequest)).isInstanceOf(ValidateException.class);
     }
@@ -95,7 +95,7 @@ class MemberServiceTest {
         final int weight = 90;
         final Position position = Position.SF;
         final Level level = Level.BEGINNER;
-        final AddMemberRequestDto createMemberRequest = new AddMemberRequestDto(email, password, nickname, height, weight, position, level);
+        final AddMemberRequest createMemberRequest = new AddMemberRequest(email, password, nickname, height, weight, position, level);
 
         assertThatThrownBy(() -> memberService.createMember(createMemberRequest)).isInstanceOf(ValidateException.class);
     }
@@ -109,7 +109,7 @@ class MemberServiceTest {
         final int weight = 90;
         final Position position = Position.SF;
         final Level level = Level.BEGINNER;
-        final AddMemberRequestDto createMemberRequest = new AddMemberRequestDto(email, password, nickname, height, weight, position, level);
+        final AddMemberRequest createMemberRequest = new AddMemberRequest(email, password, nickname, height, weight, position, level);
 
         final Member createdMember = memberService.createMember(createMemberRequest);
 
@@ -128,7 +128,7 @@ class MemberServiceTest {
         final int weight = 90;
         final Position position = Position.SF;
         final Level level = Level.BEGINNER;
-        final AddMemberRequestDto createMemberRequest = new AddMemberRequestDto(email, password, nickname, height, weight, position, level);
+        final AddMemberRequest createMemberRequest = new AddMemberRequest(email, password, nickname, height, weight, position, level);
 
         final Member createdMember = memberService.createMember(createMemberRequest);
 
@@ -148,7 +148,7 @@ class MemberServiceTest {
         final int weight = 90;
         final Position position = Position.SF;
         final Level level = Level.BEGINNER;
-        final AddMemberRequestDto createMemberRequest = new AddMemberRequestDto(email, password, nickname, height, weight, position, level);
+        final AddMemberRequest createMemberRequest = new AddMemberRequest(email, password, nickname, height, weight, position, level);
 
         memberService.createMember(createMemberRequest);
 
@@ -165,7 +165,7 @@ class MemberServiceTest {
         final int weight = 90;
         final Position position = Position.SF;
         final Level level = Level.BEGINNER;
-        final AddMemberRequestDto createMemberRequest = new AddMemberRequestDto(email, password, nickname, height, weight, position, level);
+        final AddMemberRequest createMemberRequest = new AddMemberRequest(email, password, nickname, height, weight, position, level);
 
         memberService.createMember(createMemberRequest);
 

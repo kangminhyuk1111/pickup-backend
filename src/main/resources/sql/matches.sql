@@ -17,4 +17,4 @@ CREATE TABLE match (
                        `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                        PRIMARY KEY (`id`),
                        FOREIGN KEY (`host_id`) REFERENCES `user` (`id`)
-)
+);

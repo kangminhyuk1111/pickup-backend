@@ -3,8 +3,8 @@ package core.pickupbackend.member.service;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.member.domain.Member;
-import core.pickupbackend.member.dto.AddMemberRequestDto;
-import core.pickupbackend.member.dto.UpdateMemberRequestDto;
+import core.pickupbackend.member.dto.request.AddMemberRequest;
+import core.pickupbackend.member.dto.request.UpdateMemberRequest;
 import core.pickupbackend.member.repository.MemberRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class MemberService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public Member createMember(final AddMemberRequestDto dto) {
+    public Member createMember(final AddMemberRequest dto) {
         return memberRepository.save(dto.toEntity(passwordEncoder));
     }
 
@@ -46,7 +46,7 @@ public class MemberService {
         memberRepository.delete(id);
     }
 
-    public void updateMemberById(final UpdateMemberRequestDto dto) {
+    public void updateMemberById(final UpdateMemberRequest dto) {
         memberRepository.update(dto.toEntity(passwordEncoder));
     }
 }

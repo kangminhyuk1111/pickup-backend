@@ -1,4 +1,4 @@
-package core.pickupbackend.match.dto;
+package core.pickupbackend.match.dto.request;
 
 import core.pickupbackend.match.domain.Match;
 import core.pickupbackend.match.domain.MatchStatus;
@@ -7,7 +7,7 @@ import core.pickupbackend.member.domain.type.Level;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class CreateMatchDto {
+public class CreateMatchRequest {
     private String title;
     private String description;
     private String courtName;
@@ -22,9 +22,9 @@ public class CreateMatchDto {
     private String rules;
     private MatchStatus status;
 
-    public CreateMatchDto() {}
+    public CreateMatchRequest() {}
 
-    public CreateMatchDto(final String title, final String description, final String courtName, final String location, final LocalDate date, final LocalTime time, final Level level, final int currentPlayers, final int maxPlayers, final long cost, final String rules) {
+    public CreateMatchRequest(final String title, final String description, final String courtName, final String location, final LocalDate date, final LocalTime time, final Level level, final int currentPlayers, final int maxPlayers, final long cost, final String rules) {
         this.title = title;
         this.description = description;
         this.courtName = courtName;
@@ -39,7 +39,7 @@ public class CreateMatchDto {
         this.status = MatchStatus.OPEN;
     }
 
-    public CreateMatchDto(final String title, final String description, final String courtName, final String location, final LocalDate date, final LocalTime time, final Level level, final int currentPlayers, final int maxPlayers, final Long hostId, final long cost, final String rules) {
+    public CreateMatchRequest(final String title, final String description, final String courtName, final String location, final LocalDate date, final LocalTime time, final Level level, final int currentPlayers, final int maxPlayers, final Long hostId, final long cost, final String rules) {
         this.title = title;
         this.description = description;
         this.courtName = courtName;

@@ -1,9 +1,13 @@
 package core.pickupbackend.match.controller;
 
-import core.pickupbackend.match.dto.UpdateMatchDto;
+import core.pickupbackend.match.domain.Participation;
+import core.pickupbackend.match.dto.request.CreateParticipationRequest;
+import core.pickupbackend.match.dto.request.UpdateMatchRequest;
 import core.pickupbackend.match.domain.Match;
-import core.pickupbackend.match.dto.CreateMatchDto;
+import core.pickupbackend.match.dto.request.CreateMatchRequest;
+import core.pickupbackend.match.dto.response.MatchParticipationResponse;
 import core.pickupbackend.match.service.MatchService;
+import core.pickupbackend.match.service.ParticipationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -17,16 +21,17 @@ public class MatchController {
     private static final Logger logger = LoggerFactory.getLogger(MatchController.class);
 
     private final MatchService matchService;
+    private final ParticipationService participationService;
 
-    public MatchController(final MatchService matchService) {
+    public MatchController(final MatchService matchService, final ParticipationService participationService) {
         logger.debug("create match controller");
+        this.participationService = participationService;
         this.matchService = matchService;
     }
 
     @PostMapping
     @ResponseBody
-    public Match createMatch(@RequestBody final CreateMatchDto createMatchDto, @RequestHeader("Authorization") final String accessToken) {
-        logger.info(createMatchDto.toString());
+    public Match createMatch(@RequestBody final CreateMatchRequest createMatchDto, @RequestHeader("Authorization") final String accessToken) {
         final String token = accessToken.replace("Bearer ", "");
         return matchService.createMatch(token, createMatchDto);
     }
@@ -45,9 +50,28 @@ public class MatchController {
 
     @PutMapping("/{id}")
     @ResponseBody
-    public Match updateMatch(@PathVariable("id") final Long id, @RequestBody final UpdateMatchDto updateMatchDto, @RequestHeader("Authorization") final String accessToken) {
-        logger.info("Updating match with id: {}", id);
+    public Match updateMatch(@PathVariable("id") final Long id, @RequestBody final UpdateMatchRequest updateMatchDto, @RequestHeader("Authorization") final String accessToken) {
         final String token = accessToken.replace("Bearer ", "");
-        return matchService.updateMatch(accessToken, id, updateMatchDto);
+        return matchService.updateMatch(token, id, updateMatchDto);
+    }
+
+    @DeleteMapping("/{matchId}")
+    @ResponseBody
+    public void deleteMatch(@RequestHeader("Authorization") final String accessToken, @PathVariable("matchId") final Long matchId) {
+        final String token = accessToken.replace("Bearer ", "");
+        matchService.deleteById(token ,matchId);
+    }
+
+    @PostMapping("/participation")
+    @ResponseBody
+    public Participation addParticipation(@RequestBody final CreateParticipationRequest createParticipationDto) {
+        return participationService.createParticipation(createParticipationDto);
+    }
+
+    @GetMapping("/participation")
+    @ResponseBody
+    public List<MatchParticipationResponse> getParticipation(@RequestHeader("Authorization") final String accessToken) {
+        final String token = accessToken.replace("Bearer ", "");
+        return matchService.findMatchParticipationByMemberId(token);
     }
 }

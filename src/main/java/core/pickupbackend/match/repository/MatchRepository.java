@@ -16,4 +16,6 @@ public interface MatchRepository {
     Match update(Long matchId, Match match);
 
     void deleteById(Long matchId);
+
+    List<Match> findByMemberId(Long memberId);
 }

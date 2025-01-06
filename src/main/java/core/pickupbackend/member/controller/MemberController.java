@@ -2,8 +2,8 @@ package core.pickupbackend.member.controller;
 
 import core.pickupbackend.auth.provider.TokenProvider;
 import core.pickupbackend.member.domain.Member;
-import core.pickupbackend.member.dto.AddMemberRequestDto;
-import core.pickupbackend.member.dto.UpdateMemberRequestDto;
+import core.pickupbackend.member.dto.request.AddMemberRequest;
+import core.pickupbackend.member.dto.request.UpdateMemberRequest;
 import core.pickupbackend.member.service.MemberService;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +27,7 @@ public class MemberController {
     }
 
     @PostMapping
-    public Member signUp(@RequestBody AddMemberRequestDto addMemberRequestDto) {
+    public Member signUp(@RequestBody AddMemberRequest addMemberRequestDto) {
         return memberService.createMember(addMemberRequestDto);
     }
 
@@ -49,7 +49,7 @@ public class MemberController {
     }
 
     @PatchMapping()
-    public void updateMemberById(@RequestBody UpdateMemberRequestDto dto) {
+    public void updateMemberById(@RequestBody UpdateMemberRequest dto) {
         memberService.updateMemberById(dto);
     }
 }

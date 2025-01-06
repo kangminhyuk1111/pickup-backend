@@ -105,4 +105,10 @@ public class JdbcMatchRepository implements MatchRepository {
         String sql = "DELETE FROM `match` WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }
+
+    @Override
+    public List<Match> findByMemberId(final Long memberId) {
+        String sql = "SELECT * FROM `match` WHERE host_id = ?";
+        return jdbcTemplate.query(sql, rowMapper, memberId);
+    }
 }

@@ -1,4 +1,4 @@
-package core.pickupbackend.match.dto;
+package core.pickupbackend.match.dto.request;
 
 import core.pickupbackend.match.domain.Match;
 import core.pickupbackend.member.domain.type.Level;
@@ -6,7 +6,7 @@ import core.pickupbackend.member.domain.type.Level;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class UpdateMatchDto {
+public class UpdateMatchRequest {
     private String title;
     private String description;
     private String courtName;
