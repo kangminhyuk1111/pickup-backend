@@ -77,7 +77,7 @@ public class Participation {
         return matchId;
     }
 
-    public String getStatus() {
+    public ParticipationStatus getStatus() {
         return status;
     }
 
