@@ -1,11 +1,12 @@
 package core.pickupbackend.match.dto.request;
 
 import core.pickupbackend.match.domain.Participation;
+import core.pickupbackend.match.domain.ParticipationStatus;
 
 public class CreateParticipationRequest {
     private Long memberId;
     private Long matchId;
-    private String status;
+    private ParticipationStatus status;
     private String message;
 
     public Long getMemberId() {
@@ -16,7 +17,7 @@ public class CreateParticipationRequest {
         return matchId;
     }
 
-    public String getStatus() {
+    public ParticipationStatus getStatus() {
         return status;
     }
 
