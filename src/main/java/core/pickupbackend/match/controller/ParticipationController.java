@@ -12,6 +12,4 @@ public class ParticipationController {
     public ParticipationController(final ParticipationService participationService) {
         this.participationService = participationService;
     }
-
-
 }

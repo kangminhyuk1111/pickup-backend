@@ -20,6 +20,7 @@ public class UrlWhiteListChecker {
         addPattern("/member/{id}","GET");
         addPattern("/auth/login","POST");
         addPattern("/matches");
+        addPattern("/matches/{id}");
         addPattern("/courts");
         addPattern("/courts/{id}");
         addPattern("/member/mypage");
