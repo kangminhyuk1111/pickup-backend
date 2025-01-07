@@ -157,4 +157,23 @@ public class Member implements Serializable {
     public void setLastLoginAt(final LocalDateTime lastLoginAt) {
         this.lastLoginAt = lastLoginAt;
     }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password=" + password +
+                ", nickname='" + nickname + '\'' +
+                ", profileImage='" + profileImage + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", position=" + position +
+                ", level=" + level +
+                ", mannerScore=" + mannerScore +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", lastLoginAt=" + lastLoginAt +
+                '}';
+    }
 }

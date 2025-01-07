@@ -4,17 +4,15 @@ import core.pickupbackend.match.domain.Participation;
 import core.pickupbackend.match.domain.ParticipationStatus;
 
 public class CreateParticipationRequest {
-    private Long memberId;
-    private Long matchId;
+    private Long matchingId;
     private ParticipationStatus status;
     private String message;
 
-    public Long getMemberId() {
-        return memberId;
+    public CreateParticipationRequest() {
     }
 
-    public Long getMatchId() {
-        return matchId;
+    public Long getMatchingId() {
+        return matchingId;
     }
 
     public ParticipationStatus getStatus() {
@@ -25,7 +23,16 @@ public class CreateParticipationRequest {
         return message;
     }
 
-    public Participation toEntity() {
-        return new Participation(memberId, matchId, status, message);
+    public Participation toEntity(Long memberId) {
+        return new Participation(memberId, matchingId , status, message);
+    }
+
+    @Override
+    public String toString() {
+        return "CreateParticipationRequest{" +
+                "matchingId=" + matchingId +
+                ", status=" + status +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

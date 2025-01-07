@@ -1,15 +1,17 @@
 package core.pickupbackend.match.dto.response;
 
 import core.pickupbackend.match.domain.Match;
-import core.pickupbackend.match.domain.Participation;
 
 import java.util.List;
 
 public class MatchParticipationResponse {
     private Match match;
-    private List<Participation> participations;
+    private List<ParticipationWithUserResponse> participations;
 
-    public MatchParticipationResponse(final Match match, final List<Participation> participations) {
+    public MatchParticipationResponse() {
+    }
+
+    public MatchParticipationResponse(final Match match, final List<ParticipationWithUserResponse> participations) {
         this.match = match;
         this.participations = participations;
     }
@@ -18,7 +20,7 @@ public class MatchParticipationResponse {
         return match;
     }
 
-    public List<Participation> getParticipations() {
+    public List<ParticipationWithUserResponse> getParticipations() {
         return participations;
     }
 }

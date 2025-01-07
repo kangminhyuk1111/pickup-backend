@@ -53,7 +53,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             return;
         }
 
-        // 토큰이 유효한 경우 다음 필터로 요청을 전달
         filterChain.doFilter(request, response);
     }
 

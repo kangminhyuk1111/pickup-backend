@@ -2,6 +2,8 @@ package core.pickupbackend.match.repository;
 
 import core.pickupbackend.match.domain.Participation;
 import core.pickupbackend.match.domain.mapper.ParticipationRowMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -18,6 +20,8 @@ import java.util.List;
 @Repository
 public class JdbcParticipationRepository implements ParticipationRepository {
 
+    private final static Logger logger = LoggerFactory.getLogger(JdbcParticipationRepository.class);
+
     private final JdbcTemplate jdbcTemplate;
     private final RowMapper<Participation> rowMapper;
 
@@ -28,21 +32,27 @@ public class JdbcParticipationRepository implements ParticipationRepository {
 
     @Override
     public Participation createParticipation(final Participation participation) {
-        String sql = "INSERT INTO match_participation (user_id, matching_id, status, message, created_at, updated_at) "
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = """
+            INSERT INTO match_participation 
+            (user_id, matching_id, status, message, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """;
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setLong(1, participation.getMemberId());
-            ps.setLong(2, participation.getMatchId());
-            ps.setString(3, participation.getStatus());
+            ps.setLong(1, participation.getUserId());
+            ps.setLong(2, participation.getMatchingId());
+            ps.setString(3, String.valueOf(participation.getStatus()));
             ps.setString(4, participation.getMessage());
             ps.setTimestamp(5, Timestamp.valueOf(LocalDateTime.now()));
             ps.setTimestamp(6, Timestamp.valueOf(LocalDateTime.now()));
+            logger.info(ps.toString());
             return ps;
         }, keyHolder);
+
+        logger.info("Participation created: {}", participation);
 
         long generatedId = keyHolder.getKey().longValue();
         return findParticipationById(generatedId);

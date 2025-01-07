@@ -64,8 +64,9 @@ public class MatchController {
 
     @PostMapping("/participation")
     @ResponseBody
-    public Participation addParticipation(@RequestBody final CreateParticipationRequest createParticipationDto) {
-        return participationService.createParticipation(createParticipationDto);
+    public Participation addParticipation(@RequestHeader("Authorization") final String accessToken, @RequestBody final CreateParticipationRequest createParticipationDto) {
+        final String token = accessToken.replace("Bearer ", "");
+        return participationService.createParticipation(token, createParticipationDto);
     }
 
     @GetMapping("/participation")

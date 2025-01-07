@@ -59,6 +59,11 @@ public class FakeMatchRepository implements MatchRepository {
         store.remove(id);
     }
 
+    @Override
+    public List<Match> findByMemberId(final Long memberId) {
+        return List.of();
+    }
+
     public void clearStore() {
         store.clear();
         sequence.set(1L);

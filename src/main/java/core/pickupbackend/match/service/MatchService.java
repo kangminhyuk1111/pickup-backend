@@ -5,9 +5,12 @@ import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.global.exception.ApplicationMatchException;
 import core.pickupbackend.match.domain.Match;
+import core.pickupbackend.match.domain.Participation;
 import core.pickupbackend.match.dto.request.CreateMatchRequest;
 import core.pickupbackend.match.dto.request.UpdateMatchRequest;
 import core.pickupbackend.match.dto.response.MatchParticipationResponse;
+import core.pickupbackend.match.dto.response.ParticipationMemberResponse;
+import core.pickupbackend.match.dto.response.ParticipationWithUserResponse;
 import core.pickupbackend.match.repository.MatchRepository;
 import core.pickupbackend.match.repository.ParticipationRepository;
 import core.pickupbackend.member.domain.Member;
@@ -16,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,14 +55,25 @@ public class MatchService {
         final Member member = memberService.getMemberByEmail(email);
         final Long memberId = member.getId();
 
-        List<Match> matches = matchRepository.findByMemberId(memberId);
+        final List<Match> matches = matchRepository.findByMemberId(memberId);
 
         return matches.stream()
-                .map(match -> new MatchParticipationResponse(
-                        match,
-                        participationRepository.findParticipationsByMatchId(match.getId())
-                ))
-                .collect(Collectors.toList());
+                .map(match -> {
+                    final List<Participation> matchParticipations =
+                            participationRepository.findParticipationsByMatchId(match.getId());
+
+                    final List<ParticipationWithUserResponse> participationResponses =
+                            matchParticipations.stream()
+                                    .map(participation -> {
+                                        final Member participationMember = memberService.getMemberById(participation.getUserId());
+                                        final ParticipationMemberResponse memberDto = new ParticipationMemberResponse(participationMember);
+                                        return new ParticipationWithUserResponse(memberDto, participation);
+                                    })
+                                    .toList();
+
+                    return new MatchParticipationResponse(match, participationResponses);
+                })
+                .toList();
     }
 
     public List<Match> findAll() {

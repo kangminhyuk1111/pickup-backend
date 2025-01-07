@@ -7,8 +7,8 @@ public class Participation {
     private static final List<String> VALID_STATUSES = List.of("PENDING", "ACCEPTED", "REJECTED");
 
     private Long id;
-    private Long memberId;
-    private Long matchId;
+    private Long userId;
+    private Long matchingId;
     private ParticipationStatus status; // enum
     private String message;
     private LocalDateTime createdAt;
@@ -17,32 +17,32 @@ public class Participation {
     public Participation() {
     }
 
-    public Participation(final Long memberId, final Long matchId, final ParticipationStatus status, final String message) {
-        validateMemberId(memberId);
+    public Participation(final Long userId, final Long matchId, final ParticipationStatus status, final String message) {
+        validateUserId(userId);
         validateMatchId(matchId);
         validateStatus(status);
 
-        this.memberId = memberId;
-        this.matchId = matchId;
+        this.userId = userId;
+        this.matchingId = matchId;
         this.status = status;
         this.message = message;
     }
 
     public Participation(final Long id, final Long memberId, final Long matchId, final ParticipationStatus status, final String message, final LocalDateTime createdAt, final LocalDateTime updatedAt) {
-        validateMemberId(memberId);
+        validateUserId(memberId);
         validateMatchId(matchId);
         validateStatus(status);
 
         this.id = id;
-        this.memberId = memberId;
-        this.matchId = matchId;
+        this.userId = memberId;
+        this.matchingId = matchId;
         this.status = status;
         this.message = message;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    private void validateMemberId(Long memberId) {
+    private void validateUserId(Long memberId) {
         if (memberId == null) {
             throw new IllegalArgumentException("사용자 ID는 필수입니다");
         }
@@ -69,12 +69,12 @@ public class Participation {
         return id;
     }
 
-    public Long getMemberId() {
-        return memberId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public Long getMatchId() {
-        return matchId;
+    public Long getMatchingId() {
+        return matchingId;
     }
 
     public ParticipationStatus getStatus() {
@@ -97,8 +97,8 @@ public class Participation {
     public String toString() {
         return "Participation{" +
                 "id=" + id +
-                ", memberId=" + memberId +
-                ", matchId=" + matchId +
+                ", memberId=" + userId +
+                ", matchId=" + matchingId +
                 ", status='" + status + '\'' +
                 ", message='" + message + '\'' +
                 ", createdAt=" + createdAt +
