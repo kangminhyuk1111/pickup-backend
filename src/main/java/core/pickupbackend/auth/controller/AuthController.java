@@ -4,6 +4,8 @@ import core.pickupbackend.auth.domain.AuthCredential;
 import core.pickupbackend.auth.dto.LoginRequest;
 import core.pickupbackend.auth.dto.LogoutRequest;
 import core.pickupbackend.auth.service.AuthService;
+import core.pickupbackend.global.common.response.BaseResponse;
+import core.pickupbackend.global.common.code.StatusCode;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,13 +20,13 @@ public class AuthController {
 
     @PostMapping("/login")
     @ResponseBody
-    public AuthCredential login(@RequestBody LoginRequest loginRequestDto) {
-        return authService.login(loginRequestDto);
+    public BaseResponse<AuthCredential> login(@RequestBody LoginRequest loginRequestDto) {
+        return new BaseResponse<>(StatusCode.SUCCESS, authService.login(loginRequestDto));
     }
 
     @PostMapping("/logout")
-    public void logout(@RequestHeader("Authorization") String accessToken,
-                       @RequestBody LogoutRequest logoutRequestDto) {
+    public BaseResponse<Void> logout(@RequestHeader("Authorization") String accessToken, @RequestBody LogoutRequest logoutRequestDto) {
         authService.logout(accessToken, logoutRequestDto);
+        return new BaseResponse<>(StatusCode.SUCCESS, null);
     }
 }

@@ -1,6 +1,8 @@
 package core.pickupbackend.member.controller;
 
 import core.pickupbackend.auth.provider.TokenProvider;
+import core.pickupbackend.global.common.code.StatusCode;
+import core.pickupbackend.global.common.response.BaseResponse;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.dto.request.AddMemberRequest;
 import core.pickupbackend.member.dto.request.UpdateMemberRequest;
@@ -22,34 +24,40 @@ public class MemberController {
     }
 
     @GetMapping
-    public List<Member> getMembers() {
-        return memberService.getAllMembers();
+    public BaseResponse<List<Member>> getMembers() {
+        final List<Member> members = memberService.getAllMembers();
+        return new BaseResponse<>(StatusCode.SUCCESS, members);
     }
 
     @PostMapping
-    public Member signUp(@RequestBody AddMemberRequest addMemberRequestDto) {
-        return memberService.createMember(addMemberRequestDto);
+    public BaseResponse<Member> signUp(@RequestBody AddMemberRequest addMemberRequestDto) {
+        final Member member = memberService.createMember(addMemberRequestDto);
+        return new BaseResponse<>(StatusCode.SUCCESS, member);
     }
 
     @GetMapping("/{id}")
-    public Member getMemberById(@PathVariable Long id) {
-        return memberService.getMemberById(id);
+    public BaseResponse<Member> getMemberById(@PathVariable Long id) {
+        final Member member = memberService.getMemberById(id);
+        return new BaseResponse<>(StatusCode.SUCCESS, member);
     }
 
     @GetMapping("/mypage")
-    public Member getMemberByEmail(@RequestHeader("Authorization") String accessToken) {
+    public BaseResponse<Member> getMemberByEmail(@RequestHeader("Authorization") String accessToken) {
         final String token = accessToken.replace("Bearer ", "");
         final String email = tokenProvider.extractEmailFromToken(token);
-        return memberService.getMemberByEmail(email);
+        final Member member = memberService.getMemberByEmail(email);
+        return new BaseResponse<>(StatusCode.SUCCESS, member);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteMemberById(@PathVariable Long id) {
+    public BaseResponse<Void> deleteMemberById(@PathVariable Long id) {
         memberService.deleteMemberById(id);
+        return new BaseResponse(StatusCode.SUCCESS, null);
     }
 
     @PatchMapping()
-    public void updateMemberById(@RequestBody UpdateMemberRequest dto) {
+    public BaseResponse<Void> updateMemberById(@RequestBody UpdateMemberRequest dto) {
         memberService.updateMemberById(dto);
+        return new BaseResponse(StatusCode.SUCCESS, null);
     }
 }

@@ -1,5 +1,7 @@
 package core.pickupbackend.match.controller;
 
+import core.pickupbackend.global.common.code.StatusCode;
+import core.pickupbackend.global.common.response.BaseResponse;
 import core.pickupbackend.match.domain.Participation;
 import core.pickupbackend.match.dto.request.CreateParticipationRequest;
 import core.pickupbackend.match.dto.request.UpdateMatchRequest;
@@ -31,48 +33,55 @@ public class MatchController {
 
     @PostMapping
     @ResponseBody
-    public Match createMatch(@RequestBody final CreateMatchRequest createMatchDto, @RequestHeader("Authorization") final String accessToken) {
+    public BaseResponse<Match> createMatch(@RequestBody final CreateMatchRequest createMatchDto, @RequestHeader("Authorization") final String accessToken) {
         final String token = accessToken.replace("Bearer ", "");
-        return matchService.createMatch(token, createMatchDto);
+        Match match = matchService.createMatch(token, createMatchDto);
+        return new BaseResponse<>(StatusCode.SUCCESS, match);
     }
 
     @GetMapping
     @ResponseBody
-    public List<Match> getMatches() {
-        return matchService.findAll();
+    public BaseResponse<List<Match>> getMatches() {
+        List<Match> matches = matchService.findAll();
+        return new BaseResponse<>(StatusCode.SUCCESS, matches);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public Match getMatchById(@PathVariable("id") final Long id) {
-        return matchService.findById(id);
+    public BaseResponse<Match> getMatchById(@PathVariable("id") final Long id) {
+        Match match = matchService.findById(id);
+        return new BaseResponse<>(StatusCode.SUCCESS, match);
     }
 
     @PutMapping("/{id}")
     @ResponseBody
-    public Match updateMatch(@PathVariable("id") final Long id, @RequestBody final UpdateMatchRequest updateMatchDto, @RequestHeader("Authorization") final String accessToken) {
+    public BaseResponse<Match> updateMatch(@PathVariable("id") final Long id, @RequestBody final UpdateMatchRequest updateMatchDto, @RequestHeader("Authorization") final String accessToken) {
         final String token = accessToken.replace("Bearer ", "");
-        return matchService.updateMatch(token, id, updateMatchDto);
+        Match match = matchService.updateMatch(token, id, updateMatchDto);
+        return new BaseResponse<>(StatusCode.SUCCESS, match);
     }
 
     @DeleteMapping("/{matchId}")
     @ResponseBody
-    public void deleteMatch(@RequestHeader("Authorization") final String accessToken, @PathVariable("matchId") final Long matchId) {
+    public BaseResponse<Void> deleteMatch(@RequestHeader("Authorization") final String accessToken, @PathVariable("matchId") final Long matchId) {
         final String token = accessToken.replace("Bearer ", "");
-        matchService.deleteById(token ,matchId);
+        matchService.deleteById(token, matchId);
+        return new BaseResponse<>(StatusCode.SUCCESS);
     }
 
     @PostMapping("/participation")
     @ResponseBody
-    public Participation addParticipation(@RequestHeader("Authorization") final String accessToken, @RequestBody final CreateParticipationRequest createParticipationDto) {
+    public BaseResponse<Participation> addParticipation(@RequestHeader("Authorization") final String accessToken, @RequestBody final CreateParticipationRequest createParticipationDto) {
         final String token = accessToken.replace("Bearer ", "");
-        return participationService.createParticipation(token, createParticipationDto);
+        Participation participation = participationService.createParticipation(token, createParticipationDto);
+        return new BaseResponse<>(StatusCode.SUCCESS, participation);
     }
 
     @GetMapping("/participation")
     @ResponseBody
-    public List<MatchParticipationResponse> getParticipation(@RequestHeader("Authorization") final String accessToken) {
+    public BaseResponse<List<MatchParticipationResponse>> getParticipation(@RequestHeader("Authorization") final String accessToken) {
         final String token = accessToken.replace("Bearer ", "");
-        return matchService.findMatchParticipationByMemberId(token);
+        List<MatchParticipationResponse> responses = matchService.findMatchParticipationByMemberId(token);
+        return new BaseResponse<>(StatusCode.SUCCESS, responses);
     }
 }

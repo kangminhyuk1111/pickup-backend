@@ -3,6 +3,8 @@ package core.pickupbackend.court.controller;
 import core.pickupbackend.court.domain.Court;
 import core.pickupbackend.court.domain.CourtReview;
 import core.pickupbackend.court.service.CourtService;
+import core.pickupbackend.global.common.code.StatusCode;
+import core.pickupbackend.global.common.response.BaseResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,13 +21,13 @@ public class CourtController {
 
     @GetMapping
     @ResponseBody
-    public List<Court> getAllCourts() {
-        return courtService.getAllCourts();
+    public BaseResponse<List<Court>> getAllCourts() {
+        return new BaseResponse<>(StatusCode.SUCCESS, courtService.getAllCourts());
     }
 
     @GetMapping("/{courtId}")
     @ResponseBody
-    public List<CourtReview> getCourtReviewByCourtId(@PathVariable final Long courtId) {
-        return courtService.getReviewById(courtId);
+    public BaseResponse<List<CourtReview>> getCourtReviewByCourtId(@PathVariable final Long courtId) {
+        return new BaseResponse<>(StatusCode.SUCCESS, courtService.getReviewById(courtId));
     }
 }
