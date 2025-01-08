@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### fcm key ###
+/src/main/resources/fcm/pickup-basketball-matching-firebase-adminsdk-9dr31-0bdb4304b5.json
