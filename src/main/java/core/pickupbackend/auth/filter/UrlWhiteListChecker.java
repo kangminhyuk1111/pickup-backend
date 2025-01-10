@@ -16,18 +16,16 @@ public class UrlWhiteListChecker {
         this.pathMatcher = new AntPathMatcher();
         this.whitelistPatterns = new HashMap<>();
 
-        addPattern("/**");
-//        addPattern("/member");
-//        addPattern("/member/{id}","GET");
-//        addPattern("/auth/login","POST");
-//        addPattern("/matches");
-//        addPattern("/matches/{id}");
-//        addPattern("/courts");
-//        addPattern("/courts/{id}");
-//        addPattern("/member/mypage");
-//        addPattern("/matches/participation");
-//        addPattern("/participation/*");
-//        addPattern("/matches/participation/*");
+        /// addPattern("/**");
+        addPattern("/member");
+        addPattern("/member/{id}","GET");
+        addPattern("/auth/login");
+        addPattern("/matches/*","GET");
+        addPattern("/courts","GET");
+        addPattern("/courts/{id}","GET");
+        addPattern("/matches/participation","GET");
+        addPattern("/participation/*");
+        addPattern("/matches/participation/*");
     }
 
     public void addPattern(String pattern, String... methods) {

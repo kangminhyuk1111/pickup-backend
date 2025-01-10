@@ -1,4 +1,4 @@
-package core.pickupbackend.match.mapper;
+package core.pickupbackend.match.domain.mapper;
 
 import core.pickupbackend.match.domain.Match;
 import core.pickupbackend.match.domain.MatchStatus;
