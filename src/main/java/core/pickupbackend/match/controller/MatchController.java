@@ -34,6 +34,7 @@ public class MatchController {
     @PostMapping
     @ResponseBody
     public BaseResponse<Match> createMatch(@RequestBody final CreateMatchRequest createMatchDto, @RequestHeader("Authorization") final String accessToken) {
+        logger.debug("/createMatch request: {}", createMatchDto.toString());
         final String token = accessToken.replace("Bearer ", "");
         Match match = matchService.createMatch(token, createMatchDto);
         return new BaseResponse<>(StatusCode.SUCCESS, match);
@@ -42,6 +43,7 @@ public class MatchController {
     @GetMapping
     @ResponseBody
     public BaseResponse<List<Match>> getMatches() {
+        logger.debug("/getMatches request");
         List<Match> matches = matchService.findAll();
         return new BaseResponse<>(StatusCode.SUCCESS, matches);
     }
@@ -49,6 +51,7 @@ public class MatchController {
     @GetMapping("/{id}")
     @ResponseBody
     public BaseResponse<Match> getMatchById(@PathVariable("id") final Long id) {
+        logger.debug("/getMatchById request: {}", id);
         Match match = matchService.findById(id);
         return new BaseResponse<>(StatusCode.SUCCESS, match);
     }
@@ -56,6 +59,7 @@ public class MatchController {
     @PutMapping("/{id}")
     @ResponseBody
     public BaseResponse<Match> updateMatch(@PathVariable("id") final Long id, @RequestBody final UpdateMatchRequest updateMatchDto, @RequestHeader("Authorization") final String accessToken) {
+        logger.debug("/updateMatch request: {}", updateMatchDto.toString());
         final String token = accessToken.replace("Bearer ", "");
         Match match = matchService.updateMatch(token, id, updateMatchDto);
         return new BaseResponse<>(StatusCode.SUCCESS, match);
@@ -64,6 +68,7 @@ public class MatchController {
     @DeleteMapping("/{matchId}")
     @ResponseBody
     public BaseResponse<Void> deleteMatch(@RequestHeader("Authorization") final String accessToken, @PathVariable("matchId") final Long matchId) {
+        logger.debug("/deleteMatch request: {}", matchId);
         final String token = accessToken.replace("Bearer ", "");
         matchService.deleteById(token, matchId);
         return new BaseResponse<>(StatusCode.SUCCESS);
@@ -72,6 +77,7 @@ public class MatchController {
     @PostMapping("/participation")
     @ResponseBody
     public BaseResponse<Participation> addParticipation(@RequestHeader("Authorization") final String accessToken, @RequestBody final CreateParticipationRequest createParticipationDto) {
+        logger.debug("/addParticipation request: {}", createParticipationDto.toString());
         final String token = accessToken.replace("Bearer ", "");
         Participation participation = participationService.createParticipation(token, createParticipationDto);
         return new BaseResponse<>(StatusCode.SUCCESS, participation);
@@ -80,6 +86,7 @@ public class MatchController {
     @GetMapping("/participation")
     @ResponseBody
     public BaseResponse<List<MatchParticipationResponse>> getParticipation(@RequestHeader("Authorization") final String accessToken) {
+        logger.debug("/getParticipation request: {}", accessToken);
         final String token = accessToken.replace("Bearer ", "");
         List<MatchParticipationResponse> responses = matchService.findMatchParticipationByMemberId(token);
         return new BaseResponse<>(StatusCode.SUCCESS, responses);

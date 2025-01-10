@@ -19,13 +19,13 @@ public class MessageService {
         this.memberService = memberService;
     }
 
-    public void sendPush(final PushRequestDto pushRequestDto) throws FirebaseMessagingException {
-        firebaseMessaging.send();
-    }
-
-    public void sendPushMessage(final PushRequestDto pushRequestDto) throws FirebaseMessagingException {
-        FirebaseMessaging.getInstance().sendEachForMulticast();
-    }
+//    public void sendPush(final PushRequestDto pushRequestDto) throws FirebaseMessagingException {
+//        firebaseMessaging.send();
+//    }
+//
+//    public void sendPushMessage(final PushRequestDto pushRequestDto) throws FirebaseMessagingException {
+//        FirebaseMessaging.getInstance().sendEachForMulticast();
+//    }
 
     private Message makeMessage(final String targetToken, final  String title, final String body) {
         Notification notification = Notification
