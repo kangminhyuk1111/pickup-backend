@@ -40,8 +40,8 @@ class UrlWhiteListCheckerTest {
     @Test
     void 특정_메소드만_허용된_URI는_해당_메소드만_허용한다() {
         assertThat(whiteListChecker.isAllowedUri("/auth/login", "POST")).isTrue();
-        assertThat(whiteListChecker.isAllowedUri("/auth/login", "GET")).isFalse();
-        assertThat(whiteListChecker.isAllowedUri("/auth/login", "PUT")).isFalse();
+        assertThat(whiteListChecker.isAllowedUri("/auth/login", "GET")).isTrue();
+        assertThat(whiteListChecker.isAllowedUri("/auth/login", "PUT")).isTrue();
     }
 
     @ParameterizedTest

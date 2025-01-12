@@ -1,5 +1,9 @@
 package core.pickupbackend.member.service;
 
+import core.pickupbackend.auth.fake.FakeKeyProvider;
+import core.pickupbackend.auth.provider.JjwtTokenProvider;
+import core.pickupbackend.auth.provider.KeyProvider;
+import core.pickupbackend.auth.provider.TokenProvider;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ValidateException;
 import core.pickupbackend.member.domain.Member;
@@ -19,7 +23,9 @@ class MemberServiceTest {
 
     private final MemberRepository memberRepository = new FakeMemberRepository();
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-    private final MemberService memberService = new MemberService(memberRepository, passwordEncoder);
+    private final KeyProvider keyProvider = new FakeKeyProvider();
+    private final TokenProvider tokenProvider = new JjwtTokenProvider(keyProvider);
+    private final MemberService memberService = new MemberService(memberRepository, passwordEncoder, tokenProvider);
 
     @Test
     void 멤버_생성_테스트() {

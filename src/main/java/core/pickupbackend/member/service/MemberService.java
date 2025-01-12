@@ -1,5 +1,6 @@
 package core.pickupbackend.member.service;
 
+import core.pickupbackend.auth.provider.TokenProvider;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.member.domain.Member;
@@ -16,10 +17,12 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
+    private final TokenProvider tokenProvider;
 
-    public MemberService(final MemberRepository memberRepository, final PasswordEncoder passwordEncoder) {
+    public MemberService(final MemberRepository memberRepository, final PasswordEncoder passwordEncoder, final TokenProvider tokenProvider) {
         this.memberRepository = memberRepository;
         this.passwordEncoder = passwordEncoder;
+        this.tokenProvider = tokenProvider;
     }
 
     public Member createMember(final AddMemberRequest dto) {
@@ -36,6 +39,11 @@ public class MemberService {
 
     public Member getMemberByEmail(final String email) {
         return memberRepository.findByEmail(email).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_EMAIL));
+    }
+
+    public Member findMemberByToken(final String token) {
+        final String email = tokenProvider.extractEmailFromToken(token);
+        return memberRepository.findByEmail(email).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
     }
 
     public Member getMemberByNickname(final String nickname) {

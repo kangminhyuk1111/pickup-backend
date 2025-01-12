@@ -1,7 +1,5 @@
-package core.pickupbackend.participation.domain;
+package core.pickupbackend.match.domain;
 
-import core.pickupbackend.match.domain.Participation;
-import core.pickupbackend.match.domain.ParticipationStatus;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;

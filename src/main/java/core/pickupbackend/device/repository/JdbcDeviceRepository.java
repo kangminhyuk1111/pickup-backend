@@ -26,18 +26,17 @@ public class JdbcDeviceRepository implements DeviceRepository {
 
     @Override
     public Device save(final Device device) {
-        String sql = "INSERT INTO device (member_id, fcm_token, device_type, device_id, last_login_at) "
-                + "VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO device (member_id, fcm_token, device_type, last_login_at) "
+                + "VALUES (?, ?, ?, ?)";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setLong(1, device.getMemberId());
+            ps.setLong(1, device.getMemberId() != null ? device.getMemberId() : 0);
             ps.setString(2, device.getFcmToken());
-            ps.setString(3, device.getDeviceType());
-            ps.setString(4, device.getDeviceId());
-            ps.setTimestamp(5, device.getLastLoginAt() != null
+            ps.setString(3, String.valueOf(device.getDeviceType()));
+            ps.setTimestamp(4, device.getLastLoginAt() != null
                     ? Timestamp.valueOf(device.getLastLoginAt())
                     : null);
             return ps;

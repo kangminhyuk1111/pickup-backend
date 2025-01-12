@@ -26,6 +26,8 @@ public class UrlWhiteListChecker {
         addPattern("/matches/participation","GET");
         addPattern("/participation/*");
         addPattern("/matches/participation/*");
+        addPattern("/device");
+        addPattern("/push/*");
     }
 
     public void addPattern(String pattern, String... methods) {

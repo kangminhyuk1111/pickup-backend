@@ -1,5 +1,7 @@
 package core.pickupbackend.global.exception;
 
+import com.google.firebase.FirebaseException;
+import com.google.firebase.IncomingHttpResponse;
 import core.pickupbackend.global.common.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -29,6 +31,15 @@ public class GlobalExceptionHandler {
         final ErrorCode errorCode = e.getErrorCode();
         final ErrorResponse response = ErrorResponse.of(errorCode);
         return new ResponseEntity<>(response, HttpStatusCode.valueOf(response.getStatus()));
+    }
+
+    @ExceptionHandler(FirebaseException.class)
+    public ResponseEntity<ErrorResponse> handleFirebaseException(FirebaseException e) {
+        final String message = e.getMessage();
+        final int code = e.getHttpResponse().getStatusCode();
+        final HttpStatus status = HttpStatus.valueOf(code);
+        final ErrorResponse errorResponse = new ErrorResponse(message, code, status);
+        return new ResponseEntity<>(errorResponse, status);
     }
 
     @ExceptionHandler(Exception.class)
