@@ -1,6 +1,0 @@
-2024-12-23 22:24:31.020448+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MEMBER" not found (this database is empty); SQL statement:
-SELECT * FROM member [42104-232]
-2024-12-23 22:26:49.823045+09:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
-SELECT * FROM users [42104-232]
