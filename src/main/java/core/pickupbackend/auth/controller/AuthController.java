@@ -4,6 +4,7 @@ import core.pickupbackend.auth.domain.AuthCredential;
 import core.pickupbackend.auth.dto.LoginRequest;
 import core.pickupbackend.auth.dto.LogoutRequest;
 import core.pickupbackend.auth.service.AuthService;
+import core.pickupbackend.device.service.DeviceService;
 import core.pickupbackend.global.common.response.BaseResponse;
 import core.pickupbackend.global.common.code.StatusCode;
 import org.slf4j.Logger;

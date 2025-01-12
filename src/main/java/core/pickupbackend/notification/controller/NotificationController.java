@@ -2,7 +2,7 @@ package core.pickupbackend.notification.controller;
 
 import com.google.firebase.messaging.FirebaseMessagingException;
 import core.pickupbackend.notification.dto.NotificationRequestDto;
-import core.pickupbackend.notification.service.NotificationService;
+import core.pickupbackend.notification.service.FcmNotificationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +18,9 @@ public class NotificationController {
 
     private final static Logger logger = LoggerFactory.getLogger(NotificationController.class);
 
-    private final NotificationService pushMessageService;
+    private final FcmNotificationService pushMessageService;
 
-    public NotificationController(final NotificationService pushMessageService) {
+    public NotificationController(final FcmNotificationService pushMessageService) {
         this.pushMessageService = pushMessageService;
     }
 
