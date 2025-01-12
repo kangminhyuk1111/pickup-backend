@@ -1,17 +1,21 @@
-# 구현 기능 목록
+# Pick Up - 농구 매칭 서비스
 
-## 공통
-- [x] 공통 exception 관리
-## logging
-- [ ] slf4j를 통한 logging 처리
-## sign up
-- [x] users 테이블 구현 및 crud 작성
-- [x] users validate 작성 - 중복, 유효성
-- [x] passwordEncoder를 사용한 단방향 암호화
-- [ ] 보류 - 추후 이메일 인증 기능 구현
-## login, auth
-- [x] 비밀번호 검증 (passwordEncoder.matches() 사용)
-- [x] JWT 토큰 발급
-- [ ] Refresh Token 구현
-- [ ] 로그인 시도 횟수 제한 (브루트포스 공격 방지)
-- [ ] 마지막 로그인 시간 기록
+Pickup은 농구 매칭이 어려운 현 상황을 해결하기 위해 만든 개인 프로젝트 입니다.
+
+농구 매칭을 게시하고 참가하는 행위를 원활하게 돕는 앱입니다.
+
+현재 서버는 개발중이며 추후 2월까지 앱 배포 및 서비스 예정입니다.
+
+## 개발 스택
+- Spring Boot
+- MySQL
+- Redis (JWT 토큰 관리)
+- FCM (Firebase Cloud Messaging) - 푸시 알림 구현
+
+## 구현 목록
+- [x] JWT 토큰을 저장, Redis의 TTL을 사용하여 토큰 만료 구현
+- [x] 글 작성 및 코트 정보 구현, 코트 정보는 개인의 리뷰를 가지는 테이블로 존재
+- [x] 코트 정보와, 유저 디바이스 정보를 DB 정규화릍 통해 해결
+- [x] 각각 사용자가 마이페이지에서 매칭 신청 목록을 관리하도록 구현
+- [x] 매칭시 동시에 요청이 되는 경우를 방지하기 위해 @Transactional로 동시성 제어
+- [x] 매칭이 성사되거나 매칭 수락 및 거절을 알리기 위해 FCM을 통한 푸시알림 구현    
