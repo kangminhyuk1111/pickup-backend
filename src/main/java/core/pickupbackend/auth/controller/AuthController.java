@@ -27,7 +27,8 @@ public class AuthController {
     @ResponseBody
     public BaseResponse<AuthCredential> login(@RequestBody LoginRequest loginRequestDto) {
         logger.debug("/login request: {}", loginRequestDto);
-        return new BaseResponse<>(StatusCode.SUCCESS, authService.login(loginRequestDto));
+        final AuthCredential authCredential = authService.login(loginRequestDto);
+        return new BaseResponse<>(StatusCode.SUCCESS, authCredential);
     }
 
     @PostMapping("/logout")

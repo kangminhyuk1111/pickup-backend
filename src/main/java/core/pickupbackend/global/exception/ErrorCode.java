@@ -59,7 +59,8 @@ public enum ErrorCode {
     COURT_RATING_RANGE(HttpStatus.BAD_REQUEST, "평점은 0.000000에서 5.000000 사이여야 합니다"),
 
     // Device
-    DEVICE_NOT_FOUND(HttpStatus.NOT_FOUND, "디바이스 정보를 찾을 수 없습니다.");
+    DEVICE_NOT_FOUND(HttpStatus.NOT_FOUND, "디바이스 정보를 찾을 수 없습니다."),
+    MESSAGE_NOT_PUSHED(HttpStatus.INTERNAL_SERVER_ERROR, "메세지가 정상적으로 전송되지 못했습니다.");
 
 
     private HttpStatus status;

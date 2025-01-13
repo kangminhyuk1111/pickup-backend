@@ -1,4 +1,4 @@
-package core.pickupbackend.notification.dto;
+package core.pickupbackend.notification.dto.reqeust;
 
 public class NotificationRequestDto<T> {
 

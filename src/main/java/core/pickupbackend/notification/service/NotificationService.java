@@ -1,13 +1,14 @@
 package core.pickupbackend.notification.service;
 
 import com.google.firebase.messaging.FirebaseMessagingException;
-import core.pickupbackend.notification.dto.NotificationRequestDto;
+import core.pickupbackend.notification.dto.reqeust.NotificationRequestDto;
+import core.pickupbackend.notification.dto.response.NotificationResult;
 
 import java.util.List;
 
 public interface NotificationService {
 
-    void send(NotificationRequestDto<String> notificationRequestDto) throws FirebaseMessagingException;
+    NotificationResult send(NotificationRequestDto<String> notificationRequestDto) throws FirebaseMessagingException;
 
-    void sendMultiCast(NotificationRequestDto<List<String>> notificationRequestDto) throws FirebaseMessagingException;
+    List<NotificationResult> sendMultiCast(NotificationRequestDto<List<String>> notificationRequestDto) throws FirebaseMessagingException;
 }

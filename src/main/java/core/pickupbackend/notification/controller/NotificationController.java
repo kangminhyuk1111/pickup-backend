@@ -1,7 +1,7 @@
 package core.pickupbackend.notification.controller;
 
 import com.google.firebase.messaging.FirebaseMessagingException;
-import core.pickupbackend.notification.dto.NotificationRequestDto;
+import core.pickupbackend.notification.dto.reqeust.NotificationRequestDto;
 import core.pickupbackend.notification.service.FcmNotificationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/push")
+@RequestMapping("/notification")
 public class NotificationController {
 
     private final static Logger logger = LoggerFactory.getLogger(NotificationController.class);
