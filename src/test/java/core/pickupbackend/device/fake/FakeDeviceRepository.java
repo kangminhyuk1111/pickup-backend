@@ -39,9 +39,9 @@ public class FakeDeviceRepository implements DeviceRepository {
     }
 
     @Override
-    public Optional<Device> findByToken(String deviceToken) {
+    public Optional<Device> findByFcmToken(String fcmToken) {
         return store.values().stream()
-                .filter(device -> device.getFcmToken().equals(deviceToken))
+                .filter(device -> device.getFcmToken().equals(fcmToken))
                 .findFirst();
     }
 
@@ -68,5 +68,31 @@ public class FakeDeviceRepository implements DeviceRepository {
                         LocalDateTime.now()
                 )
         );
+    }
+
+    @Override
+    public Device updateByMemberId(final Device device) {
+        return store.computeIfPresent(device.getId(), (key, existingDevice) ->
+                new Device(
+                        existingDevice.getId(),
+                        device.getMemberId(),  // 새로운 memberId로 업데이트
+                        existingDevice.getFcmToken(),
+                        existingDevice.getDeviceType(),
+                        existingDevice.getLastLoginAt(),
+                        existingDevice.getCreatedAt(),
+                        LocalDateTime.now()  // updatedAt 현재 시간으로 업데이트
+                )
+        );
+    }
+
+    @Override
+    public List<Device> findByMemberId(final Long memberId) {
+        return store.values().stream().filter(value -> value.getMemberId().equals(memberId)).toList();
+    }
+
+    @Override
+    public void deleteByFcmToken(final String fcmToken) {
+        final Optional<Device> findByFcmToken = findByFcmToken(fcmToken);
+        findByFcmToken.ifPresent(device -> store.remove(device.getId()));
     }
 }

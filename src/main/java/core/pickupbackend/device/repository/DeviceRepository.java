@@ -11,11 +11,17 @@ public interface DeviceRepository {
 
     Optional<Device> findById(Long id);
 
-    Optional<Device> findByToken(String deviceToken);
+    Optional<Device> findByFcmToken(String deviceToken);
 
     List<Device> findAll();
 
     void deleteById(Long id);
 
     void updateById(Long id);
+
+    Device updateByMemberId(Device device);
+
+    List<Device> findByMemberId(Long memberId);
+
+    void deleteByFcmToken(String fcmToken);
 }

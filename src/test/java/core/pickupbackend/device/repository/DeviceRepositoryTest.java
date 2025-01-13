@@ -72,7 +72,7 @@ public class DeviceRepositoryTest {
         Device device = repository.save(createDevice(null, 1L, "token1", DeviceType.ANDROID));
 
         // when
-        Optional<Device> foundDevice = repository.findByToken("token1");
+        Optional<Device> foundDevice = repository.findByFcmToken("token1");
 
         // then
         assertThat(foundDevice).isPresent();
@@ -82,7 +82,7 @@ public class DeviceRepositoryTest {
     @Test
     void 존재하지_않는_토큰으로_조회하면_빈_옵셔널을_반환한다() {
         // when
-        Optional<Device> foundDevice = repository.findByToken("nonexistent-token");
+        Optional<Device> foundDevice = repository.findByFcmToken("nonexistent-token");
 
         // then
         assertThat(foundDevice).isEmpty();

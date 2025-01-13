@@ -32,6 +32,10 @@ public class Device {
         this.lastLoginAt = lastLoginAt;
     }
 
+    public Device updateMemberId(final Long memberId) {
+        return new Device(id, memberId, fcmToken, deviceType, createdAt, updatedAt, lastLoginAt);
+    }
+
     public Long getId() {
         return id;
     }
