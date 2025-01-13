@@ -1,7 +1,6 @@
 package core.pickupbackend.global.exception;
 
 import com.google.firebase.FirebaseException;
-import com.google.firebase.IncomingHttpResponse;
 import core.pickupbackend.global.common.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

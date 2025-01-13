@@ -3,6 +3,9 @@ package core.pickupbackend.device.service;
 import core.pickupbackend.device.domain.Device;
 import core.pickupbackend.device.domain.type.DeviceType;
 import core.pickupbackend.device.dto.CreateDeviceDto;
+import core.pickupbackend.device.dto.DeleteDeviceRequestDto;
+import core.pickupbackend.device.dto.FindByTokenRequest;
+import core.pickupbackend.device.dto.UpdateDeviceReqeustDto;
 import core.pickupbackend.device.fake.FakeDeviceRepository;
 import core.pickupbackend.device.repository.DeviceRepository;
 import core.pickupbackend.global.exception.ApplicationException;
@@ -48,9 +51,10 @@ public class DeviceServiceTest {
         final CreateDeviceDto dto = createTestDeviceDto();
         final Member member = createTestMember();
         final Device device = deviceService.save(dto);
+        final Device findDevice = deviceService.findDeviceByFcmToken(new FindByTokenRequest(device.getFcmToken()));
+        final UpdateDeviceReqeustDto updateDeviceReqeustDto = new UpdateDeviceReqeustDto(member.getId(), findDevice.getId());
 
-        final Device findDevice = deviceService.findDeviceByFcmToken(device.getFcmToken());
-        final Device updateDevice = deviceService.updateMemberId(member.getId(), findDevice);
+        final Device updateDevice = deviceService.updateDeviceByMemberId(updateDeviceReqeustDto);
 
         assertThat(updateDevice).isNotNull();
         assertThat(updateDevice.getMemberId()).isEqualTo(member.getId());
@@ -58,12 +62,15 @@ public class DeviceServiceTest {
 
     @Test
     void 디바이스를_멤버ID_기준으로_조회() {
-        final CreateDeviceDto dto = createTestDeviceDto();
         final Member member = createTestMember();
-        final Device device = deviceService.save(dto);
-        final Device updateDevice = deviceService.updateMemberId(member.getId(), device);
+        final Device device = deviceService.save(createTestDeviceDto());
 
-        final List<Device> findDevices = deviceService.findDeviceByMemberId(member.getId());
+        final UpdateDeviceReqeustDto updateDeviceReqeustDto = new UpdateDeviceReqeustDto(member.getId(), device.getId());
+        final Device updateDevice = deviceService.updateDeviceByMemberId(updateDeviceReqeustDto);
+
+        final FindDeviceByMemberIdRequestDto findDeviceByMemberIdRequestDto = new FindDeviceByMemberIdRequestDto(updateDeviceReqeustDto.memberId());
+
+        final List<Device> findDevices = deviceService.findDeviceByMemberId(findDeviceByMemberIdRequestDto);
 
         assertThat(findDevices.size()).isEqualTo(1);
         assertThat(findDevices.stream().map(findDevice -> findDevice.getFcmToken().equals(updateDevice.getFcmToken())).findFirst()).isNotNull();
@@ -71,13 +78,14 @@ public class DeviceServiceTest {
 
     @Test
     void 토큰을_기준으로_디바이스_삭제() {
-        final CreateDeviceDto dto = createTestDeviceDto();
-        final Device device = deviceService.save(dto);
+        final CreateDeviceDto createDeviceDto = createTestDeviceDto();
+        final Device device = deviceService.save(createDeviceDto);
         final String fcmToken = device.getFcmToken();
+        final DeleteDeviceRequestDto deleteDeviceDto = new DeleteDeviceRequestDto(fcmToken);
 
-        deviceService.deleteByToken(fcmToken);
+        deviceService.deleteByToken(deleteDeviceDto);
 
-        assertThatThrownBy(() -> deviceService.findDeviceByFcmToken(fcmToken)).isInstanceOf(ApplicationException.class);
+        assertThatThrownBy(() -> deviceService.findDeviceByFcmToken(new FindByTokenRequest(fcmToken))).isInstanceOf(ApplicationException.class);
     }
 
     private CreateDeviceDto createTestDeviceDto() {

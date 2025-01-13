@@ -1,10 +1,10 @@
 package core.pickupbackend.device.dto;
 
-public class DeleteDeviceDto {
+public class DeleteDeviceRequestDto {
 
     private String fcmToken;
 
-    public DeleteDeviceDto(final String fcmToken) {
+    public DeleteDeviceRequestDto(final String fcmToken) {
         this.fcmToken = fcmToken;
     }
 

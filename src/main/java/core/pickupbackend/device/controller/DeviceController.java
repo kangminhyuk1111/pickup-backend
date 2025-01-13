@@ -2,7 +2,7 @@ package core.pickupbackend.device.controller;
 
 import core.pickupbackend.device.domain.Device;
 import core.pickupbackend.device.dto.CreateDeviceDto;
-import core.pickupbackend.device.dto.DeleteDeviceDto;
+import core.pickupbackend.device.dto.DeleteDeviceRequestDto;
 import core.pickupbackend.device.service.DeviceService;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +22,7 @@ public class DeviceController {
     }
 
     @DeleteMapping
-    public void deleteDevice(@RequestBody DeleteDeviceDto deleteDeviceDto) {
+    public void deleteDevice(@RequestBody DeleteDeviceRequestDto deleteDeviceDto) {
         this.deviceService.deleteByToken(deleteDeviceDto);
     }
 }

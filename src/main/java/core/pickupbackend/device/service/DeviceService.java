@@ -1,12 +1,15 @@
 package core.pickupbackend.device.service;
 
 import core.pickupbackend.device.domain.Device;
+import core.pickupbackend.device.dto.FindByTokenRequest;
+import core.pickupbackend.device.dto.UpdateDeviceReqeustDto;
 import core.pickupbackend.device.dto.CreateDeviceDto;
-import core.pickupbackend.device.dto.DeleteDeviceDto;
+import core.pickupbackend.device.dto.DeleteDeviceRequestDto;
 import core.pickupbackend.device.repository.DeviceRepository;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,31 +22,39 @@ public class DeviceService {
         this.deviceRepository = deviceRepository;
     }
 
+    /* 기기 정보 저장 */
+    @Transactional
     public Device save(final CreateDeviceDto createDeviceDto) {
         return deviceRepository.save(createDeviceDto.toEntity());
     }
 
+    /* 모든 기기 정보 조회 */
     public List<Device> findAllDevice() {
         return deviceRepository.findAll();
     }
 
-    public Device findDeviceByFcmToken(final String fcmToken) {
-        return deviceRepository.findByFcmToken(fcmToken).orElseThrow(() -> new ApplicationException(ErrorCode.DEVICE_NOT_FOUND));
+    /* fcm token 기준으로 기기 정보 조회 */
+    public Device findDeviceByFcmToken(final FindByTokenRequest dto) {
+        return deviceRepository.findByFcmToken(dto.fcmToken()).orElseThrow(() -> new ApplicationException(ErrorCode.DEVICE_NOT_FOUND));
     }
 
-    public Device updateMemberId(final Long memberId, final Device device) {
-        final Device updateDevice = device.updateMemberId(memberId);
-        return deviceRepository.updateByMemberId(updateDevice);
+    /* 기기정보에 유저 id 등록 */
+    @Transactional
+    public Device updateDeviceByMemberId(final UpdateDeviceReqeustDto dto) {
+        final Device device = deviceRepository.findById(dto.deviceId()).orElseThrow(() -> new ApplicationException(ErrorCode.DEVICE_NOT_FOUND));
+        final Device updatedDevice = device.updateMemberId(dto.memberId());
+        return deviceRepository.updateByMemberId(updatedDevice);
     }
 
-    public List<Device> findDeviceByMemberId(final Long memberId) {
-        return deviceRepository.findByMemberId(memberId);
+    /* 유저 id로 기기 정보 조회 */
+    public List<Device> findDeviceByMemberId(final FindDeviceByMemberIdRequestDto dto) {
+        return deviceRepository.findByMemberId(dto.memberId());
     }
 
-    public void deleteByToken(final DeleteDeviceDto deleteDeviceDto) {
-        final String fcmToken = deleteDeviceDto.getFcmToken();
+    /* 토큰 기준으로 정보 삭제 */
+    @Transactional
+    public void deleteByToken(final DeleteDeviceRequestDto dto) {
+        final String fcmToken = dto.getFcmToken();
         deviceRepository.deleteByFcmToken(fcmToken);
     }
 }
-
-//엔티티를 넘기는건 아니고 만약에 id만 필요한 경우에 매개변수에 id를 바로 넣는것보다 dto형식으로 안에 값을 넣어서 하는게 추후에 서비스 로직에 다른 매개변수 필요할 때, dto 만 수정하면 되기때문에 더 좋을 것 같다로 이해하면 될까요?

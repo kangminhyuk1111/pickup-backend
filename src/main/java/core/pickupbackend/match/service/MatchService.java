@@ -59,21 +59,12 @@ public class MatchService {
 
         return matches.stream()
                 .map(match -> {
-                    final List<Participation> matchParticipations =
-                            participationRepository.findParticipationsByMatchId(match.getId());
+                    final List<Participation> matchParticipations = getParticipations(match);
 
-                    final List<ParticipationWithUserResponse> participationResponses =
-                            matchParticipations.stream()
-                                    .map(participation -> {
-                                        final Member participationMember = memberService.getMemberById(participation.getUserId());
-                                        final ParticipationMemberResponse memberDto = new ParticipationMemberResponse(participationMember);
-                                        return new ParticipationWithUserResponse(memberDto, participation);
-                                    })
-                                    .toList();
+                    final List<ParticipationWithUserResponse> participationResponses = getParticipationWithUserResponses(matchParticipations);
 
                     return new MatchParticipationResponse(match, participationResponses);
-                })
-                .toList();
+                }).toList();
     }
 
     public List<Match> findAll() {
@@ -102,8 +93,16 @@ public class MatchService {
         return matchRepository.update(match.getId(), updateMatch);
     }
 
-    public void closeMatch(final Long matchId) {
-        final Match findMatch = findById(matchId);
-        findMatch.closeMatch();
+    private List<Participation> getParticipations(final Match match) {
+        return participationRepository.findParticipationsByMatchId(match.getId());
+    }
+
+    private List<ParticipationWithUserResponse> getParticipationWithUserResponses(final List<Participation> matchParticipations) {
+        return matchParticipations.stream()
+                .map(participation -> {
+                    final Member participationMember = memberService.getMemberById(participation.getUserId());
+                    final ParticipationMemberResponse memberDto = new ParticipationMemberResponse(participationMember);
+                    return new ParticipationWithUserResponse(memberDto, participation);
+                }).toList();
     }
 }
