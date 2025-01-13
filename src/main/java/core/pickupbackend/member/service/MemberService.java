@@ -9,6 +9,7 @@ import core.pickupbackend.member.dto.request.UpdateMemberRequest;
 import core.pickupbackend.member.repository.MemberRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class MemberService {
         this.tokenProvider = tokenProvider;
     }
 
+    @Transactional
     public Member createMember(final AddMemberRequest dto) {
         return memberRepository.save(dto.toEntity(passwordEncoder));
     }
@@ -50,10 +52,12 @@ public class MemberService {
         return memberRepository.findByNickname(nickname).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
     }
 
+    @Transactional
     public void deleteMemberById(final Long id) {
         memberRepository.delete(id);
     }
 
+    @Transactional
     public void updateMemberById(final UpdateMemberRequest dto) {
         memberRepository.update(dto.toEntity(passwordEncoder));
     }

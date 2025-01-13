@@ -18,6 +18,7 @@ import core.pickupbackend.member.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,7 @@ public class MatchService {
         this.participationRepository = participationRepository;
     }
 
+    @Transactional
     public Match createMatch(final String accessToken, final CreateMatchRequest createMatchDto) {
         final String email = tokenProvider.extractEmailFromToken(accessToken);
         final Member member = memberService.getMemberByEmail(email);
@@ -71,6 +73,7 @@ public class MatchService {
         return matchRepository.findAll();
     }
 
+    @Transactional
     public void deleteById(final String token, final Long matchId) {
         matchRepository.findById(matchId)
                 .orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_MATCH));
@@ -81,6 +84,7 @@ public class MatchService {
         matchRepository.deleteById(matchId);
     }
 
+    @Transactional
     public Match updateMatch(final String token, final Long matchId, final UpdateMatchRequest updateMatchDto) {
         final Match match = matchRepository.findById(matchId)
                 .orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_MATCH));

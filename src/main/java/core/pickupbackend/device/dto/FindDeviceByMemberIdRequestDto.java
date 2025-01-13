@@ -1,4 +1,4 @@
-package core.pickupbackend.device.service;
+package core.pickupbackend.device.dto;
 
 public record FindDeviceByMemberIdRequestDto(Long memberId) {
 }
