@@ -22,3 +22,6 @@ ALTER TABLE device
     DROP FOREIGN KEY fk_device_member;
 
 truncate device;
+
+ALTER TABLE device
+    ADD CONSTRAINT uk_fcm_token UNIQUE (fcm_token);
