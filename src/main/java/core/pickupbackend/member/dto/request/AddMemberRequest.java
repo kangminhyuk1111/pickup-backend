@@ -24,7 +24,7 @@ public class AddMemberRequest {
         this.height = height;
         this.weight = weight;
         this.position = position;
-        this.level = level;
+        this.level = Level.BEGINNER;
     }
 
     public Member toEntity(final PasswordEncoder passwordEncoder) {

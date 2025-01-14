@@ -16,11 +16,12 @@ public class UrlWhiteListChecker {
         this.pathMatcher = new AntPathMatcher();
         this.whitelistPatterns = new HashMap<>();
 
-        /// addPattern("/**");
+        addPattern("/**");
         addPattern("/member");
         addPattern("/member/{id}","GET");
         addPattern("/auth/login");
         addPattern("/matches/*","GET");
+        addPattern("/matches","GET");
         addPattern("/courts","GET");
         addPattern("/courts/{id}","GET");
         addPattern("/matches/participation","GET");
@@ -28,6 +29,7 @@ public class UrlWhiteListChecker {
         addPattern("/matches/participation/*");
         addPattern("/device");
         addPattern("/push/*");
+        addPattern("/swagger-ui/*");
     }
 
     public void addPattern(String pattern, String... methods) {

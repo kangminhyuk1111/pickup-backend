@@ -3,20 +3,14 @@ package core.pickupbackend.notification.dto.response;
 public class NotificationResult {
     private final boolean success;
     private final String messageId;
-    private final String errorMessage;
 
-    private NotificationResult(boolean success, String messageId, String errorMessage) {
+    private NotificationResult(boolean success, String messageId) {
         this.success = success;
         this.messageId = messageId;
-        this.errorMessage = errorMessage;
     }
 
     public static NotificationResult success(String messageId) {
-        return new NotificationResult(true, messageId, null);
-    }
-
-    public static NotificationResult failure(String errorMessage) {
-        return new NotificationResult(false, null, errorMessage);
+        return new NotificationResult(true, messageId);
     }
 
     public boolean isSuccess() {
@@ -27,7 +21,11 @@ public class NotificationResult {
         return messageId;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
+    @Override
+    public String toString() {
+        return "NotificationResult{" +
+                "success=" + success +
+                ", messageId='" + messageId + '\'' +
+                '}';
     }
 }

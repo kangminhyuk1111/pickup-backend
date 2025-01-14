@@ -10,12 +10,15 @@ import core.pickupbackend.match.dto.request.CreateMatchRequest;
 import core.pickupbackend.match.dto.response.MatchParticipationResponse;
 import core.pickupbackend.match.service.MatchService;
 import core.pickupbackend.match.service.ParticipationService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "매치 API")
 @RestController
 @RequestMapping("/matches")
 public class MatchController {
@@ -31,6 +34,7 @@ public class MatchController {
         this.matchService = matchService;
     }
 
+    @Operation(summary = "매치 생성")
     @PostMapping
     @ResponseBody
     public BaseResponse<Match> createMatch(@RequestBody final CreateMatchRequest createMatchDto, @RequestHeader("Authorization") final String accessToken) {
@@ -40,6 +44,7 @@ public class MatchController {
         return new BaseResponse<>(StatusCode.SUCCESS, match);
     }
 
+    @Operation(summary = "매치 정보 전체 조회")
     @GetMapping
     @ResponseBody
     public BaseResponse<List<Match>> getMatches() {
@@ -48,6 +53,7 @@ public class MatchController {
         return new BaseResponse<>(StatusCode.SUCCESS, matches);
     }
 
+    @Operation(summary = "매치 정보 단건 조회")
     @GetMapping("/{id}")
     @ResponseBody
     public BaseResponse<Match> getMatchById(@PathVariable("id") final Long id) {
@@ -56,6 +62,7 @@ public class MatchController {
         return new BaseResponse<>(StatusCode.SUCCESS, match);
     }
 
+    @Operation(summary = "매치 정보 업데이트")
     @PutMapping("/{id}")
     @ResponseBody
     public BaseResponse<Match> updateMatch(@PathVariable("id") final Long id, @RequestBody final UpdateMatchRequest updateMatchDto, @RequestHeader("Authorization") final String accessToken) {
@@ -65,6 +72,7 @@ public class MatchController {
         return new BaseResponse<>(StatusCode.SUCCESS, match);
     }
 
+    @Operation(summary = "매치 삭제")
     @DeleteMapping("/{matchId}")
     @ResponseBody
     public BaseResponse<Void> deleteMatch(@RequestHeader("Authorization") final String accessToken, @PathVariable("matchId") final Long matchId) {
@@ -74,6 +82,7 @@ public class MatchController {
         return new BaseResponse<>(StatusCode.SUCCESS);
     }
 
+    @Operation(summary = "매치 참여 신청")
     @PostMapping("/participation")
     @ResponseBody
     public BaseResponse<Participation> addParticipation(@RequestHeader("Authorization") final String accessToken, @RequestBody final CreateParticipationRequest createParticipationDto) {
@@ -83,6 +92,7 @@ public class MatchController {
         return new BaseResponse<>(StatusCode.SUCCESS, participation);
     }
 
+    @Operation(summary = "매치와 매치 참여자의 정보를 조회")
     @GetMapping("/participation")
     @ResponseBody
     public BaseResponse<List<MatchParticipationResponse>> getParticipation(@RequestHeader("Authorization") final String accessToken) {

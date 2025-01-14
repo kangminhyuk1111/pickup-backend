@@ -34,6 +34,23 @@ class FcmNotificationServiceTest {
     }
 
     @Test
+    void 다건_알림_전송_성공() {
+        NotificationRequestDto<List<String>> request = new NotificationRequestDto<>(
+                List.of("test-fcm-token", "test-fcm-token2"),
+                "테스트 제목",
+                "테스트 내용"
+        );
+
+        final List<NotificationResult> notificationResults = notificationService.sendMultiCast(request);
+
+        assertThat(notificationResults).hasSize(2);
+
+        for (NotificationResult notificationResult : notificationResults) {
+            System.out.println(notificationResult.toString());
+        }
+    }
+
+    @Test
     void 알림_전송_실패() {
         // given
         notificationService.setShouldFail(true);

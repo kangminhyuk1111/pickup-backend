@@ -1,8 +1,11 @@
 package core.pickupbackend.notification.controller;
 
 import com.google.firebase.messaging.FirebaseMessagingException;
+import core.pickupbackend.notification.dto.reqeust.GeneralNoticeRequestDto;
 import core.pickupbackend.notification.dto.reqeust.NotificationRequestDto;
 import core.pickupbackend.notification.service.FcmNotificationService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@Tag(name = "푸시 알림 API")
 @RestController
 @RequestMapping("/notification")
 public class NotificationController {
@@ -24,13 +28,24 @@ public class NotificationController {
         this.pushMessageService = pushMessageService;
     }
 
+    @Operation(summary = "전체 푸시알림 요청")
+    @PostMapping("/all")
+    public void sendAll(@RequestBody final GeneralNoticeRequestDto pushRequestDto) throws FirebaseMessagingException {
+        logger.debug("send all request: {}", pushRequestDto);
+        pushMessageService.sendAll(pushRequestDto);
+    }
+
+    @Operation(summary = "푸시알림 다건 요청")
     @PostMapping("/multi")
-    public void sendAll(@RequestBody final NotificationRequestDto<List<String>> pushRequestDto) throws FirebaseMessagingException {
+    public void sendMultiple(@RequestBody final NotificationRequestDto<List<String>> pushRequestDto) throws FirebaseMessagingException {
+        logger.debug("send multi request: {}", pushRequestDto);
         pushMessageService.sendMultiCast(pushRequestDto);
     }
 
+    @Operation(summary = "푸시알림 단건 요청")
     @PostMapping("/single")
     public void sendSingle(@RequestBody final NotificationRequestDto<String> pushRequestDto) throws FirebaseMessagingException {
+        logger.debug("send single request: {}", pushRequestDto);
         pushMessageService.send(pushRequestDto);
     }
 }

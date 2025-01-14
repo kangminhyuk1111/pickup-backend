@@ -5,12 +5,15 @@ import core.pickupbackend.court.domain.CourtReview;
 import core.pickupbackend.court.service.CourtService;
 import core.pickupbackend.global.common.code.StatusCode;
 import core.pickupbackend.global.common.response.BaseResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "코트 API")
 @RestController
 @RequestMapping("/courts")
 public class CourtController {
@@ -23,6 +26,7 @@ public class CourtController {
         this.courtService = courtService;
     }
 
+    @Operation(summary = "전체 코트 정보 조회")
     @GetMapping
     @ResponseBody
     public BaseResponse<List<Court>> getAllCourts() {
@@ -30,6 +34,7 @@ public class CourtController {
         return new BaseResponse<>(StatusCode.SUCCESS, courtService.getAllCourts());
     }
 
+    @Operation(summary = "코트 정보 단건 조회")
     @GetMapping("/{courtId}")
     @ResponseBody
     public BaseResponse<List<CourtReview>> getCourtReviewByCourtId(@PathVariable final Long courtId) {

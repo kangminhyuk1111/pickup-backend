@@ -1,5 +1,6 @@
 package core.pickupbackend.notification.fake;
 
+import com.google.firebase.messaging.FirebaseMessagingException;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.global.exception.MessagePushException;
 import core.pickupbackend.notification.dto.reqeust.NotificationRequestDto;
@@ -44,6 +45,11 @@ public class FakeNotificationService implements NotificationService {
                         token
                 )))
                 .toList();
+    }
+
+    @Override
+    public List<NotificationResult> sendAll() throws FirebaseMessagingException {
+        return List.of();
     }
 
     public List<NotificationRecord> getSentNotifications() {

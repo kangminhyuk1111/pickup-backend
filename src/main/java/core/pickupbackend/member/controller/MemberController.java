@@ -7,12 +7,15 @@ import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.dto.request.AddMemberRequest;
 import core.pickupbackend.member.dto.request.UpdateMemberRequest;
 import core.pickupbackend.member.service.MemberService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "사용자 API")
 @RestController
 @RequestMapping("/member")
 public class MemberController {
@@ -27,6 +30,7 @@ public class MemberController {
         this.tokenProvider = tokenProvider;
     }
 
+    @Operation(summary = "전체 회원 조회")
     @GetMapping
     public BaseResponse<List<Member>> getMembers() {
         logger.info("/member request");
@@ -34,6 +38,7 @@ public class MemberController {
         return new BaseResponse<>(StatusCode.SUCCESS, members);
     }
 
+    @Operation(summary = "회원 가입")
     @PostMapping
     public BaseResponse<Member> signUp(@RequestBody AddMemberRequest addMemberRequestDto) {
         logger.info("/member request: {}", addMemberRequestDto.toString());
@@ -41,6 +46,7 @@ public class MemberController {
         return new BaseResponse<>(StatusCode.SUCCESS, member);
     }
 
+    @Operation(summary = "ID 기준 회원 정보 조회")
     @GetMapping("/{id}")
     public BaseResponse<Member> getMemberById(@PathVariable Long id) {
         logger.info("/member/:id request: {}", id);
@@ -48,6 +54,7 @@ public class MemberController {
         return new BaseResponse<>(StatusCode.SUCCESS, member);
     }
 
+    @Operation(summary = "마이 페이지 유저 정보 조회")
     @GetMapping("/mypage")
     public BaseResponse<Member> getMemberByEmail(@RequestHeader("Authorization") String accessToken) {
         logger.info("/member/mypage request: {}", accessToken);
@@ -56,7 +63,8 @@ public class MemberController {
         final Member member = memberService.getMemberByEmail(email);
         return new BaseResponse<>(StatusCode.SUCCESS, member);
     }
-
+    
+    @Operation(summary = "유저 정보 삭제")
     @DeleteMapping("/{id}")
     public BaseResponse<Void> deleteMemberById(@PathVariable Long id) {
         logger.info("/member/:id request: {}", id);
@@ -64,6 +72,7 @@ public class MemberController {
         return new BaseResponse(StatusCode.SUCCESS, null);
     }
 
+    @Operation(summary = "유저 정보 업데이트")
     @PatchMapping()
     public BaseResponse<Void> updateMemberById(@RequestBody UpdateMemberRequest dto) {
         logger.info("/member request: {}", dto.toString());

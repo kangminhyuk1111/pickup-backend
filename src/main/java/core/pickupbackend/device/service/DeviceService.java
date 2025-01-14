@@ -30,6 +30,10 @@ public class DeviceService {
         return deviceRepository.findAll();
     }
 
+    public List<String> findAllTokens() {
+        return deviceRepository.findAll().stream().map(Device::getFcmToken).toList();
+    }
+
     /* fcm token 기준으로 기기 정보 조회 */
     public Device findDeviceByFcmToken(final FindByTokenRequest dto) {
         return deviceRepository.findByFcmToken(dto.fcmToken()).orElseThrow(() -> new ApplicationException(ErrorCode.DEVICE_NOT_FOUND));

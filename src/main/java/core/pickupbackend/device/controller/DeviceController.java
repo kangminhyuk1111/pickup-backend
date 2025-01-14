@@ -7,8 +7,11 @@ import core.pickupbackend.device.dto.DeviceUnregisterRequest;
 import core.pickupbackend.device.service.DeviceService;
 import core.pickupbackend.global.common.code.StatusCode;
 import core.pickupbackend.global.common.response.BaseResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "디바이스 API")
 @RestController
 @RequestMapping("/device")
 public class DeviceController {
@@ -20,6 +23,7 @@ public class DeviceController {
     }
 
     /* 1. 알림 허용 시 디바이스 토큰 저장 */
+    @Operation(summary = "디바이스 토큰 저장")
     @PostMapping
     public BaseResponse<Device> registerDevice(@RequestBody CreateDeviceDto dto) {
         Device device = deviceService.save(dto);
@@ -27,6 +31,7 @@ public class DeviceController {
     }
 
     /* 3. 알림 비활성화 또는 앱 삭제 시 디바이스 토큰 삭제 */
+    @Operation(summary = "디바이스 토큰 저장")
     @DeleteMapping
     public BaseResponse<Void> unregisterDevice(@RequestBody DeviceUnregisterRequest request) {
         deviceService.deleteByToken(new DeleteDeviceRequestDto(request.fcmToken()));
