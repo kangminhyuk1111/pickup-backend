@@ -5,33 +5,35 @@ services:
     build: .
     ports:
       - "8080:8080"
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=mydb
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=1234
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     depends_on:
       - mysql
       - redis
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/yourdb?useSSL=false&allowPublicKeyRetrieval=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=yourpassword
-      - SPRING_REDIS_HOST=redis
-      - SPRING_REDIS_PORT=6379
 
   mysql:
     image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=mydb
+      - MYSQL_ROOT_PASSWORD=password
     ports:
       - "3306:3306"
-    environment:
-      - MYSQL_DATABASE="pickup_db"
-      - MYSQL_ROOT_PASSWORD=:"1234"
     volumes:
-      - mysql-data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
 
   redis:
-    image: redis:latest
+    image: redis:alpine
     ports:
       - "6379:6379"
     volumes:
-      - redis-data:/data
+      - redis_data:/data
 
 volumes:
-  mysql-data:
-  redis-data:
+  mysql_data:
+  redis_data:
