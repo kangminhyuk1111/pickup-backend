@@ -1,6 +1,5 @@
 package core.pickupbackend.global.exception;
 
-import org.apache.http.protocol.HTTP;
 import org.springframework.http.HttpStatus;
 
 public enum ErrorCode {
