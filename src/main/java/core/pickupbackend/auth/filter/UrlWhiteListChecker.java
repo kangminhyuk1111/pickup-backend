@@ -16,7 +16,7 @@ public class UrlWhiteListChecker {
         this.pathMatcher = new AntPathMatcher();
         this.whitelistPatterns = new HashMap<>();
 
-        addPattern("/**");
+//        addPattern("/**");
         addPattern("/member");
         addPattern("/member/{id}","GET");
         addPattern("/auth/login");
@@ -28,8 +28,14 @@ public class UrlWhiteListChecker {
         addPattern("/participation/*");
         addPattern("/matches/participation/*");
         addPattern("/device");
-        addPattern("/push/*");
-        addPattern("/swagger-ui/*");
+        addPattern("/push/**");
+
+        // Swagger UI 관련 패턴들
+        addPattern("/swagger-ui/**");           // Swagger UI 리소스들
+        addPattern("/swagger-resources/**");    // Swagger 설정 및 리소스
+        addPattern("/v3/api-docs/**");         // OpenAPI 스펙 문서
+        addPattern("/swagger-ui/index.html");        // Swagger UI 메인 페이지
+        addPattern("/webjars/**");            // Swagger UI에서 사용하는 웹 리소스
     }
 
     public void addPattern(String pattern, String... methods) {

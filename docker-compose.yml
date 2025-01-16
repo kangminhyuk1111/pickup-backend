@@ -4,13 +4,13 @@ services:
   app:
     build: .
     ports:
-      - "8080:8080"
+      - "18080:8080"
     environment:
       - MYSQL_HOST=mysql
       - MYSQL_PORT=3306
-      - MYSQL_DATABASE=mydb
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=1234
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - REDIS_HOST=redis
       - REDIS_PORT=6379
     depends_on:
@@ -20,17 +20,20 @@ services:
   mysql:
     image: mysql:8.0
     environment:
-      - MYSQL_DATABASE=mydb
-      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     ports:
-      - "3306:3306"
+      - "13306:3306"
     volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - mysql_data:/var/lib/mysql
 
   redis:
     image: redis:alpine
     ports:
-      - "6379:6379"
+      - "16379:6379"
     volumes:
       - redis_data:/data
 
