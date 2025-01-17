@@ -31,7 +31,7 @@ logging:
 # fcm
 fcm:
   json:
-    link: classpath:fcm/pickup-basketball-matching-firebase-adminsdk-9dr31-238a9e0817.json
+    link: classpath:fcm/pickup-basketball-matching-firebase-adminsdk-9dr31-d03de1697d.json
 
 # Swagger
 springdoc:
