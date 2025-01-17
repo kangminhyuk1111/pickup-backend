@@ -4,7 +4,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-# .env
+.env
 
 ### STS ###
 .apt_generated
@@ -38,4 +38,4 @@ out/
 .vscode/
 
 ### fcm key ###
-# /src/main/resources/fcm/*
+/src/main/resources/fcm/*
