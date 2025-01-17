@@ -1,5 +1,5 @@
 # 빌드 스테이지
-FROM eclipse-temurin:21-jdk-alpine as builder
+FROM eclipse-temurin:17-jdk-alpine as builder
 
 WORKDIR /app
 COPY . .
@@ -7,7 +7,7 @@ RUN chmod +x ./gradlew
 RUN ./gradlew bootJar --no-daemon
 
 # 런타임 스테이지
-FROM eclipse-temurin:21-jre-alpine
+FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
 
