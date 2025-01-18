@@ -16,7 +16,7 @@ public class UrlWhiteListChecker {
         this.pathMatcher = new AntPathMatcher();
         this.whitelistPatterns = new HashMap<>();
 
-//        addPattern("/**");
+        addPattern("/**");
         addPattern("/member");
         addPattern("/member/{id}","GET");
         addPattern("/auth/login");
