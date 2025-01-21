@@ -1,0 +1,46 @@
+# mysql
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/pickup_db # create sql 그대로 작성하면 동일하게 유지
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root # root 계정
+    password: ${MYSQL_ROOT_PASSWORD:rkdglqkr12@} # root 계정 비밀번호 입력
+
+  # redis
+  # 설치 기본값 그대로 사용
+  data:
+    redis:
+      host: redis
+      port: 6379
+      password: SPRING_DATA_REDIS_PASSWORD
+
+  # Swagger
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+# jwt
+# 환경변수에 key 입력
+jwt:
+  secretkey: ${JWT_SECRET_KEY}
+
+# log
+logging:
+  level:
+    root: debug
+    core.pickupbackend: debug
+
+# fcm
+# 환경변수에 link 입력 /resources/fcm/~
+fcm:
+  json:
+    link: ${FIREBASE_KEY}
+
+# Swagger
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: method
+  api-docs:
+    path: /v1/api-docs
