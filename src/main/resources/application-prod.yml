@@ -19,7 +19,7 @@ spring:
 
 # jwt
 jwt:
-  secretkey: ${JWT_SECRET_KEY}
+  secretkey: 1q2w3e4r5t6y7u8i9o0p1q2w3e4r5t6y7u8i9o0p!
 
 # log
 logging:
@@ -30,7 +30,7 @@ logging:
 # fcm
 fcm:
   json:
-    link: ${FIREBASE_KEY}
+    link: classpath:fcm/firebase-adminsdk.json
 
 # Swagger
 springdoc:

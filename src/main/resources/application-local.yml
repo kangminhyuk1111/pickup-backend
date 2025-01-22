@@ -22,19 +22,19 @@ spring:
 # jwt
 # 환경변수에 key 입력
 jwt:
-  secretkey: ${JWT_SECRET_KEY}
+  secretkey: 1q2w3e4r5t6y7u8i9o0p1q2w3e4r5t6y7u8i9o0p!
 
 # log
 logging:
   level:
-    root: debug
+    root: warn
     core.pickupbackend: debug
 
 # fcm
 # 환경변수에 link 입력 /resources/fcm/~
 fcm:
   json:
-    link: ${FIREBASE_KEY}
+    link: classpath:fcm/firebase-adminsdk.json
 
 # Swagger
 springdoc:

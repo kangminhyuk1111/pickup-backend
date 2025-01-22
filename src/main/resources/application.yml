@@ -22,7 +22,7 @@ spring:
 
 # jwt
 jwt:
-  secretkey: '1q2w3e4r5t6y7u8i9o0p1q2w3e4r5t6y7u8i9o0p!'
+  secretkey: 1q2w3e4r5t6y7u8i9o0p1q2w3e4r5t6y7u8i9o0p!  # 직접 값을 지정
 
 # log
 logging:
@@ -33,7 +33,7 @@ logging:
 # fcm
 fcm:
   json:
-    link: classpath:fcm/firebase-adminsdk.json
+    link: classpath:fcm/firebase-adminsdk.json  # 직접 값을 지정
 
 # Swagger
 springdoc:
@@ -43,3 +43,7 @@ springdoc:
     operations-sorter: method
   api-docs:
     path: /v1/api-docs
+
+# Beanstalk port
+server:
+  port: 5000
