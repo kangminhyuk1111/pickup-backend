@@ -44,3 +44,4 @@ springdoc:
     operations-sorter: method
   api-docs:
     path: /v1/api-docs
+
