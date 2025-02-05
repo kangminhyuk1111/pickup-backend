@@ -56,6 +56,7 @@ public enum ErrorCode {
     COURT_LONGITUDE_RANGE(HttpStatus.BAD_REQUEST, "경도는 -180.000000에서 180.000000 사이여야 합니다"),
     COURT_HOOPS_RANGE(HttpStatus.BAD_REQUEST, "골대 개수는 0보다 커야 합니다"),
     COURT_RATING_RANGE(HttpStatus.BAD_REQUEST, "평점은 0.000000에서 5.000000 사이여야 합니다"),
+    COURT_NOT_FOUND(HttpStatus.NOT_FOUND, "코트 정보를 찾을 수 없습니다."),
 
     // Device
     DEVICE_NOT_FOUND(HttpStatus.NOT_FOUND, "디바이스 정보를 찾을 수 없습니다."),

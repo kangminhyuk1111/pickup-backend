@@ -4,6 +4,8 @@ import core.pickupbackend.court.domain.Court;
 import core.pickupbackend.court.domain.CourtReview;
 import core.pickupbackend.court.repository.CourtRepository;
 import core.pickupbackend.court.repository.CourtReviewRepository;
+import core.pickupbackend.global.exception.ApplicationException;
+import core.pickupbackend.global.exception.ErrorCode;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +23,10 @@ public class CourtService {
 
     public List<Court> getAllCourts() {
         return courtRepository.getAllCourts();
+    }
+
+    public Court getCourtById(Long courtId) {
+        return courtRepository.getCourtById(courtId).orElseThrow(() -> new ApplicationException(ErrorCode.COURT_NOT_FOUND));
     }
 
     public List<CourtReview> getReviewById(final Long courtId) {

@@ -8,6 +8,7 @@ import core.pickupbackend.member.dto.request.AddMemberRequest;
 import core.pickupbackend.member.dto.request.UpdateMemberRequest;
 import core.pickupbackend.member.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +31,7 @@ public class MemberController {
         this.tokenProvider = tokenProvider;
     }
 
-    @Operation(summary = "전체 회원 조회")
+    @Operation(summary = "전체 회원 조회", security = { @SecurityRequirement(name = "bearerAuth") })
     @GetMapping
     public BaseResponse<List<Member>> getMembers() {
         logger.info("/member request");
@@ -46,7 +47,7 @@ public class MemberController {
         return new BaseResponse<>(StatusCode.SUCCESS, member);
     }
 
-    @Operation(summary = "ID 기준 회원 정보 조회")
+    @Operation(summary = "ID 기준 회원 정보 조회", security = { @SecurityRequirement(name = "bearerAuth") })
     @GetMapping("/{id}")
     public BaseResponse<Member> getMemberById(@PathVariable Long id) {
         logger.info("/member/:id request: {}", id);
@@ -54,7 +55,7 @@ public class MemberController {
         return new BaseResponse<>(StatusCode.SUCCESS, member);
     }
 
-    @Operation(summary = "마이 페이지 유저 정보 조회")
+    @Operation(summary = "마이 페이지 유저 정보 조회", security = { @SecurityRequirement(name = "bearerAuth") })
     @GetMapping("/mypage")
     public BaseResponse<Member> getMemberByEmail(@RequestHeader("Authorization") String accessToken) {
         logger.info("/member/mypage request: {}", accessToken);
@@ -64,7 +65,7 @@ public class MemberController {
         return new BaseResponse<>(StatusCode.SUCCESS, member);
     }
     
-    @Operation(summary = "유저 정보 삭제")
+    @Operation(summary = "유저 정보 삭제", security = { @SecurityRequirement(name = "bearerAuth") })
     @DeleteMapping("/{id}")
     public BaseResponse<Void> deleteMemberById(@PathVariable Long id) {
         logger.info("/member/:id request: {}", id);
@@ -72,7 +73,7 @@ public class MemberController {
         return new BaseResponse(StatusCode.SUCCESS, null);
     }
 
-    @Operation(summary = "유저 정보 업데이트")
+    @Operation(summary = "유저 정보 업데이트", security = { @SecurityRequirement(name = "bearerAuth") })
     @PatchMapping()
     public BaseResponse<Void> updateMemberById(@RequestBody UpdateMemberRequest dto) {
         logger.info("/member request: {}", dto.toString());

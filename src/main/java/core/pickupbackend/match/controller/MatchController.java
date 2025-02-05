@@ -11,6 +11,7 @@ import core.pickupbackend.match.dto.response.MatchParticipationResponse;
 import core.pickupbackend.match.service.MatchService;
 import core.pickupbackend.match.service.ParticipationService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +35,7 @@ public class MatchController {
         this.matchService = matchService;
     }
 
-    @Operation(summary = "매치 생성")
+    @Operation(summary = "매치 생성", security = { @SecurityRequirement(name = "bearerAuth") })
     @PostMapping
     @ResponseBody
     public BaseResponse<Match> createMatch(@RequestBody final CreateMatchRequest createMatchDto, @RequestHeader("Authorization") final String accessToken) {
@@ -62,7 +63,7 @@ public class MatchController {
         return new BaseResponse<>(StatusCode.SUCCESS, match);
     }
 
-    @Operation(summary = "매치 정보 업데이트")
+    @Operation(summary = "매치 정보 업데이트", security = { @SecurityRequirement(name = "bearerAuth") })
     @PutMapping("/{id}")
     @ResponseBody
     public BaseResponse<Match> updateMatch(@PathVariable("id") final Long id, @RequestBody final UpdateMatchRequest updateMatchDto, @RequestHeader("Authorization") final String accessToken) {
@@ -72,7 +73,7 @@ public class MatchController {
         return new BaseResponse<>(StatusCode.SUCCESS, match);
     }
 
-    @Operation(summary = "매치 삭제")
+    @Operation(summary = "매치 삭제", security = { @SecurityRequirement(name = "bearerAuth") })
     @DeleteMapping("/{matchId}")
     @ResponseBody
     public BaseResponse<Void> deleteMatch(@RequestHeader("Authorization") final String accessToken, @PathVariable("matchId") final Long matchId) {
@@ -82,7 +83,7 @@ public class MatchController {
         return new BaseResponse<>(StatusCode.SUCCESS);
     }
 
-    @Operation(summary = "매치 참여 신청")
+    @Operation(summary = "매치 참여 신청", security = { @SecurityRequirement(name = "bearerAuth") })
     @PostMapping("/participation")
     @ResponseBody
     public BaseResponse<Participation> addParticipation(@RequestHeader("Authorization") final String accessToken, @RequestBody final CreateParticipationRequest createParticipationDto) {
@@ -92,7 +93,7 @@ public class MatchController {
         return new BaseResponse<>(StatusCode.SUCCESS, participation);
     }
 
-    @Operation(summary = "매치와 매치 참여자의 정보를 조회")
+    @Operation(summary = "매치와 매치 참여자의 정보를 조회", security = { @SecurityRequirement(name = "bearerAuth") })
     @GetMapping("/participation")
     @ResponseBody
     public BaseResponse<List<MatchParticipationResponse>> getParticipation(@RequestHeader("Authorization") final String accessToken) {

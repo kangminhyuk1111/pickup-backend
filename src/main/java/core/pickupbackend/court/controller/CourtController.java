@@ -6,6 +6,7 @@ import core.pickupbackend.court.service.CourtService;
 import core.pickupbackend.global.common.code.StatusCode;
 import core.pickupbackend.global.common.response.BaseResponse;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,7 @@ public class CourtController {
         this.courtService = courtService;
     }
 
-    @Operation(summary = "전체 코트 정보 조회")
+    @Operation(summary = "전체 코트 정보 조회", security = { @SecurityRequirement(name = "bearerAuth") })
     @GetMapping
     @ResponseBody
     public BaseResponse<List<Court>> getAllCourts() {
@@ -34,11 +35,11 @@ public class CourtController {
         return new BaseResponse<>(StatusCode.SUCCESS, courtService.getAllCourts());
     }
 
-    @Operation(summary = "코트 정보 단건 조회")
+    @Operation(summary = "코트 정보 단건 조회", security = { @SecurityRequirement(name = "bearerAuth") })
     @GetMapping("/{courtId}")
     @ResponseBody
-    public BaseResponse<List<CourtReview>> getCourtReviewByCourtId(@PathVariable final Long courtId) {
+    public BaseResponse<Court> getCourtReviewByCourtId(@PathVariable final Long courtId) {
         logger.debug("/courts/:id request: {}", courtId);
-        return new BaseResponse<>(StatusCode.SUCCESS, courtService.getReviewById(courtId));
+        return new BaseResponse<>(StatusCode.SUCCESS, courtService.getCourtById(courtId));
     }
 }

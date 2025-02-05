@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class JdbcCourtRepository implements CourtRepository {
@@ -30,5 +31,10 @@ public class JdbcCourtRepository implements CourtRepository {
                     GROUP BY c.id;
                 """;
         return jdbcTemplate.query(sql, courtRowMapper);
+    }
+
+    @Override
+    public Optional<Court> getCourtById(final Long courtId) {
+        return Optional.empty();
     }
 }

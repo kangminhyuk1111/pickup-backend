@@ -16,26 +16,45 @@ public class UrlWhiteListChecker {
         this.pathMatcher = new AntPathMatcher();
         this.whitelistPatterns = new HashMap<>();
 
-        addPattern("/**");
-        addPattern("/member");
-        addPattern("/member/{id}","GET");
-        addPattern("/auth/login");
-        addPattern("/matches/*","GET");
-        addPattern("/matches","GET");
-        addPattern("/courts","GET");
-        addPattern("/courts/{id}","GET");
-        addPattern("/matches/participation","GET");
-        addPattern("/participation/*");
-        addPattern("/matches/participation/*");
-        addPattern("/device");
-        addPattern("/push/**");
+        // Public APIs (No authentication required)
+        addPattern("/auth/**");                // 인증 관련 모든 엔드포인트
+        addPattern("/public/**");              // 공개 API 엔드포인트
 
-        // Swagger UI 관련 패턴들
-        addPattern("/swagger-ui/**");           // Swagger UI 리소스들
-        addPattern("/swagger-resources/**");    // Swagger 설정 및 리소스
-        addPattern("/v1/api-docs/**");         // OpenAPI 스펙 문서
-        addPattern("/swagger-ui/index.html");        // Swagger UI 메인 페이지
-        addPattern("/webjars/**");            // Swagger UI에서 사용하는 웹 리소스
+        // Member APIs
+        addPattern("/member", "GET", "POST");  // 회원 목록 조회 및 생성
+        addPattern("/member/{id}/**", "GET");  // 특정 회원 정보 조회
+
+        // Match APIs
+        addPattern("/matches", "GET");         // 매치 목록 조회
+        addPattern("/matches/{id}/**", "GET"); // 특정 매치 정보 조회
+        addPattern("/matches/participation/**", "GET"); // 참가 정보 조회
+
+        // Court APIs
+        addPattern("/courts/**", "GET");       // 코트 관련 모든 조회 API
+
+        // Participation APIs
+        addPattern("/participation/{id}/**");  // 참가 관련 모든 API
+
+        // Device & Push Notification APIs
+        addPattern("/device/**");              // 디바이스 관련 모든 API
+        addPattern("/push/**");                // 푸시 알림 관련 모든 API
+
+        // Swagger Documentation
+        addSwaggerPatterns();
+    }
+
+    private void addSwaggerPatterns() {
+        String[] swaggerPaths = {
+                "/swagger-ui/**",           // Swagger UI 리소스
+                "/swagger-resources/**",     // Swagger 설정 및 리소스
+                "/v1/api-docs/**",          // OpenAPI 스펙 문서
+                "/swagger-ui/index.html",    // Swagger UI 메인 페이지
+                "/webjars/**"               // Swagger UI 웹 리소스
+        };
+
+        for (String path : swaggerPaths) {
+            addPattern(path);
+        }
     }
 
     public void addPattern(String pattern, String... methods) {
