@@ -8,6 +8,7 @@ import core.pickupbackend.match.domain.Match;
 import core.pickupbackend.match.domain.Participation;
 import core.pickupbackend.match.dto.request.CreateMatchRequest;
 import core.pickupbackend.match.dto.request.UpdateMatchRequest;
+import core.pickupbackend.match.dto.request.UpdateParticipationRequest;
 import core.pickupbackend.match.dto.response.MatchParticipationResponse;
 import core.pickupbackend.match.dto.response.ParticipationMemberResponse;
 import core.pickupbackend.match.dto.response.ParticipationWithUserResponse;
@@ -97,6 +98,26 @@ public class MatchService {
         return matchRepository.update(match.getId(), updateMatch);
     }
 
+    public Participation matchAccept(final UpdateParticipationRequest updateParticipationRequest) {
+        final Participation participation = participationRepository.findParticipationById(updateParticipationRequest.participationId());
+
+        final Participation accept = participation.accept();
+
+        participationRepository.updateParticipation(accept);
+
+        return accept;
+    }
+
+    public Participation matchRejected(final UpdateParticipationRequest updateParticipationRequest) {
+        final Participation participation = participationRepository.findParticipationById(updateParticipationRequest.participationId());
+
+        final Participation rejected = participation.rejected();
+
+        participationRepository.updateParticipation(rejected);
+
+        return rejected;
+    }
+
     private List<Participation> getParticipations(final Match match) {
         return participationRepository.findParticipationsByMatchId(match.getId());
     }
@@ -109,4 +130,5 @@ public class MatchService {
                     return new ParticipationWithUserResponse(memberDto, participation);
                 }).toList();
     }
+
 }

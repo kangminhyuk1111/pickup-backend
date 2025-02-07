@@ -40,3 +40,6 @@ out/
 
 ### fcm key ###
 /src/main/resources/fcm/*
+
+### log ###
+src/main/resources/log/

@@ -1,7 +1,7 @@
 package core.pickupbackend.notification.service;
 
 import core.pickupbackend.global.exception.MessagePushException;
-import core.pickupbackend.notification.dto.reqeust.NotificationRequestDto;
+import core.pickupbackend.notification.dto.reqeust.NotificationCommand;
 import core.pickupbackend.notification.dto.response.NotificationResult;
 import core.pickupbackend.notification.fake.FakeNotificationService;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ class FcmNotificationServiceTest {
     @Test
     void 단일_알림_전송_성공() {
         // given
-        NotificationRequestDto<String> request = new NotificationRequestDto<>(
+        NotificationCommand<String> request = new NotificationCommand<>(
                 "test-fcm-token",
                 "테스트 제목",
                 "테스트 내용"
@@ -35,7 +35,7 @@ class FcmNotificationServiceTest {
 
     @Test
     void 다건_알림_전송_성공() {
-        NotificationRequestDto<List<String>> request = new NotificationRequestDto<>(
+        NotificationCommand<List<String>> request = new NotificationCommand<>(
                 List.of("test-fcm-token", "test-fcm-token2"),
                 "테스트 제목",
                 "테스트 내용"
@@ -54,7 +54,7 @@ class FcmNotificationServiceTest {
     void 알림_전송_실패() {
         // given
         notificationService.setShouldFail(true);
-        NotificationRequestDto<String> request = new NotificationRequestDto<>(
+        NotificationCommand<String> request = new NotificationCommand<>(
                 "token", "제목", "내용"
         );
 

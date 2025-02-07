@@ -7,6 +7,7 @@ import core.pickupbackend.match.dto.request.CreateParticipationRequest;
 import core.pickupbackend.match.dto.request.UpdateMatchRequest;
 import core.pickupbackend.match.domain.Match;
 import core.pickupbackend.match.dto.request.CreateMatchRequest;
+import core.pickupbackend.match.dto.request.UpdateParticipationRequest;
 import core.pickupbackend.match.dto.response.MatchParticipationResponse;
 import core.pickupbackend.match.service.MatchService;
 import core.pickupbackend.match.service.ParticipationService;
@@ -101,5 +102,23 @@ public class MatchController {
         final String token = accessToken.replace("Bearer ", "");
         List<MatchParticipationResponse> responses = matchService.findMatchParticipationByMemberId(token);
         return new BaseResponse<>(StatusCode.SUCCESS, responses);
+    }
+
+    @Operation(summary = "매치 참여자 상태 수락", security = { @SecurityRequirement(name = "bearerAuth") })
+    @PostMapping("/accept")
+    @ResponseBody
+    public BaseResponse<Participation> acceptParticipation(@RequestBody final UpdateParticipationRequest updateParticipationRequest) {
+        logger.debug("/accept request: {}", updateParticipationRequest);
+        final Participation participation = matchService.matchAccept(updateParticipationRequest);
+        return new BaseResponse<>(StatusCode.SUCCESS, participation);
+    }
+
+    @Operation(summary = "매치 참여자 상태 거절", security = { @SecurityRequirement(name = "bearerAuth") })
+    @PostMapping("/rejected")
+    @ResponseBody
+    public BaseResponse<Participation> rejectedParticipation(@RequestBody final UpdateParticipationRequest updateParticipationRequest) {
+        logger.debug("/accept request: {}", updateParticipationRequest);
+        final Participation participation = matchService.matchRejected(updateParticipationRequest);
+        return new BaseResponse<>(StatusCode.SUCCESS, participation);
     }
 }

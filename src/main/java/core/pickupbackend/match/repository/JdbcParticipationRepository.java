@@ -81,7 +81,7 @@ public class JdbcParticipationRepository implements ParticipationRepository {
                 + "WHERE id = ?";
 
         int updatedRows = jdbcTemplate.update(sql,
-                participation.getStatus(),
+                participation.getStatus().name(),
                 participation.getMessage(),
                 Timestamp.valueOf(LocalDateTime.now()),
                 participation.getId()

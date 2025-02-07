@@ -2,19 +2,19 @@ package core.pickupbackend.notification.dto.reqeust;
 
 import java.util.List;
 
-public class NotificationRequestDto<T> {
+public class NotificationCommand<T> {
 
     private T targetToken;
     private String title;
     private String body;
 
-    public NotificationRequestDto(final String title, final String body) {
+    public NotificationCommand(final String title, final String body) {
         targetToken = (T) List.of();
         this.title = title;
         this.body = body;
     }
 
-    public NotificationRequestDto(final T targetToken, final String title, final String body) {
+    public NotificationCommand(final T targetToken, final String title, final String body) {
         this.targetToken = targetToken;
         this.title = title;
         this.body = body;

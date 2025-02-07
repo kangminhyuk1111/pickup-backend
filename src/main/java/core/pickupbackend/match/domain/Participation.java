@@ -105,4 +105,14 @@ public class Participation {
                 ", updatedAt=" + updatedAt +
                 '}';
     }
+
+    public Participation accept() {
+        this.status = ParticipationStatus.ACCEPTED;
+        return this;
+    }
+
+    public Participation rejected() {
+        this.status = ParticipationStatus.REJECTED;
+        return this;
+    }
 }

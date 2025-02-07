@@ -22,12 +22,14 @@ public class UrlWhiteListChecker {
 
         // Member APIs
         addPattern("/member", "GET", "POST");  // 회원 목록 조회 및 생성
-        addPattern("/member/{id}/**", "GET");  // 특정 회원 정보 조회
+        addPattern("/member/{id}", "GET");  // 특정 회원 정보 조회
 
         // Match APIs
         addPattern("/matches", "GET");         // 매치 목록 조회
         addPattern("/matches/{id}/**", "GET"); // 특정 매치 정보 조회
         addPattern("/matches/participation/**", "GET"); // 참가 정보 조회
+        addPattern("/matches/accept","POST");
+        addPattern("/matches/rejected","POST");
 
         // Court APIs
         addPattern("/courts/**", "GET");       // 코트 관련 모든 조회 API

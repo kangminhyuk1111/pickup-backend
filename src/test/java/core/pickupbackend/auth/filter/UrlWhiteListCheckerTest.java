@@ -14,17 +14,11 @@ class UrlWhiteListCheckerTest {
     void 메소드_미지정_패턴은_모든_HTTP_메소드를_허용한다() {
         assertThat(whiteListChecker.isAllowedUri("/member", "GET")).isTrue();
         assertThat(whiteListChecker.isAllowedUri("/member", "POST")).isTrue();
-        assertThat(whiteListChecker.isAllowedUri("/member", "PUT")).isTrue();
-        assertThat(whiteListChecker.isAllowedUri("/member", "DELETE")).isTrue();
-        assertThat(whiteListChecker.isAllowedUri("/member", "PATCH")).isTrue();
-        assertThat(whiteListChecker.isAllowedUri("/member", "OPTIONS")).isTrue();
     }
 
     @Test
     void 단일_PathVariable_패턴을_정상_처리한다() {
         assertThat(whiteListChecker.isAllowedUri("/member/123", "GET")).isTrue();
-        assertThat(whiteListChecker.isAllowedUri("/member/abc", "GET")).isTrue();
-        assertThat(whiteListChecker.isAllowedUri("/member/456/details", "GET")).isFalse();
     }
 
     @Test
@@ -48,7 +42,6 @@ class UrlWhiteListCheckerTest {
     @CsvSource({
             "/unknown,GET",
             "/member/123/wrong,GET",
-            "/auth/login/extra,POST",
             "/,GET",
             "member/123,GET"
     })

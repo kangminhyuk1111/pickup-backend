@@ -1,9 +1,9 @@
-package core.pickupbackend.notification.controller;
+package core.pickupbackend.notification.infra.adapter.input.controller;
 
 import com.google.firebase.messaging.FirebaseMessagingException;
-import core.pickupbackend.notification.dto.reqeust.GeneralNoticeRequestDto;
-import core.pickupbackend.notification.dto.reqeust.NotificationRequestDto;
-import core.pickupbackend.notification.service.FcmNotificationService;
+import core.pickupbackend.notification.application.service.FcmNotificationService;
+import core.pickupbackend.notification.dto.reqeust.GeneralNoticeCommand;
+import core.pickupbackend.notification.dto.reqeust.NotificationCommand;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -31,21 +31,21 @@ public class NotificationController {
 
     @Operation(summary = "전체 푸시알림 요청", security = { @SecurityRequirement(name = "bearerAuth") })
     @PostMapping("/all")
-    public void sendAll(@RequestBody final GeneralNoticeRequestDto pushRequestDto) throws FirebaseMessagingException {
+    public void sendAll(@RequestBody final GeneralNoticeCommand pushRequestDto) throws FirebaseMessagingException {
         logger.debug("send all request: {}", pushRequestDto);
         pushMessageService.sendAll(pushRequestDto);
     }
 
     @Operation(summary = "푸시알림 다건 요청", security = { @SecurityRequirement(name = "bearerAuth") })
     @PostMapping("/multi")
-    public void sendMultiple(@RequestBody final NotificationRequestDto<List<String>> pushRequestDto) throws FirebaseMessagingException {
+    public void sendMultiple(@RequestBody final NotificationCommand<List<String>> pushRequestDto) throws FirebaseMessagingException {
         logger.debug("send multi request: {}", pushRequestDto);
         pushMessageService.sendMultiCast(pushRequestDto);
     }
 
     @Operation(summary = "푸시알림 단건 요청", security = { @SecurityRequirement(name = "bearerAuth") })
     @PostMapping("/single")
-    public void sendSingle(@RequestBody final NotificationRequestDto<String> pushRequestDto) throws FirebaseMessagingException {
+    public void sendSingle(@RequestBody final NotificationCommand<String> pushRequestDto) throws FirebaseMessagingException {
         logger.debug("send single request: {}", pushRequestDto);
         pushMessageService.send(pushRequestDto);
     }

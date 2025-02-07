@@ -3,21 +3,21 @@ package core.pickupbackend.notification.fake;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.global.exception.MessagePushException;
-import core.pickupbackend.notification.dto.reqeust.GeneralNoticeRequestDto;
-import core.pickupbackend.notification.dto.reqeust.NotificationRequestDto;
+import core.pickupbackend.notification.dto.reqeust.GeneralNoticeCommand;
+import core.pickupbackend.notification.dto.reqeust.NotificationCommand;
 import core.pickupbackend.notification.dto.response.NotificationResult;
-import core.pickupbackend.notification.service.NotificationService;
+import core.pickupbackend.notification.application.port.in.NotificationPort;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class FakeNotificationService implements NotificationService {
+public class FakeNotificationService implements NotificationPort {
     private final List<NotificationRecord> sentNotifications = new ArrayList<>();
     private boolean shouldFail = false;
 
     @Override
-    public NotificationResult send(NotificationRequestDto<String> request) {
+    public NotificationResult send(NotificationCommand<String> request) {
         if (shouldFail) {
             throw new MessagePushException(ErrorCode.MESSAGE_NOT_PUSHED);
         }
@@ -34,13 +34,13 @@ public class FakeNotificationService implements NotificationService {
     }
 
     @Override
-    public List<NotificationResult> sendMultiCast(NotificationRequestDto<List<String>> request) {
+    public List<NotificationResult> sendMultiCast(NotificationCommand<List<String>> request) {
         if (shouldFail) {
             throw new MessagePushException(ErrorCode.MESSAGE_NOT_PUSHED);
         }
 
         return request.getTargetToken().stream()
-                .map(token -> send(new NotificationRequestDto<>(
+                .map(token -> send(new NotificationCommand<>(
                         request.getTitle(),
                         request.getBody(),
                         token
@@ -49,7 +49,7 @@ public class FakeNotificationService implements NotificationService {
     }
 
     @Override
-    public List<NotificationResult> sendAll(final GeneralNoticeRequestDto generalNoticeRequestDto) throws FirebaseMessagingException {
+    public List<NotificationResult> sendAll(final GeneralNoticeCommand generalNoticeRequestDto) throws FirebaseMessagingException {
         return List.of();
     }
 

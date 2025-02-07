@@ -41,3 +41,7 @@ springdoc:
     operations-sorter: method
   api-docs:
     path: /v1/api-docs
+
+# cors
+cors:
+  allowed-origins: http://13.125.58.70:8080/
