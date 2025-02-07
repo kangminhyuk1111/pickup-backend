@@ -19,3 +19,193 @@ Pickup은 농구 매칭이 어려운 현 상황을 해결하기 위해 만든 �
 - [ ] 각각 사용자가 마이페이지에서 매칭 신청 목록을 관리하도록 구현
 - [ ] 매칭시 동시에 요청이 되는 경우를 방지하기 위해 @Transactional로 동시성 제어
 - [ ] 매칭이 성사되거나 매칭 수락 및 거절을 알리기 위해 FCM을 통한 푸시알림 구현    
+
+## 프로젝트 구조
+src/main/java
+└── core
+    └── pickupbackend
+        ├── PickupBackendApplication.java
+        │
+        ├── auth
+        │   ├── controller
+        │   │   └── AuthController.java
+        │   ├── domain
+        │   │   └── AuthCredential.java
+        │   ├── dto
+        │   │   ├── LoginRequest.java
+        │   │   └── LogoutRequest.java
+        │   ├── filter
+        │   │   ├── JwtAuthFilter.java
+        │   │   └── UrlWhiteListChecker.java
+        │   ├── provider
+        │   │   ├── JjwtTokenProvider.java
+        │   │   ├── JtiProvider.java
+        │   │   ├── KeyProvider.java
+        │   │   ├── ResourcesKeyProvider.java
+        │   │   ├── TokenProvider.java
+        │   │   └── UuidJtiProvider.java
+        │   ├── repository
+        │   │   └── JwtRepository.java
+        │   └── service
+        │       ├── AuthService.java
+        │       └── JwtService.java
+        │
+        ├── court
+        │   ├── controller
+        │   │   └── CourtController.java
+        │   ├── domain
+        │   │   ├── Court.java
+        │   │   └── CourtReview.java
+        │   ├── mapper
+        │   │   ├── CourtReviewRowMapper.java
+        │   │   └── CourtRowMapper.java
+        │   ├── repository
+        │   │   ├── CourtRepository.java
+        │   │   ├── CourtReviewRepository.java
+        │   │   ├── JdbcCourtRepository.java
+        │   │   └── JdbcCourtReviewRepository.java
+        │   └── service
+        │       └── CourtService.java
+        │
+        ├── device
+        │   ├── application
+        │   │   ├── in
+        │   │   │   ├── DeleteDeviceTokenUseCase.java
+        │   │   │   ├── DeviceService.java
+        │   │   │   └── SaveDeviceTokenUseCase.java
+        │   │   ├── out
+        │   │   │   └── DeviceRepository.java
+        │   │   └── service
+        │   │       └── DefaultDeviceService.java
+        │   ├── domain
+        │   │   ├── Device.java
+        │   │   ├── mapper
+        │   │   │   └── DeviceMapper.java
+        │   │   └── type
+        │   │       └── DeviceType.java
+        │   ├── dto
+        │   │   ├── CreateDeviceDto.java
+        │   │   ├── DeleteDeviceRequestDto.java
+        │   │   ├── DeviceUnregisterRequest.java
+        │   │   ├── FindByTokenRequest.java
+        │   │   ├── FindDeviceByMemberIdRequestDto.java
+        │   │   └── UpdateDeviceReqeustDto.java
+        │   └── infra
+        │       ├── repository
+        │       │   └── JdbcDeviceRepository.java
+        │       └── web
+        │           └── controller
+        │               └── DeviceController.java
+        │
+        ├── global
+        │   ├── common
+        │   │   ├── code
+        │   │   │   └── StatusCode.java
+        │   │   └── response
+        │   │       ├── BaseResponse.java
+        │   │       └── ErrorResponse.java
+        │   ├── config
+        │   │   ├── LogbackConfig.java
+        │   │   ├── PasswordConfig.java
+        │   │   ├── RedisConfig.java
+        │   │   ├── SwaggerConfig.java
+        │   │   └── WebConfig.java
+        │   └── exception
+        │       ├── ApplicationException.java
+        │       ├── ApplicationMatchException.java
+        │       ├── DatabaseExceptionHandler.java
+        │       ├── ErrorCode.java
+        │       ├── GlobalExceptionHandler.java
+        │       ├── MessagePushException.java
+        │       └── ValidateException.java
+        │
+        ├── match
+        │   ├── application
+        │   │   ├── in
+        │   │   │   ├── CreateMatchUseCase.java
+        │   │   │   ├── DeleteMatchUseCase.java
+        │   │   │   ├── FindAllMatchesUseCase.java
+        │   │   │   ├── FindMatchByIdUseCase.java
+        │   │   │   ├── FindMatchParticipationUseCase.java
+        │   │   │   ├── MatchAcceptUseCase.java
+        │   │   │   ├── MatchRejectedUseCase.java
+        │   │   │   ├── MatchService.java
+        │   │   │   └── UpdateMatchUseCase.java
+        │   │   ├── out
+        │   │   │   ├── MatchRepository.java
+        │   │   │   └── ParticipationRepository.java
+        │   │   └── service
+        │   │       ├── DefaultMatchService.java
+        │   │       └── DefaultParticipationService.java
+        │   ├── domain
+        │   │   ├── Match.java
+        │   │   ├── MatchStatus.java
+        │   │   ├── Participation.java
+        │   │   ├── ParticipationStatus.java
+        │   │   └── mapper
+        │   │       ├── MatchRowMapper.java
+        │   │       └── ParticipationRowMapper.java
+        │   ├── dto
+        │   │   ├── request
+        │   │   │   ├── CreateMatchRequest.java
+        │   │   │   ├── CreateParticipationRequest.java
+        │   │   │   ├── UpdateMatchRequest.java
+        │   │   │   └── UpdateParticipationRequest.java
+        │   │   └── response
+        │   │       ├── MatchParticipationResponse.java
+        │   │       ├── ParticipationMemberResponse.java
+        │   │       └── ParticipationWithUserResponse.java
+        │   └── infra
+        │       ├── repository
+        │       │   ├── JdbcMatchRepository.java
+        │       │   └── JdbcParticipationRepository.java
+        │       └── web
+        │           └── controller
+        │               └── MatchController.java
+        │
+        ├── member
+        │   ├── controller
+        │   │   └── MemberController.java
+        │   ├── domain
+        │   │   ├── Member.java
+        │   │   ├── mapper
+        │   │   │   └── MemberRowMapper.java
+        │   │   ├── type
+        │   │   │   ├── Level.java
+        │   │   │   └── Position.java
+        │   │   └── vo
+        │   │       └── Password.java
+        │   ├── dto
+        │   │   ├── request
+        │   │   │   ├── AddMemberRequest.java
+        │   │   │   └── UpdateMemberRequest.java
+        │   │   └── response
+        │   ├── repository
+        │   │   ├── JdbcMemberRepository.java
+        │   │   └── MemberRepository.java
+        │   └── service
+        │       ├── MemberService.java
+        │       └── PasswordService.java
+        │
+        └── notification
+            ├── application
+            │   ├── port
+            │   │   └── in
+            │   │       ├── MultiNotificationUseCase.java
+            │   │       ├── NotificationPort.java
+            │   │       ├── SendAllNotificationUseCase.java
+            │   │       └── SingleNotificationUseCase.java
+            │   └── service
+            │       └── FcmNotificationService.java
+            ├── config
+            │   └── FCMConfig.java
+            ├── dto
+            │   ├── request
+            │   │   ├── GeneralNoticeCommand.java
+            │   │   └── NotificationCommand.java
+            │   └── response
+            │       └── NotificationResult.java
+            └── infra
+                └── web
+                    └── controller
+                        └── NotificationController.java
