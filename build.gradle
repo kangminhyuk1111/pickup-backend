@@ -4,8 +4,8 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.4'
 }
 
+version = '0.0.2-SNAPSHOT'
 group = 'core'
-version = '0.0.1-SNAPSHOT'
 
 java {
     toolchain {
@@ -67,7 +67,7 @@ tasks.named('bootJar') {
         // application.yml 파일의 spring.profiles.active가 prod인지 확인
         if (defaultFile.exists()) {
             def content = defaultFile.text
-            if (!content.contains('spring.profiles.active: prod')) {
+            if (!content.contains('active: prod')) {
                 throw new GradleException("""
                     ======================================================================
                     빌드 실패: application.yml의 활성 프로파일이 prod가 아닙니다.

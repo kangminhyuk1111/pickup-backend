@@ -96,7 +96,7 @@ public class JdbcParticipationRepository implements ParticipationRepository {
     }
 
     @Override
-    public void deleteParticipation(final long id) {
+    public void deleteParticipation(final Long id) {
         String sql = "DELETE FROM match_participation WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }
