@@ -8,9 +8,12 @@ Pickup은 농구 매칭이 어려운 현 상황을 해결하기 위해 만든 �
 
 ## 개발 스택
 - Spring Boot
+- JDBC Template
 - MySQL
+- JJWT - 자바 JWT 토큰 라이브러리
 - Redis (JWT 토큰 관리)
 - FCM (Firebase Cloud Messaging) - 푸시 알림 구현
+- AWS EC2, AWS RDS, AWS S3 - 클라우드 서비스 인프라 구현
 
 ## 구현 목록
 - [x] JWT 토큰을 저장, Redis의 TTL을 사용하여 토큰 만료 구현
