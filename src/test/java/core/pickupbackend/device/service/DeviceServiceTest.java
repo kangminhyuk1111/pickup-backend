@@ -1,10 +1,11 @@
 package core.pickupbackend.device.service;
 
+import core.pickupbackend.device.application.service.DefaultDeviceService;
 import core.pickupbackend.device.domain.Device;
 import core.pickupbackend.device.domain.type.DeviceType;
 import core.pickupbackend.device.dto.*;
 import core.pickupbackend.device.fake.FakeDeviceRepository;
-import core.pickupbackend.device.repository.DeviceRepository;
+import core.pickupbackend.device.application.out.DeviceRepository;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.domain.type.Level;
@@ -22,7 +23,7 @@ public class DeviceServiceTest {
 
     private final DeviceRepository deviceRepository = new FakeDeviceRepository();
 
-    private final DeviceService deviceService = new DeviceService(deviceRepository);
+    private final DefaultDeviceService deviceService = new DefaultDeviceService(deviceRepository);
 
     @Test
     void 디바이스_등록_테스트() {
@@ -80,7 +81,7 @@ public class DeviceServiceTest {
         final String fcmToken = device.getFcmToken();
         final DeleteDeviceRequestDto deleteDeviceDto = new DeleteDeviceRequestDto(fcmToken);
 
-        deviceService.deleteByToken(deleteDeviceDto);
+        deviceService.deleteToken(deleteDeviceDto);
 
         assertThatThrownBy(() -> deviceService.findDeviceByFcmToken(new FindByTokenRequest(fcmToken))).isInstanceOf(ApplicationException.class);
     }

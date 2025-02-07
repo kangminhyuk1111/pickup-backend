@@ -1,7 +1,7 @@
 package core.pickupbackend.device.fake;
 
 import core.pickupbackend.device.domain.Device;
-import core.pickupbackend.device.repository.DeviceRepository;
+import core.pickupbackend.device.application.out.DeviceRepository;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

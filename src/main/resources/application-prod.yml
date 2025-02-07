@@ -45,3 +45,7 @@ springdoc:
 # cors
 cors:
   allowed-origins: http://13.125.58.70:8080/
+
+# log
+log:
+  path: ./logs

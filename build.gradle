@@ -49,6 +49,47 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
 }
 
+tasks.named('bootJar') {
+    doFirst {
+        def resourcesDir = sourceSets.main.resources.srcDirs.find()
+        def prodFile = new File(resourcesDir, 'application-prod.yml')
+        def defaultFile = new File(resourcesDir, 'application.yml')
+
+        if (!prodFile.exists()) {
+            throw new GradleException("""
+                ======================================================================
+                빌드 실패: application-prod.yml 파일이 없습니다.
+                src/main/resources 디렉토리에 application-prod.yml 파일을 생성해주세요.
+                ======================================================================
+            """.stripIndent())
+        }
+
+        // application.yml 파일의 spring.profiles.active가 prod인지 확인
+        if (defaultFile.exists()) {
+            def content = defaultFile.text
+            if (!content.contains('spring.profiles.active: prod')) {
+                throw new GradleException("""
+                    ======================================================================
+                    빌드 실패: application.yml의 활성 프로파일이 prod가 아닙니다.
+                    application.yml 파일에 다음 설정을 추가해주세요:
+                    
+                    spring:
+                      profiles:
+                        active: prod
+                    ======================================================================
+                """.stripIndent())
+            }
+        }
+
+        println "✓ Production 프로파일 검증 완료"
+    }
+}
+
+// 빌드 시 자동으로 prod 프로파일 적용
+tasks.named('bootRun') {
+    args = ["--spring.profiles.active=prod"]
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }

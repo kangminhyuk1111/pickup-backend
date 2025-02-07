@@ -4,7 +4,7 @@ import core.pickupbackend.auth.domain.AuthCredential;
 import core.pickupbackend.auth.dto.LoginRequest;
 import core.pickupbackend.auth.dto.LogoutRequest;
 import core.pickupbackend.auth.repostiroy.JwtRepository;
-import core.pickupbackend.device.service.DeviceService;
+import core.pickupbackend.device.application.service.DefaultDeviceService;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.member.domain.Member;
@@ -18,11 +18,11 @@ public class AuthService {
 
     private final PasswordService passwordService;
     private final MemberService memberService;
-    private final DeviceService deviceService;
+    private final DefaultDeviceService deviceService;
     private final JwtService jwtService;
     private final JwtRepository jwtRepository;
 
-    public AuthService(final PasswordService passwordService, final MemberService memberService, final DeviceService deviceService, final JwtService jwtService, final JwtRepository jwtRepository) {
+    public AuthService(final PasswordService passwordService, final MemberService memberService, final DefaultDeviceService deviceService, final JwtService jwtService, final JwtRepository jwtRepository) {
         this.passwordService = passwordService;
         this.memberService = memberService;
         this.deviceService = deviceService;

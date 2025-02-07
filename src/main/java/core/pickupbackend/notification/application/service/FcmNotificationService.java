@@ -1,7 +1,7 @@
 package core.pickupbackend.notification.application.service;
 
 import com.google.firebase.messaging.*;
-import core.pickupbackend.device.service.DeviceService;
+import core.pickupbackend.device.application.service.DefaultDeviceService;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.global.exception.MessagePushException;
 import core.pickupbackend.notification.application.port.in.NotificationPort;
@@ -15,9 +15,9 @@ import java.util.List;
 @Service
 public class FcmNotificationService implements NotificationPort {
     private final FirebaseMessaging firebaseMessaging;
-    private final DeviceService deviceService;
+    private final DefaultDeviceService deviceService;
 
-    public FcmNotificationService(FirebaseMessaging firebaseMessaging, final DeviceService deviceService) {
+    public FcmNotificationService(FirebaseMessaging firebaseMessaging, final DefaultDeviceService deviceService) {
         this.firebaseMessaging = firebaseMessaging;
         this.deviceService = deviceService;
     }

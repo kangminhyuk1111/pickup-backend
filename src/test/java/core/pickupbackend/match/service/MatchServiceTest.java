@@ -1,19 +1,5 @@
 package core.pickupbackend.match.service;
 
-import core.pickupbackend.auth.fake.FakeTokenProvider;
-import core.pickupbackend.auth.provider.TokenProvider;
-import core.pickupbackend.global.exception.ApplicationMatchException;
-import core.pickupbackend.match.domain.Match;
-import core.pickupbackend.match.domain.MatchStatus;
-import core.pickupbackend.match.fake.FakeMatchRepository;
-import core.pickupbackend.match.repository.MatchRepository;
-import core.pickupbackend.member.domain.type.Level;
-import org.junit.jupiter.api.Test;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 

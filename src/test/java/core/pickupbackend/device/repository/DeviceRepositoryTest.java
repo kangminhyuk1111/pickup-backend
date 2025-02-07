@@ -3,6 +3,7 @@ package core.pickupbackend.device.repository;
 import core.pickupbackend.device.domain.Device;
 import core.pickupbackend.device.domain.type.DeviceType;
 import core.pickupbackend.device.fake.FakeDeviceRepository;
+import core.pickupbackend.device.application.out.DeviceRepository;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;

@@ -2,7 +2,7 @@ package core.pickupbackend.match.fake;
 
 import core.pickupbackend.match.domain.Match;
 import core.pickupbackend.match.domain.MatchStatus;
-import core.pickupbackend.match.repository.MatchRepository;
+import core.pickupbackend.match.application.out.MatchRepository;
 
 import java.time.LocalDateTime;
 import java.util.*;
