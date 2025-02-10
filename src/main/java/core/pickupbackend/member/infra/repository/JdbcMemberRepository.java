@@ -1,9 +1,12 @@
-package core.pickupbackend.member.repository;
+package core.pickupbackend.member.infra.repository;
 
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
+import core.pickupbackend.member.application.out.MemberRepository;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.domain.mapper.MemberRowMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +15,8 @@ import java.util.Optional;
 
 @Repository
 public class JdbcMemberRepository implements MemberRepository {
+
+    private static final Logger logger = LoggerFactory.getLogger(JdbcMemberRepository.class);
 
     private final JdbcTemplate template;
 

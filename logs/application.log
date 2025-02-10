@@ -1,104 +1,85 @@
-2025-02-07 14:30:55 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 37548 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
-2025-02-07 14:30:55 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
-2025-02-07 14:30:55 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
-2025-02-07 14:30:55 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-02-07 14:30:55 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-02-07 14:30:56 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-02-07 14:30:56 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-02-07 14:30:56 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 0 Redis repository interfaces.
-2025-02-07 14:30:56 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-02-07 14:30:56 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2025-02-07 14:30:56 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-02-07 14:30:56 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-2025-02-07 14:30:57 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-02-07 14:30:57 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1922 ms
-2025-02-07 14:30:57 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-02-07 14:31:19 [restartedMain] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+2025-02-10 13:06:29 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 18716 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:06:29 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:06:29 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:06:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:06:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:06:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:06:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:06:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:06:30 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:06:30 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:06:30 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:06:30 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:06:30 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:06:30 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1372 ms
+2025-02-10 13:06:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:06:32 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b4c48e6
+2025-02-10 13:06:32 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:06:32 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:06:32 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:06:32 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:06:32 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:06:32 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:06:32 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:06:32 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:06:32 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:06:33 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:06:33 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:06:33 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:06:33 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 4.28 seconds (process running for 5.907)
+2025-02-10 13:07:26 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:07:26 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:07:26 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 13:07:28 [http-nio-8080-exec-8] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 508 ms
+2025-02-10 13:08:45 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 8 class path changes (0 additions, 8 deletions, 0 modifications)
+2025-02-10 13:08:45 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:08:57 [Thread-5] WARN  org.apache.tomcat.util.net.Acceptor - The acceptor thread [http-nio-8080-Acceptor] did not stop cleanly
+2025-02-10 13:08:57 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-10 13:08:57 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-10 13:08:57 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 18716 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:08:57 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:08:57 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:08:58 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:08:58 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:08:58 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:08:58 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:08:58 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:08:58 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:08:58 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:08:58 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:08:58 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 335 ms
+2025-02-10 13:08:58 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-02-10 13:08:58 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7a636f62
+2025-02-10 13:08:58 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-02-10 13:08:58 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:08:58 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:08:58 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:08:58 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:08:58 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:08:58 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:08:58 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:08:58 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
+2025-02-10 13:08:58 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-02-10 13:08:59 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-02-10 13:08:59 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-02-10 13:08:59 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
 
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
-	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.getConnectionUrl(H2ConsoleAutoConfiguration.java:94)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
-	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
-	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575)
-	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260)
-	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616)
-	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:622)
-	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:627)
-	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.logDataSources(H2ConsoleAutoConfiguration.java:86)
-	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.lambda$h2Console$0(H2ConsoleAutoConfiguration.java:69)
-	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.withThreadContextClassLoader(H2ConsoleAutoConfiguration.java:78)
-	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.h2Console(H2ConsoleAutoConfiguration.java:69)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:639)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-02-10 13:08:59 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210)
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:201)
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addServletContextInitializerBeans(ServletContextInitializerBeans.java:96)
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:85)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:266)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:240)
-	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4866)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
-	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:845)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
-	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:240)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
-	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
-	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
-	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:437)
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:126)
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:105)
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:499)
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
 	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
 	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
@@ -111,124 +92,91 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
+	... 24 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
+	... 38 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
+	... 52 common frames omitted
+Caused by: java.lang.IllegalStateException: FirebaseApp name [DEFAULT] already exists!
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:502)
+	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:222)
+	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:215)
+	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:202)
+	at core.pickupbackend.notification.config.FCMConfig.firebaseApp(FCMConfig.java:34)
+	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$0.CGLIB$firebaseApp$1(<generated>)
+	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$0.firebaseApp(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 53 common frames omitted
+2025-02-10 13:09:00 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 18716 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:09:00 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:09:00 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:09:00 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:09:00 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:09:00 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:09:00 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:09:00 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:09:00 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:09:00 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:09:00 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:09:00 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 331 ms
+2025-02-10 13:09:00 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-02-10 13:09:01 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@321a4472
+2025-02-10 13:09:01 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-02-10 13:09:01 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:09:01 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:09:01 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:09:01 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:09:01 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:09:01 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:09:01 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:09:01 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
+2025-02-10 13:09:01 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-02-10 13:09:01 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-02-10 13:09:01 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-02-10 13:09:01 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
 
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:88)
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805)
-	... 91 common frames omitted
-Caused by: java.net.ConnectException: Connection timed out: no further information
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:554)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:633)
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62)
-	... 94 common frames omitted
-2025-02-07 14:31:19 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
-2025-02-07 14:31:19 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
-2025-02-07 14:31:19 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
-2025-02-07 14:31:19 [restartedMain] DEBUG c.p.match.controller.MatchController - create match controller
-2025-02-07 14:31:19 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
-2025-02-07 14:31:19 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
-2025-02-07 14:31:19 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
-2025-02-07 14:31:20 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-02-07 14:31:20 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2025-02-07 14:31:20 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-2025-02-07 14:31:20 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 25.844 seconds (process running for 26.986)
-2025-02-07 14:31:31 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 32452 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
-2025-02-07 14:31:31 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
-2025-02-07 14:31:31 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "local"
-2025-02-07 14:31:33 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
-2025-02-07 14:31:33 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
-2025-02-07 14:31:33 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
-2025-02-07 14:31:33 [restartedMain] DEBUG c.p.match.controller.MatchController - create match controller
-2025-02-07 14:31:33 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
-2025-02-07 14:31:33 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
-2025-02-07 14:31:33 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
-2025-02-07 14:31:34 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 2.703 seconds (process running for 3.411)
-2025-02-07 14:53:17 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 32452 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
-2025-02-07 14:53:17 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
-2025-02-07 14:53:17 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "local"
-2025-02-07 14:53:18 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
-2025-02-07 14:53:18 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
-2025-02-07 14:53:18 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
-2025-02-07 14:53:18 [restartedMain] DEBUG c.p.match.controller.MatchController - create match controller
-2025-02-07 14:53:18 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
-2025-02-07 14:53:18 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
-2025-02-07 14:53:18 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-2025-02-07 14:53:18 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at core.pickupbackend.PickupBackendApplication.main(PickupBackendApplication.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
-	... 24 common frames omitted
-Caused by: java.lang.IllegalStateException: FirebaseApp name [DEFAULT] already exists!
-	at com.google.common.base.Preconditions.checkState(Preconditions.java:502)
-	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:222)
-	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:215)
-	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:202)
-	at core.pickupbackend.notification.config.FCMConfig.firebaseApp(FCMConfig.java:34)
-	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$0.CGLIB$firebaseApp$1(<generated>)
-	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$0.firebaseApp(<generated>)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	... 25 common frames omitted
-2025-02-07 14:53:19 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 32452 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
-2025-02-07 14:53:19 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
-2025-02-07 14:53:19 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "local"
-2025-02-07 14:53:20 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
-2025-02-07 14:53:20 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
-2025-02-07 14:53:20 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
-2025-02-07 14:53:20 [restartedMain] DEBUG c.p.match.controller.MatchController - create match controller
-2025-02-07 14:53:20 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
-2025-02-07 14:53:20 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
-2025-02-07 14:53:20 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-2025-02-07 14:53:20 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-02-10 13:09:01 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
@@ -310,17 +258,216 @@ Caused by: java.lang.IllegalStateException: FirebaseApp name [DEFAULT] already e
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
 	... 53 common frames omitted
-2025-02-07 14:57:29 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 32452 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
-2025-02-07 14:57:29 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
-2025-02-07 14:57:29 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "local"
-2025-02-07 14:57:29 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
-2025-02-07 14:57:29 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
-2025-02-07 14:57:29 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
-2025-02-07 14:57:29 [restartedMain] DEBUG c.p.match.controller.MatchController - create match controller
-2025-02-07 14:57:29 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
-2025-02-07 14:57:29 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
-2025-02-07 14:57:29 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-2025-02-07 14:57:29 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+2025-02-10 13:09:09 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 36304 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:09:09 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:09:09 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:09:09 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:09:09 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:09:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:09:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:09:10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:09:10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:09:10 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:09:10 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:09:10 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:09:10 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:09:10 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1392 ms
+2025-02-10 13:09:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:09:11 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5324dbd7
+2025-02-10 13:09:11 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:09:11 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:09:11 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:09:11 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:09:11 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:09:11 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:09:11 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:09:11 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:09:11 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:09:12 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:09:12 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:09:12 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:09:12 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.395 seconds (process running for 4.052)
+2025-02-10 13:10:02 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 20728 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:10:02 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:10:02 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:10:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:10:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:10:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:10:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:10:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:10:03 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:10:03 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:10:03 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:10:03 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:10:03 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:10:03 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1218 ms
+2025-02-10 13:10:03 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:10:04 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@da76371
+2025-02-10 13:10:04 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:10:04 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:10:04 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:10:04 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:10:04 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:10:04 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:10:05 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:10:05 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:10:05 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:10:05 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:10:05 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:10:05 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:10:05 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.239 seconds (process running for 3.886)
+2025-02-10 13:10:08 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:10:08 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:10:08 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-02-10 13:10:10 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 367 ms
+2025-02-10 13:11:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-10 13:11:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-10 13:11:05 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 27760 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:11:05 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:11:05 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:11:05 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:11:05 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:11:06 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:11:06 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:11:06 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:11:06 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:11:06 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:11:06 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:11:06 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:11:06 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:11:06 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1261 ms
+2025-02-10 13:11:06 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:11:07 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@65581de9
+2025-02-10 13:11:07 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:11:07 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:11:07 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:11:07 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:11:07 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:11:08 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:11:08 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:11:08 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:11:08 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:11:08 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:11:08 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:11:08 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:11:08 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.435 seconds (process running for 4.119)
+2025-02-10 13:15:15 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:15:15 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:15:15 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 13:15:16 [http-nio-8080-exec-1] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=rkdglqkr12@]
+2025-02-10 13:16:13 [http-nio-8080-exec-2] ERROR c.p.g.e.DatabaseExceptionHandler - 서버 오류가 발생했습니다: JSON parse error: Cannot deserialize value of type `java.time.LocalTime` from Object value (token `JsonToken.START_OBJECT`)
+2025-02-10 13:16:13 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalTime` from Object value (token `JsonToken.START_OBJECT`)]
+2025-02-10 13:16:15 [http-nio-8080-exec-3] ERROR c.p.g.e.DatabaseExceptionHandler - 서버 오류가 발생했습니다: JSON parse error: Cannot deserialize value of type `java.time.LocalTime` from Object value (token `JsonToken.START_OBJECT`)
+2025-02-10 13:16:15 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalTime` from Object value (token `JsonToken.START_OBJECT`)]
+2025-02-10 13:19:06 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 32692 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:19:06 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:19:06 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:19:06 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:19:06 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:19:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:19:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:19:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:19:08 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:19:08 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:19:08 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:19:08 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:19:08 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:19:08 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1285 ms
+2025-02-10 13:19:08 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:19:08 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@706c303a
+2025-02-10 13:19:08 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:19:08 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:19:08 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:19:08 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:19:09 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:19:09 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:19:09 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:19:09 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:19:09 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:19:09 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:19:09 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:19:09 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:19:09 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.433 seconds (process running for 4.134)
+2025-02-10 13:19:16 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:19:16 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:19:16 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 13:19:18 [http-nio-8080-exec-3] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 372 ms
+2025-02-10 13:20:28 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 14708 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:20:28 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:20:28 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:20:28 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:20:28 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:20:29 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:20:29 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:20:29 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:20:29 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:20:29 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:20:29 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:20:29 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:20:30 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:20:30 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1236 ms
+2025-02-10 13:20:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:20:30 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@103dccb3
+2025-02-10 13:20:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:20:30 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:20:30 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:20:30 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:20:30 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:20:31 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:20:31 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:20:31 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:20:31 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:20:31 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:20:31 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:20:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:20:31 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.253 seconds (process running for 3.906)
+2025-02-10 13:20:38 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:20:38 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:20:38 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 13:20:39 [http-nio-8080-exec-3] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 477 ms
+2025-02-10 13:20:57 [http-nio-8080-exec-4] DEBUG c.p.m.i.w.controller.MatchController - /getMatches request
+2025-02-10 13:21:15 [http-nio-8080-exec-7] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=rkdglqkr12@]
+2025-02-10 13:21:35 [http-nio-8080-exec-6] DEBUG c.p.m.i.w.controller.MatchController - /updateMatch request: UpdateMatchRequest[title=농구 한판 하실 분, description=서초에서 농구하실 분 구합니다, courtName=서초 체육관, location=서울시 서초구, date=2025-02-10, time=14:30, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=5000, rules=실력 무관, 매너 있는 분]
+2025-02-10 13:21:51 [http-nio-8080-exec-10] DEBUG c.p.m.i.w.controller.MatchController - /getMatches request
+2025-02-10 13:22:09 [http-nio-8080-exec-1] DEBUG c.p.m.i.w.controller.MatchController - /getMatchById request: 6
+2025-02-10 13:22:11 [http-nio-8080-exec-2] DEBUG c.p.m.i.w.controller.MatchController - /getMatchById request: 6
+2025-02-10 13:22:20 [http-nio-8080-exec-5] DEBUG c.p.m.i.w.controller.MatchController - /updateMatch request: UpdateMatchRequest[title=농구 한판 하실 분, description=서초에서 농구하실 분 구합니다, courtName=서초 체육관, location=서울시 서초구, date=2025-02-10, time=14:30, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=5000, rules=실력 무관, 매너 있는 분]
+2025-02-10 13:22:22 [http-nio-8080-exec-3] DEBUG c.p.m.i.w.controller.MatchController - /updateMatch request: UpdateMatchRequest[title=농구 한판 하실 분, description=서초에서 농구하실 분 구합니다, courtName=서초 체육관, location=서울시 서초구, date=2025-02-10, time=14:30, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=5000, rules=실력 무관, 매너 있는 분]
+2025-02-10 13:23:27 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-02-10 13:23:27 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:23:39 [Thread-5] WARN  org.apache.tomcat.util.net.Acceptor - The acceptor thread [http-nio-8080-Acceptor] did not stop cleanly
+2025-02-10 13:23:39 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-10 13:23:40 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-10 13:23:40 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 14708 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:23:40 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:23:40 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:23:40 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:23:40 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:23:40 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:23:40 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:23:40 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:23:40 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:23:40 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:23:40 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:23:40 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 354 ms
+2025-02-10 13:23:40 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-02-10 13:23:41 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@227b4dd7
+2025-02-10 13:23:41 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-02-10 13:23:41 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:23:41 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:23:41 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:23:41 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:23:41 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:23:41 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:23:41 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:23:41 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
+2025-02-10 13:23:41 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-02-10 13:23:42 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-02-10 13:23:42 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-02-10 13:23:42 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-02-10 13:23:42 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
@@ -402,213 +549,509 @@ Caused by: java.lang.IllegalStateException: FirebaseApp name [DEFAULT] already e
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
 	... 53 common frames omitted
-2025-02-07 15:10:09 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 32452 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
-2025-02-07 15:10:09 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
-2025-02-07 15:10:09 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "local"
-2025-02-07 15:10:09 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
-2025-02-07 15:10:09 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
-2025-02-07 15:10:09 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
-2025-02-07 15:10:09 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
-2025-02-07 15:10:09 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
-2025-02-07 15:10:09 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
-2025-02-07 15:10:09 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-2025-02-07 15:10:09 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at core.pickupbackend.PickupBackendApplication.main(PickupBackendApplication.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
-	... 24 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
-	... 38 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
-	... 52 common frames omitted
-Caused by: java.lang.IllegalStateException: FirebaseApp name [DEFAULT] already exists!
-	at com.google.common.base.Preconditions.checkState(Preconditions.java:502)
-	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:222)
-	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:215)
-	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:202)
-	at core.pickupbackend.notification.config.FCMConfig.firebaseApp(FCMConfig.java:34)
-	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$0.CGLIB$firebaseApp$1(<generated>)
-	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$0.firebaseApp(<generated>)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	... 53 common frames omitted
-2025-02-07 15:11:41 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 32452 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
-2025-02-07 15:11:41 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
-2025-02-07 15:11:41 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "local"
-2025-02-07 15:11:41 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
-2025-02-07 15:11:41 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
-2025-02-07 15:11:41 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
-2025-02-07 15:11:41 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
-2025-02-07 15:11:41 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
-2025-02-07 15:11:41 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
-2025-02-07 15:11:41 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-2025-02-07 15:11:41 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fcmNotificationService' defined in file [C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main\core\pickupbackend\notification\application\service\FcmNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1355)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at core.pickupbackend.PickupBackendApplication.main(PickupBackendApplication.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'firebaseMessaging' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Unsatisfied dependency expressed through method 'firebaseMessaging' parameter 0: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
-	... 24 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'firebaseApp' defined in class path resource [core/pickupbackend/notification/config/FCMConfig.class]: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
-	... 38 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.google.firebase.FirebaseApp]: Factory method 'firebaseApp' threw exception with message: FirebaseApp name [DEFAULT] already exists!
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
-	... 52 common frames omitted
-Caused by: java.lang.IllegalStateException: FirebaseApp name [DEFAULT] already exists!
-	at com.google.common.base.Preconditions.checkState(Preconditions.java:502)
-	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:222)
-	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:215)
-	at com.google.firebase.FirebaseApp.initializeApp(FirebaseApp.java:202)
-	at core.pickupbackend.notification.config.FCMConfig.firebaseApp(FCMConfig.java:34)
-	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$0.CGLIB$firebaseApp$1(<generated>)
-	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at core.pickupbackend.notification.config.FCMConfig$$SpringCGLIB$$0.firebaseApp(<generated>)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	... 53 common frames omitted
-2025-02-07 16:27:02 [Test worker] INFO  c.p.PickupBackendApplicationTests - Starting PickupBackendApplicationTests using Java 17.0.9 with PID 40108 (started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
-2025-02-07 16:27:02 [Test worker] DEBUG c.p.PickupBackendApplicationTests - Running with Spring Boot v3.2.3, Spring v6.1.4
-2025-02-07 16:27:02 [Test worker] INFO  c.p.PickupBackendApplicationTests - The following 1 profile is active: "prod"
-2025-02-07 16:27:02 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-02-07 16:27:02 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-02-07 16:27:02 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 0 Redis repository interfaces.
-2025-02-07 16:27:03 [Test worker] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
-2025-02-07 16:27:03 [Test worker] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
-2025-02-07 16:27:03 [Test worker] DEBUG c.p.m.i.w.controller.MatchController - create match controller
-2025-02-07 16:27:03 [Test worker] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
-2025-02-07 16:27:03 [Test worker] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
-2025-02-07 16:27:03 [Test worker] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
-2025-02-07 16:27:05 [Test worker] INFO  c.p.PickupBackendApplicationTests - Started PickupBackendApplicationTests in 3.426 seconds (process running for 4.801)
-2025-02-07 16:27:40 [Test worker] INFO  c.p.PickupBackendApplicationTests - Starting PickupBackendApplicationTests using Java 17.0.9 with PID 39232 (started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
-2025-02-07 16:27:40 [Test worker] DEBUG c.p.PickupBackendApplicationTests - Running with Spring Boot v3.2.3, Spring v6.1.4
-2025-02-07 16:27:40 [Test worker] INFO  c.p.PickupBackendApplicationTests - The following 1 profile is active: "prod"
-2025-02-07 16:27:41 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-02-07 16:27:41 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-02-07 16:27:41 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 0 Redis repository interfaces.
-2025-02-07 16:27:42 [Test worker] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
-2025-02-07 16:27:42 [Test worker] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
-2025-02-07 16:27:42 [Test worker] DEBUG c.p.m.i.w.controller.MatchController - create match controller
-2025-02-07 16:27:42 [Test worker] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
-2025-02-07 16:27:42 [Test worker] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
-2025-02-07 16:27:42 [Test worker] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
-2025-02-07 16:27:43 [Test worker] INFO  c.p.PickupBackendApplicationTests - Started PickupBackendApplicationTests in 3.359 seconds (process running for 4.783)
+2025-02-10 13:24:13 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 30192 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:24:13 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:24:13 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:24:13 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:24:13 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:24:14 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:24:14 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:24:14 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:24:15 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:24:15 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:24:15 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:24:15 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:24:15 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:24:15 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1225 ms
+2025-02-10 13:24:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:24:16 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b5dcef5
+2025-02-10 13:24:16 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:24:16 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:24:16 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:24:16 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:24:16 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:24:16 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:24:16 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:24:16 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:24:16 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:24:17 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:24:17 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:24:17 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:24:17 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.761 seconds (process running for 4.406)
+2025-02-10 13:24:19 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:24:19 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:24:19 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-02-10 13:24:20 [http-nio-8080-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 422 ms
+2025-02-10 13:24:34 [http-nio-8080-exec-6] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=rkdglqkr12@]
+2025-02-10 13:24:55 [http-nio-8080-exec-7] DEBUG c.p.m.i.w.controller.MatchController - /updateMatch request: UpdateMatchRequest[title=농구 한판 하실 분, description=서초에서 농구하실 분 구합니다, courtName=서초 체육관, location=서울시 서초구, date=2025-02-10, time=14:30, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=5000, rules=실력 무관, 매너 있는 분]
+2025-02-10 13:24:55 [http-nio-8080-exec-7] INFO  c.p.m.i.r.JdbcMatchRepository - Match update started - ID: 6
+2025-02-10 13:24:55 [http-nio-8080-exec-7] INFO  c.p.m.i.r.JdbcMatchRepository - After update - Match: Optional[Match{id=6, title='테스트 매치', description='테스트 글', courtName='테스트 코트', location='서울시 강남구', date=2025-02-10, time=14:00, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=10000, rules='매치 규칙입니다', hostId=27, status=OPEN, createdAt=2025-01-24T04:29:44, updatedAt=2025-01-24T04:29:44}]
+2025-02-10 13:24:57 [http-nio-8080-exec-8] DEBUG c.p.m.i.w.controller.MatchController - /updateMatch request: UpdateMatchRequest[title=농구 한판 하실 분, description=서초에서 농구하실 분 구합니다, courtName=서초 체육관, location=서울시 서초구, date=2025-02-10, time=14:30, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=5000, rules=실력 무관, 매너 있는 분]
+2025-02-10 13:24:58 [http-nio-8080-exec-8] INFO  c.p.m.i.r.JdbcMatchRepository - Match update started - ID: 6
+2025-02-10 13:24:58 [http-nio-8080-exec-8] INFO  c.p.m.i.r.JdbcMatchRepository - After update - Match: Optional[Match{id=6, title='테스트 매치', description='테스트 글', courtName='테스트 코트', location='서울시 강남구', date=2025-02-10, time=14:00, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=10000, rules='매치 규칙입니다', hostId=27, status=OPEN, createdAt=2025-01-24T04:29:44, updatedAt=2025-01-24T04:29:44}]
+2025-02-10 13:26:59 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 2884 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:26:59 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:26:59 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:26:59 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:26:59 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:26:59 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:26:59 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:26:59 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:27:00 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:27:00 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:27:00 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:27:00 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:27:00 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:27:00 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1417 ms
+2025-02-10 13:27:00 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:27:01 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e334d58
+2025-02-10 13:27:01 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:27:01 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:27:01 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:27:01 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:27:01 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:27:01 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:27:01 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:27:01 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:27:01 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:27:02 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:27:02 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:27:02 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:27:02 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.461 seconds (process running for 4.172)
+2025-02-10 13:27:06 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:27:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:27:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 13:27:06 [http-nio-8080-exec-1] DEBUG c.p.m.i.w.controller.MatchController - /updateMatch request: UpdateMatchRequest[title=농구 한판 하실 분, description=서초에서 농구하실 분 구합니다, courtName=서초 체육관, location=서울시 서초구, date=2025-02-10, time=14:30, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=5000, rules=실력 무관, 매너 있는 분]
+2025-02-10 13:27:07 [http-nio-8080-exec-1] INFO  c.p.m.i.r.JdbcMatchRepository - Match update started - ID: 6
+2025-02-10 13:27:07 [http-nio-8080-exec-1] INFO  c.p.m.i.r.JdbcMatchRepository - After update - Match: Optional[Match{id=6, title='테스트 매치', description='테스트 글', courtName='테스트 코트', location='서울시 강남구', date=2025-02-10, time=14:00, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=10000, rules='매치 규칙입니다', hostId=27, status=OPEN, createdAt=2025-01-24T04:29:44, updatedAt=2025-01-24T04:29:44}]
+2025-02-10 13:28:01 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 31536 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:28:01 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:28:01 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:28:01 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:28:01 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:28:02 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:28:02 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:28:02 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:28:02 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:28:02 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:28:02 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:28:02 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:28:02 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:28:02 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1210 ms
+2025-02-10 13:28:02 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:28:03 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47434b66
+2025-02-10 13:28:03 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:28:03 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:28:03 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:28:03 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:28:03 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:28:03 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:28:03 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:28:03 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:28:03 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:28:04 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:28:04 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:28:04 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:28:04 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.213 seconds (process running for 3.864)
+2025-02-10 13:28:09 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:28:09 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:28:09 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 13:28:09 [http-nio-8080-exec-1] DEBUG c.p.m.i.w.controller.MatchController - /updateMatch request: UpdateMatchRequest[title=농구 한판 하실 분, description=서초에서 농구하실 분 구합니다, courtName=서초 체육관, location=서울시 서초구, date=2025-02-10, time=14:30, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=5000, rules=실력 무관, 매너 있는 분]
+2025-02-10 13:28:09 [http-nio-8080-exec-1] INFO  c.p.m.i.r.JdbcMatchRepository - Match update started - ID: 6
+2025-02-10 13:28:09 [http-nio-8080-exec-1] INFO  c.p.m.i.r.JdbcMatchRepository - After update - Match: Optional[Match{id=6, title='농구 한판 하실 분', description='서초에서 농구하실 분 구합니다', courtName='서초 체육관', location='서울시 서초구', date=2025-02-10, time=14:30, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=5000, rules='실력 무관, 매너 있는 분', hostId=27, status=OPEN, createdAt=2025-01-24T04:29:44, updatedAt=2025-02-10T04:28:14}]
+2025-02-10 13:28:33 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-10 13:28:33 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-10 13:28:48 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 32360 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:28:48 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:28:48 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:28:48 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:28:48 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:28:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:28:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:28:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:28:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:28:49 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:28:49 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:28:49 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:28:49 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:28:49 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1247 ms
+2025-02-10 13:28:49 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:28:50 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@103dccb3
+2025-02-10 13:28:50 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:28:50 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:28:50 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:28:50 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:28:50 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:28:50 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:28:50 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:28:50 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:28:50 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:28:51 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:28:51 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:28:51 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:28:51 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.24 seconds (process running for 3.911)
+2025-02-10 13:28:56 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:28:56 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:28:56 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 13:28:56 [http-nio-8080-exec-1] DEBUG c.p.m.i.w.controller.MatchController - /getMatches request
+2025-02-10 13:29:11 [http-nio-8080-exec-2] INFO  c.p.m.i.w.c.MemberController - /member request: UpdateMemberRequest[id=0, email=string, password=string, nickname=string, height=0, weight=0, position=PG, level=BEGINNER]
+2025-02-10 13:29:11 [http-nio-8080-exec-2] ERROR c.p.g.e.DatabaseExceptionHandler - 서버 오류가 발생했습니다: 유효하지 않은 패스워드 형식입니다.
+2025-02-10 13:29:11 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [core.pickupbackend.global.exception.ValidateException: 유효하지 않은 패스워드 형식입니다.]
+2025-02-10 13:31:36 [http-nio-8080-exec-3] DEBUG c.p.m.i.w.controller.MatchController - /updateMatch request: UpdateMatchRequest[title=농구 한판 하실 분, description=서초에서 농구하실 분 구합니다, courtName=서초 체육관, location=서울시 서초구, date=2025-02-10, time=14:30, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=5000, rules=실력 무관, 매너 있는 분]
+2025-02-10 13:31:39 [http-nio-8080-exec-4] DEBUG c.p.m.i.w.controller.MatchController - /updateMatch request: UpdateMatchRequest[title=농구 한판 하실 분, description=서초에서 농구하실 분 구합니다, courtName=서초 체육관, location=서울시 서초구, date=2025-02-10, time=14:30, level=BEGINNER, currentPlayers=1, maxPlayers=4, cost=5000, rules=실력 무관, 매너 있는 분]
+2025-02-10 13:38:06 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 37680 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:38:06 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:38:06 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:38:06 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:38:06 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:38:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:38:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:38:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:38:07 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:38:07 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:38:07 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:38:07 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:38:07 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:38:07 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1234 ms
+2025-02-10 13:38:07 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:38:08 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@22791729
+2025-02-10 13:38:08 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:38:08 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:38:08 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:38:08 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:38:08 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:38:08 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:38:08 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:38:08 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:38:08 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:38:09 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:38:09 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:38:09 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:38:09 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.5 seconds (process running for 4.16)
+2025-02-10 13:38:14 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:38:14 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:38:14 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 13:38:16 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 459 ms
+2025-02-10 13:38:36 [http-nio-8080-exec-6] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=rkdglqkr12@]
+2025-02-10 13:39:20 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 28332 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:39:20 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:39:20 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:39:20 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:39:20 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:39:21 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:39:21 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:39:21 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:39:21 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:39:21 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:39:21 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:39:21 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:39:21 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:39:21 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1251 ms
+2025-02-10 13:39:21 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:39:22 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@24267a7b
+2025-02-10 13:39:22 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:39:22 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:39:22 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:39:22 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:39:22 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:39:23 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:39:23 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:39:23 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:39:23 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:39:23 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:39:23 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:39:23 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:39:23 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.454 seconds (process running for 4.102)
+2025-02-10 13:39:29 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:39:29 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:39:29 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 13:39:31 [http-nio-8080-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 446 ms
+2025-02-10 13:40:14 [http-nio-8080-exec-6] ERROR c.p.g.e.DatabaseExceptionHandler - 서버 오류가 발생했습니다: JSON parse error: Cannot deserialize value of type `core.pickupbackend.member.domain.type.Position` from String "CENTER": not one of the values accepted for Enum class: [SF, SG, PF, PG, C]
+2025-02-10 13:40:14 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `core.pickupbackend.member.domain.type.Position` from String "CENTER": not one of the values accepted for Enum class: [SF, SG, PF, PG, C]]
+2025-02-10 13:40:19 [http-nio-8080-exec-7] INFO  c.p.m.i.w.c.MemberController - /member request: UpdateMemberRequest[email=test@gmail.com, password=test1234@, nickname=농구왕, height=180, weight=75, position=C, level=BEGINNER]
+2025-02-10 13:40:38 [http-nio-8080-exec-9] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=test]
+2025-02-10 13:40:39 [http-nio-8080-exec-9] ERROR c.p.g.e.DatabaseExceptionHandler - 서버 오류가 발생했습니다: 비밀번호가 올바르지 않습니다.
+2025-02-10 13:40:39 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [core.pickupbackend.global.exception.ApplicationException: 비밀번호가 올바르지 않습니다.]
+2025-02-10 13:40:43 [http-nio-8080-exec-10] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=rkdglqkr12@]
+2025-02-10 13:41:48 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 37184 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:41:48 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:41:48 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:41:48 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:41:48 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:41:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:41:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:41:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:41:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:41:49 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:41:49 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:41:49 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:41:49 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:41:49 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1246 ms
+2025-02-10 13:41:49 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:41:50 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@196062d
+2025-02-10 13:41:50 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:41:50 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:41:50 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:41:50 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:41:51 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:41:51 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:41:51 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:41:51 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:41:51 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:41:51 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:41:51 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:41:51 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:41:51 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.609 seconds (process running for 4.252)
+2025-02-10 13:41:55 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:41:55 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:41:55 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-02-10 13:41:57 [http-nio-8080-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 403 ms
+2025-02-10 13:42:41 [http-nio-8080-exec-6] INFO  c.p.m.i.w.c.MemberController - /member request: AddMemberRequest[email=test1234@gmail.com, password=test1234@, nickname=kang, height=190, weight=100, position=PG, level=BEGINNER]
+2025-02-10 13:42:41 [http-nio-8080-exec-6] ERROR c.p.g.e.DatabaseExceptionHandler - DataIntegrityViolationException: PreparedStatementCallback; SQL [INSERT INTO users (email, password, nickname, profile_image,
+                 height, weight, position, level, manner_score,
+                 created_at, updated_at)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+]; Duplicate entry 'test1234@gmail.com' for key 'users.email'
+2025-02-10 13:42:41 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DuplicateKeyException: PreparedStatementCallback; SQL [INSERT INTO users (email, password, nickname, profile_image,<EOL>                 height, weight, position, level, manner_score,<EOL>                 created_at, updated_at)<EOL>VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)<EOL>]; Duplicate entry 'test1234@gmail.com' for key 'users.email']
+2025-02-10 13:42:54 [http-nio-8080-exec-7] INFO  c.p.m.i.w.c.MemberController - /member request: AddMemberRequest[email=kang@gmail.com, password=test1234@, nickname=kang, height=190, weight=100, position=PG, level=BEGINNER]
+2025-02-10 13:43:36 [http-nio-8080-exec-2] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=kang@gmail.com, password=test1234@]
+2025-02-10 13:43:46 [http-nio-8080-exec-3] INFO  c.p.m.i.w.c.MemberController - /member request: UpdateMemberRequest[email=kang@gmail.com, password=rkdglqkr12@, nickname=농구왕, height=180, weight=75, position=C, level=BEGINNER]
+2025-02-10 13:43:47 [http-nio-8080-exec-3] INFO  c.p.m.a.service.DefaultMemberService - Member{id=42, email='kang@gmail.com', password=core.pickupbackend.member.domain.vo.Password@423887b9, nickname='kang', profileImage='null', height=190, weight=100, position=PG, level=BEGINNER, mannerScore=5.0, createdAt=2025-02-10T13:42:55, updatedAt=2025-02-10T13:42:55, lastLoginAt=null}
+2025-02-10 13:43:55 [http-nio-8080-exec-5] INFO  c.p.m.i.w.c.MemberController - /member request
+2025-02-10 13:44:11 [http-nio-8080-exec-4] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=kang@gmail.com, password=rkdglqkr12@]
+2025-02-10 13:44:12 [http-nio-8080-exec-4] ERROR c.p.g.e.DatabaseExceptionHandler - 서버 오류가 발생했습니다: 비밀번호가 올바르지 않습니다.
+2025-02-10 13:44:12 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [core.pickupbackend.global.exception.ApplicationException: 비밀번호가 올바르지 않습니다.]
+2025-02-10 13:45:23 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 34492 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:45:23 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:45:23 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:45:23 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:45:23 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:45:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:45:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:45:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:45:24 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:45:24 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:45:24 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:45:24 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:45:24 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:45:24 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1218 ms
+2025-02-10 13:45:24 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:45:25 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@71283323
+2025-02-10 13:45:25 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:45:25 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:45:25 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:45:25 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:45:25 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:45:25 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:45:25 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:45:25 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:45:25 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:45:25 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:45:25 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:45:25 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:45:25 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.268 seconds (process running for 3.91)
+2025-02-10 13:45:30 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:45:30 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:45:30 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 13:45:30 [http-nio-8080-exec-1] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=kang@gmail.com, password=rkdglqkr12@]
+2025-02-10 13:45:30 [http-nio-8080-exec-1] ERROR c.p.g.e.DatabaseExceptionHandler - 서버 오류가 발생했습니다: 비밀번호가 올바르지 않습니다.
+2025-02-10 13:45:30 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [core.pickupbackend.global.exception.ApplicationException: 비밀번호가 올바르지 않습니다.]
+2025-02-10 13:45:35 [http-nio-8080-exec-2] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=kang@gmail.com, password=test1234@]
+2025-02-10 13:46:04 [http-nio-8080-exec-4] INFO  c.p.m.i.w.c.MemberController - /member request: UpdateMemberRequest[email=kang@gmail.com, password=rkdglqkr12@, nickname=농구왕, height=180, weight=75, position=C, level=BEGINNER]
+2025-02-10 13:46:04 [http-nio-8080-exec-4] INFO  c.p.m.a.service.DefaultMemberService - Member{id=42, email='kang@gmail.com', password=core.pickupbackend.member.domain.vo.Password@6c71e5e7, nickname='kang', profileImage='null', height=190, weight=100, position=PG, level=BEGINNER, mannerScore=5.0, createdAt=2025-02-10T13:42:55, updatedAt=2025-02-10T13:42:55, lastLoginAt=null}
+2025-02-10 13:46:04 [http-nio-8080-exec-4] INFO  c.p.m.i.r.JdbcMemberRepository - Updating member: Member{id=42, email='kang@gmail.com', password=core.pickupbackend.member.domain.vo.Password@6c71e5e7, nickname='kang', profileImage='null', height=190, weight=100, position=PG, level=BEGINNER, mannerScore=5.0, createdAt=2025-02-10T13:42:55, updatedAt=2025-02-10T13:42:55, lastLoginAt=null}
+2025-02-10 13:53:15 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 17688 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 13:53:15 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 13:53:15 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 13:53:15 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 13:53:15 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 13:53:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 13:53:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 13:53:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2025-02-10 13:53:17 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 13:53:17 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:53:17 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 13:53:17 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 13:53:17 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 13:53:17 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1195 ms
+2025-02-10 13:53:17 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 13:53:18 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f64a821
+2025-02-10 13:53:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 13:53:18 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 13:53:18 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 13:53:18 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 13:53:18 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 13:53:18 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 13:53:18 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 13:53:18 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 13:53:18 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 13:53:19 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 13:53:19 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 13:53:19 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 13:53:19 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.78 seconds (process running for 4.41)
+2025-02-10 13:53:21 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 13:53:21 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 13:53:21 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-02-10 13:53:22 [http-nio-8080-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 410 ms
+2025-02-10 13:53:36 [http-nio-8080-exec-5] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=rkdglqkr12@]
+2025-02-10 13:55:26 [http-nio-8080-exec-10] INFO  c.p.m.i.w.c.MemberController - /member request: UpdateMemberRequest[email=test@gmail.com, password=test1234@, nickname=농구왕, height=180, weight=75, position=C, level=BEGINNER]
+2025-02-10 13:55:27 [http-nio-8080-exec-10] INFO  c.p.m.a.service.DefaultMemberService - Member{id=27, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@232e1ac0, nickname='강민혁', profileImage='null', height=198, weight=99, position=PG, level=BEGINNER, mannerScore=5.0, createdAt=2025-01-24T13:28, updatedAt=2025-01-24T13:28, lastLoginAt=null}
+2025-02-10 13:55:27 [http-nio-8080-exec-10] INFO  c.p.m.i.r.JdbcMemberRepository - Updating member: Member{id=27, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@232e1ac0, nickname='강민혁', profileImage='null', height=198, weight=99, position=PG, level=BEGINNER, mannerScore=5.0, createdAt=2025-01-24T13:28, updatedAt=2025-01-24T13:28, lastLoginAt=null}
+2025-02-10 13:55:27 [http-nio-8080-exec-10] INFO  c.p.m.i.r.JdbcMemberRepository - member update: Member{id=27, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@649415fd, nickname='강민혁', profileImage='null', height=198, weight=99, position=PG, level=BEGINNER, mannerScore=5.0, createdAt=2025-01-24T13:28, updatedAt=2025-01-24T13:28, lastLoginAt=null}
+2025-02-10 14:01:04 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 14948 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 14:01:04 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 14:01:04 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 14:01:04 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 14:01:04 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 14:01:05 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 14:01:05 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 14:01:05 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2025-02-10 14:01:05 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 14:01:05 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 14:01:05 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 14:01:05 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 14:01:05 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 14:01:05 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1218 ms
+2025-02-10 14:01:05 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 14:01:06 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@67549f67
+2025-02-10 14:01:06 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 14:01:06 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 14:01:06 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 14:01:06 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 14:01:06 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 14:01:06 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 14:01:06 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 14:01:06 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 14:01:06 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 14:01:07 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 14:01:07 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 14:01:07 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 14:01:07 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.337 seconds (process running for 3.984)
+2025-02-10 14:01:15 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 14:01:15 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 14:01:15 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-02-10 14:01:16 [http-nio-8080-exec-3] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 410 ms
+2025-02-10 14:01:28 [http-nio-8080-exec-5] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=rkdglqkr12@]
+2025-02-10 14:01:57 [http-nio-8080-exec-6] INFO  c.p.m.i.w.c.MemberController - /member request: UpdateMemberRequest[email=test@gmail.com, password=rkdglqkr12@, nickname=농구왕, height=180, weight=75, position=C, level=BEGINNER]
+2025-02-10 14:01:57 [http-nio-8080-exec-6] INFO  c.p.m.a.service.DefaultMemberService - Service - before update dto: UpdateMemberRequest[email=test@gmail.com, password=rkdglqkr12@, nickname=농구왕, height=180, weight=75, position=C, level=BEGINNER]
+2025-02-10 14:01:57 [http-nio-8080-exec-6] INFO  c.p.m.a.service.DefaultMemberService - Service - existing member: Member{id=27, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@52f31635, nickname='강민혁', profileImage='null', height=198, weight=99, position=PG, level=BEGINNER, mannerScore=5.0, createdAt=2025-01-24T13:28, updatedAt=2025-01-24T13:28, lastLoginAt=null}
+2025-02-10 14:01:57 [http-nio-8080-exec-6] INFO  c.p.m.a.service.DefaultMemberService - Service - updated member to save: Member{id=null, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@7e8ab6ad, nickname='농구왕', profileImage='null', height=180, weight=75, position=C, level=BEGINNER, mannerScore=5.0, createdAt=2025-02-10T14:01:57.260830900, updatedAt=2025-02-10T14:01:57.260830900, lastLoginAt=null}
+2025-02-10 14:01:57 [http-nio-8080-exec-6] INFO  c.p.m.i.r.JdbcMemberRepository - Updating member: Member{id=null, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@7e8ab6ad, nickname='농구왕', profileImage='null', height=180, weight=75, position=C, level=BEGINNER, mannerScore=5.0, createdAt=2025-02-10T14:01:57.260830900, updatedAt=2025-02-10T14:01:57.260830900, lastLoginAt=null}
+2025-02-10 14:01:57 [http-nio-8080-exec-6] ERROR c.p.g.e.DatabaseExceptionHandler - 서버 오류가 발생했습니다: 유저를 찾을 수 없습니다.
+2025-02-10 14:01:57 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [core.pickupbackend.global.exception.ApplicationException: 유저를 찾을 수 없습니다.]
+2025-02-10 14:02:30 [http-nio-8080-exec-9] INFO  c.p.m.i.w.c.MemberController - /member request: UpdateMemberRequest[email=test@gmail.com, password=rkdglqkr12@, nickname=농구왕, height=180, weight=75, position=C, level=BEGINNER]
+2025-02-10 14:02:30 [http-nio-8080-exec-9] INFO  c.p.m.a.service.DefaultMemberService - Service - before update dto: UpdateMemberRequest[email=test@gmail.com, password=rkdglqkr12@, nickname=농구왕, height=180, weight=75, position=C, level=BEGINNER]
+2025-02-10 14:02:30 [http-nio-8080-exec-9] INFO  c.p.m.a.service.DefaultMemberService - Service - existing member: Member{id=27, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@117087b7, nickname='강민혁', profileImage='null', height=198, weight=99, position=PG, level=BEGINNER, mannerScore=5.0, createdAt=2025-01-24T13:28, updatedAt=2025-01-24T13:28, lastLoginAt=null}
+2025-02-10 14:02:30 [http-nio-8080-exec-9] INFO  c.p.m.a.service.DefaultMemberService - Service - updated member to save: Member{id=null, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@154f1141, nickname='농구왕', profileImage='null', height=180, weight=75, position=C, level=BEGINNER, mannerScore=5.0, createdAt=2025-02-10T14:02:30.449956600, updatedAt=2025-02-10T14:02:30.449956600, lastLoginAt=null}
+2025-02-10 14:02:30 [http-nio-8080-exec-9] INFO  c.p.m.i.r.JdbcMemberRepository - Updating member: Member{id=null, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@154f1141, nickname='농구왕', profileImage='null', height=180, weight=75, position=C, level=BEGINNER, mannerScore=5.0, createdAt=2025-02-10T14:02:30.449956600, updatedAt=2025-02-10T14:02:30.449956600, lastLoginAt=null}
+2025-02-10 14:02:30 [http-nio-8080-exec-9] ERROR c.p.g.e.DatabaseExceptionHandler - 서버 오류가 발생했습니다: 유저를 찾을 수 없습니다.
+2025-02-10 14:02:30 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [core.pickupbackend.global.exception.ApplicationException: 유저를 찾을 수 없습니다.]
+2025-02-10 14:03:49 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 27164 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 14:03:49 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 14:03:49 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 14:03:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 14:03:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 14:03:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 14:03:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 14:03:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2025-02-10 14:03:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 14:03:50 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 14:03:50 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 14:03:50 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 14:03:50 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 14:03:50 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1214 ms
+2025-02-10 14:03:50 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 14:03:51 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c3fa9eb
+2025-02-10 14:03:51 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 14:03:51 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 14:03:51 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 14:03:51 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 14:03:51 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 14:03:51 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 14:03:51 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 14:03:51 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 14:03:51 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 14:03:51 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 14:03:51 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 14:03:51 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 14:03:51 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.192 seconds (process running for 3.829)
+2025-02-10 14:03:56 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 14:03:56 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 14:03:56 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 14:03:57 [http-nio-8080-exec-1] INFO  c.p.m.i.w.c.MemberController - /member request: UpdateMemberRequest[email=test@gmail.com, password=rkdglqkr12@, nickname=농구왕, height=180, weight=75, position=C, level=BEGINNER]
+2025-02-10 14:03:57 [http-nio-8080-exec-1] INFO  c.p.m.a.service.DefaultMemberService - Service - before update dto: UpdateMemberRequest[email=test@gmail.com, password=rkdglqkr12@, nickname=농구왕, height=180, weight=75, position=C, level=BEGINNER]
+2025-02-10 14:03:57 [http-nio-8080-exec-1] INFO  c.p.m.a.service.DefaultMemberService - Service - existing member: Member{id=27, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@21ccac43, nickname='강민혁', profileImage='null', height=198, weight=99, position=PG, level=BEGINNER, mannerScore=5.0, createdAt=2025-01-24T13:28, updatedAt=2025-01-24T13:28, lastLoginAt=null}
+2025-02-10 14:03:57 [http-nio-8080-exec-1] INFO  c.p.m.a.service.DefaultMemberService - Service - updated member to save: Member{id=27, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@6a176de, nickname='농구왕', profileImage='null', height=180, weight=75, position=C, level=BEGINNER, mannerScore=5.0, createdAt=2025-02-10T14:03:57.527724500, updatedAt=2025-02-10T14:03:57.527724500, lastLoginAt=null}
+2025-02-10 14:03:57 [http-nio-8080-exec-1] INFO  c.p.m.i.r.JdbcMemberRepository - Updating member: Member{id=27, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@6a176de, nickname='농구왕', profileImage='null', height=180, weight=75, position=C, level=BEGINNER, mannerScore=5.0, createdAt=2025-02-10T14:03:57.527724500, updatedAt=2025-02-10T14:03:57.527724500, lastLoginAt=null}
+2025-02-10 14:03:57 [http-nio-8080-exec-1] INFO  c.p.m.i.r.JdbcMemberRepository - member update: Member{id=27, email='test@gmail.com', password=core.pickupbackend.member.domain.vo.Password@65d69858, nickname='농구왕', profileImage='null', height=180, weight=75, position=C, level=BEGINNER, mannerScore=5.0, createdAt=2025-01-24T13:28, updatedAt=2025-02-10T14:03:58, lastLoginAt=null}
+2025-02-10 14:04:29 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 30944 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 14:04:29 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 14:04:29 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 14:04:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 14:04:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 14:04:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 14:04:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 14:04:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2025-02-10 14:04:30 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 14:04:30 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 14:04:30 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 14:04:30 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 14:04:30 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 14:04:30 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1232 ms
+2025-02-10 14:04:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 14:04:31 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e2f39b9
+2025-02-10 14:04:31 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 14:04:31 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 14:04:31 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 14:04:31 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 14:04:31 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 14:04:31 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 14:04:31 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 14:04:31 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 14:04:32 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 14:04:32 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 14:04:32 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 14:04:32 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 14:04:32 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.469 seconds (process running for 4.127)
+2025-02-10 14:04:38 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 14:04:38 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 14:04:38 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-02-10 14:04:38 [http-nio-8080-exec-2] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=rkdglqkr12@]
+2025-02-10 14:05:15 [restartedMain] INFO  c.p.PickupBackendApplication - Starting PickupBackendApplication using Java 17.0.9 with PID 13768 (C:\Users\kangu\IdeaProjects\pickup-backend\build\classes\java\main started by kangu in C:\Users\kangu\IdeaProjects\pickup-backend)
+2025-02-10 14:05:15 [restartedMain] DEBUG c.p.PickupBackendApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2025-02-10 14:05:15 [restartedMain] INFO  c.p.PickupBackendApplication - The following 1 profile is active: "prod"
+2025-02-10 14:05:15 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-10 14:05:15 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-10 14:05:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-02-10 14:05:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-10 14:05:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 0 Redis repository interfaces.
+2025-02-10 14:05:17 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-10 14:05:17 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-02-10 14:05:17 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-10 14:05:17 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-02-10 14:05:17 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-10 14:05:17 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1234 ms
+2025-02-10 14:05:17 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-10 14:05:17 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6cae99b5
+2025-02-10 14:05:17 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-10 14:05:17 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://database-1.cp2q4u86kgsu.ap-northeast-2.rds.amazonaws.com:3306/pickup_db'
+2025-02-10 14:05:17 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect host: localhost
+2025-02-10 14:05:17 [restartedMain] INFO  c.p.global.config.RedisConfig - redis connect port: 6379
+2025-02-10 14:05:18 [restartedMain] DEBUG c.p.auth.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-02-10 14:05:18 [restartedMain] DEBUG c.p.m.i.w.controller.MatchController - create match controller
+2025-02-10 14:05:18 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account resource exists: true
+2025-02-10 14:05:18 [restartedMain] INFO  c.p.notification.config.FCMConfig - Service account path: file:/C:/Users/kangu/IdeaProjects/pickup-backend/build/resources/main/fcm/firebase-adminsdk.json
+2025-02-10 14:05:18 [restartedMain] INFO  c.p.notification.config.FCMConfig - Initialized firebase app config: FirebaseApp{name=[DEFAULT]}
+2025-02-10 14:05:18 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-02-10 14:05:18 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-02-10 14:05:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-02-10 14:05:18 [restartedMain] INFO  c.p.PickupBackendApplication - Started PickupBackendApplication in 3.298 seconds (process running for 3.929)
+2025-02-10 14:05:20 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-10 14:05:20 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-10 14:05:20 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-10 14:05:20 [http-nio-8080-exec-1] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=rkdglqkr12@]
+2025-02-10 14:05:53 [http-nio-8080-exec-2] INFO  c.p.m.i.w.c.MemberController - /member request: UpdateMemberRequest[email=test@gmail.com, password=test1234@, nickname=농구왕, height=180, weight=75, position=C, level=BEGINNER]
+2025-02-10 14:05:57 [http-nio-8080-exec-3] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=rkdglqkr12@]
+2025-02-10 14:05:58 [http-nio-8080-exec-3] ERROR c.p.g.e.DatabaseExceptionHandler - 서버 오류가 발생했습니다: 비밀번호가 올바르지 않습니다.
+2025-02-10 14:05:58 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [core.pickupbackend.global.exception.ApplicationException: 비밀번호가 올바르지 않습니다.]
+2025-02-10 14:06:01 [http-nio-8080-exec-4] DEBUG c.p.auth.controller.AuthController - /login request: LoginRequest[email=test@gmail.com, password=test1234@]

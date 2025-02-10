@@ -1,4 +1,4 @@
-package core.pickupbackend.member.repository;
+package core.pickupbackend.member.application.out;
 
 import core.pickupbackend.member.domain.Member;
 

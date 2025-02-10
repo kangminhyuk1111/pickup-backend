@@ -29,6 +29,7 @@ logging:
   level:
     root: warn
     core.pickupbackend: debug
+    org.springframework.jdbc.core: TRACE
 
 log:
   path: src/main/resources/log

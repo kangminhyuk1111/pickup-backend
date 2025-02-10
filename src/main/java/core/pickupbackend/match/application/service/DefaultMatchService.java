@@ -16,7 +16,7 @@ import core.pickupbackend.match.dto.response.ParticipationWithUserResponse;
 import core.pickupbackend.match.application.out.MatchRepository;
 import core.pickupbackend.match.application.out.ParticipationRepository;
 import core.pickupbackend.member.domain.Member;
-import core.pickupbackend.member.service.MemberService;
+import core.pickupbackend.member.application.service.DefaultMemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -30,11 +30,11 @@ public class DefaultMatchService implements MatchService {
     private static final Logger logger = LoggerFactory.getLogger(DefaultMatchService.class);
 
     private final MatchRepository matchRepository;
-    private final MemberService memberService;
+    private final DefaultMemberService memberService;
     private final TokenProvider tokenProvider;
     private final ParticipationRepository participationRepository;
 
-    public DefaultMatchService(final MatchRepository matchRepository, final MemberService memberService, final TokenProvider tokenProvider, final ParticipationRepository participationRepository) {
+    public DefaultMatchService(final MatchRepository matchRepository, final DefaultMemberService memberService, final TokenProvider tokenProvider, final ParticipationRepository participationRepository) {
         this.matchRepository = matchRepository;
         this.memberService = memberService;
         this.tokenProvider = tokenProvider;

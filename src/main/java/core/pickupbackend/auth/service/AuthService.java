@@ -8,21 +8,21 @@ import core.pickupbackend.device.application.service.DefaultDeviceService;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.member.domain.Member;
-import core.pickupbackend.member.service.MemberService;
-import core.pickupbackend.member.service.PasswordService;
+import core.pickupbackend.member.application.service.DefaultMemberService;
+import core.pickupbackend.member.application.service.DefaultPasswordService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AuthService {
 
-    private final PasswordService passwordService;
-    private final MemberService memberService;
+    private final DefaultPasswordService passwordService;
+    private final DefaultMemberService memberService;
     private final DefaultDeviceService deviceService;
     private final JwtService jwtService;
     private final JwtRepository jwtRepository;
 
-    public AuthService(final PasswordService passwordService, final MemberService memberService, final DefaultDeviceService deviceService, final JwtService jwtService, final JwtRepository jwtRepository) {
+    public AuthService(final DefaultPasswordService passwordService, final DefaultMemberService memberService, final DefaultDeviceService deviceService, final JwtService jwtService, final JwtRepository jwtRepository) {
         this.passwordService = passwordService;
         this.memberService = memberService;
         this.deviceService = deviceService;

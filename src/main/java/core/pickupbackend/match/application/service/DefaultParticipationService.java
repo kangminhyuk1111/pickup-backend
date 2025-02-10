@@ -5,7 +5,7 @@ import core.pickupbackend.match.domain.Participation;
 import core.pickupbackend.match.dto.request.CreateParticipationRequest;
 import core.pickupbackend.match.application.out.ParticipationRepository;
 import core.pickupbackend.member.domain.Member;
-import core.pickupbackend.member.service.MemberService;
+import core.pickupbackend.member.application.service.DefaultMemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -19,9 +19,9 @@ public class DefaultParticipationService {
 
     private final ParticipationRepository participationRepository;
     private final TokenProvider tokenProvider;
-    private final MemberService memberService;
+    private final DefaultMemberService memberService;
 
-    public DefaultParticipationService(final ParticipationRepository participationRepository, final TokenProvider tokenProvider, final MemberService memberService) {
+    public DefaultParticipationService(final ParticipationRepository participationRepository, final TokenProvider tokenProvider, final DefaultMemberService memberService) {
         this.participationRepository = participationRepository;
         this.tokenProvider = tokenProvider;
         this.memberService = memberService;

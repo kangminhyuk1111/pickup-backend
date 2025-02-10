@@ -4,7 +4,7 @@ import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.domain.vo.Password;
-import core.pickupbackend.member.repository.MemberRepository;
+import core.pickupbackend.member.application.out.MemberRepository;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;

@@ -1,65 +1,63 @@
 package core.pickupbackend.match.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import core.pickupbackend.match.domain.Match;
 import core.pickupbackend.member.domain.type.Level;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class UpdateMatchRequest {
-    private String title;
-    private String description;
-    private String courtName;
-    private String location;
-    private LocalDate date;
-    private LocalTime time;
-    private Level level;
-    private Integer currentPlayers;
-    private Integer maxPlayers;
-    private Long cost;
-    private String rules;
+public record UpdateMatchRequest(
+        @Schema(example = "농구 한판 하실 분")
+        String title,
 
-    public String getTitle() {
-        return title;
-    }
+        @Schema(example = "서초에서 농구하실 분 구합니다")
+        String description,
 
-    public String getDescription() {
-        return description;
-    }
+        @Schema(example = "서초 체육관")
+        String courtName,
 
-    public String getCourtName() {
-        return courtName;
-    }
+        @Schema(example = "서울시 서초구")
+        String location,
 
-    public String getLocation() {
-        return location;
-    }
+        @JsonFormat(pattern = "yyyy-MM-dd")
+        @Schema(example = "2025-02-10")
+        LocalDate date,
 
-    public LocalDate getDate() {
-        return date;
-    }
+        @JsonFormat(pattern = "HH:mm:ss")
+        @Schema(example = "14:30:00")
+        LocalTime time,
 
-    public LocalTime getTime() {
-        return time;
-    }
+        @Schema(example = "BEGINNER")
+        Level level,
 
-    public Level getLevel() {
-        return level;
-    }
+        @Schema(example = "1")
+        Integer currentPlayers,
 
-    public Integer getMaxPlayers() {
-        return maxPlayers;
-    }
+        @Schema(example = "4")
+        Integer maxPlayers,
 
-    public Long getCost() {
-        return cost;
-    }
+        @Schema(example = "5000")
+        Long cost,
 
-    public String getRules() {
-        return rules;
-    }
-
+        @Schema(example = "실력 무관, 매너 있는 분")
+        String rules
+) {
     public Match toEntity(Long hostId) {
-        return new Match(title, description, courtName, location, date, time, level, currentPlayers, maxPlayers, hostId, cost, rules);
+        return new Match(
+                title,
+                description,
+                courtName,
+                location,
+                date,
+                time,
+                level,
+                currentPlayers,
+                maxPlayers,
+                hostId,
+                cost,
+                rules
+        );
     }
 }

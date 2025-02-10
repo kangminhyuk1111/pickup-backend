@@ -6,25 +6,18 @@ import core.pickupbackend.member.domain.type.Position;
 import core.pickupbackend.member.domain.vo.Password;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-public class AddMemberRequest {
-    private String email;
-    private String password;
-    private String nickname;
-    private Integer height;
-    private Integer weight;
-    private Position position;
-    private Level level;
-
-    // 생성자
-    public AddMemberRequest(String email, String password, String nickname,
-                            Integer height, Integer weight, Position position, Level level) {
-        this.email = email;
-        this.password = password;
-        this.nickname = nickname;
-        this.height = height;
-        this.weight = weight;
-        this.position = position;
-        this.level = Level.BEGINNER;
+public record AddMemberRequest(
+        String email,
+        String password,
+        String nickname,
+        Integer height,
+        Integer weight,
+        Position position,
+        Level level
+) {
+    // 검증 및 기본값 설정을 위한 컴팩트 생성자
+    public AddMemberRequest {
+        level = Level.BEGINNER; // 기본값 설정
     }
 
     public Member toEntity(final PasswordEncoder passwordEncoder) {

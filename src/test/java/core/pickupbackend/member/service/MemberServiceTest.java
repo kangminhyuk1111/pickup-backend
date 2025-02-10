@@ -6,12 +6,13 @@ import core.pickupbackend.auth.provider.KeyProvider;
 import core.pickupbackend.auth.provider.TokenProvider;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ValidateException;
+import core.pickupbackend.member.application.service.DefaultMemberService;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.domain.type.Level;
 import core.pickupbackend.member.domain.type.Position;
 import core.pickupbackend.member.dto.request.AddMemberRequest;
 import core.pickupbackend.member.fake.FakeMemberRepository;
-import core.pickupbackend.member.repository.MemberRepository;
+import core.pickupbackend.member.application.out.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,7 +26,7 @@ class MemberServiceTest {
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     private final KeyProvider keyProvider = new FakeKeyProvider();
     private final TokenProvider tokenProvider = new JjwtTokenProvider(keyProvider);
-    private final MemberService memberService = new MemberService(memberRepository, passwordEncoder, tokenProvider);
+    private final DefaultMemberService memberService = new DefaultMemberService(memberRepository, passwordEncoder, tokenProvider);
 
     @Test
     void 멤버_생성_테스트() {

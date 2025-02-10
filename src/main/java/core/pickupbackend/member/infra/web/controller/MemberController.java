@@ -1,4 +1,4 @@
-package core.pickupbackend.member.controller;
+package core.pickupbackend.member.infra.web.controller;
 
 import core.pickupbackend.auth.provider.TokenProvider;
 import core.pickupbackend.global.common.code.StatusCode;
@@ -6,7 +6,7 @@ import core.pickupbackend.global.common.response.BaseResponse;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.dto.request.AddMemberRequest;
 import core.pickupbackend.member.dto.request.UpdateMemberRequest;
-import core.pickupbackend.member.service.MemberService;
+import core.pickupbackend.member.application.service.DefaultMemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,10 +23,10 @@ public class MemberController {
 
     private final static Logger logger = LoggerFactory.getLogger(MemberController.class);
 
-    private final MemberService memberService;
+    private final DefaultMemberService memberService;
     private final TokenProvider tokenProvider;
 
-    public MemberController(final MemberService memberService, final TokenProvider tokenProvider) {
+    public MemberController(final DefaultMemberService memberService, final TokenProvider tokenProvider) {
         this.memberService = memberService;
         this.tokenProvider = tokenProvider;
     }
@@ -74,7 +74,7 @@ public class MemberController {
     }
 
     @Operation(summary = "유저 정보 업데이트", security = { @SecurityRequirement(name = "bearerAuth") })
-    @PatchMapping()
+    @PutMapping()
     public BaseResponse<Void> updateMemberById(@RequestBody UpdateMemberRequest dto) {
         logger.info("/member request: {}", dto.toString());
         memberService.updateMemberById(dto);

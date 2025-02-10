@@ -4,32 +4,32 @@ import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.domain.type.Level;
 import core.pickupbackend.member.domain.type.Position;
 import core.pickupbackend.member.domain.vo.Password;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-public class UpdateMemberRequest {
-    private Long id;
-    private String email;
-    private String password;
-    private String nickname;
-    private Integer height;
-    private Integer weight;
-    private Position position;
-    private Level level;
+public record UpdateMemberRequest(
+        @Schema(description = "이메일", example = "test@gmail.com")
+        String email,
 
-    // 생성자
-    public UpdateMemberRequest(Long id, String email, String password, String nickname,
-                               Integer height, Integer weight, Position position, Level level) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.nickname = nickname;
-        this.height = height;
-        this.weight = weight;
-        this.position = position;
-        this.level = level;
-    }
+        @Schema(description = "비밀번호", example = "test1234@")
+        String password,
 
-    public Member toEntity(final PasswordEncoder passwordEncoder) {
+        @Schema(description = "닉네임", example = "농구왕")
+        String nickname,
+
+        @Schema(description = "키(cm)", example = "180")
+        Integer height,
+
+        @Schema(description = "몸무게(kg)", example = "75")
+        Integer weight,
+
+        @Schema(description = "포지션", example = "CENTER")
+        Position position,
+
+        @Schema(description = "실력 레벨", example = "BEGINNER")
+        Level level
+) {
+    public Member toEntity(final Long id, final PasswordEncoder passwordEncoder) {
         return new Member(id, email, new Password(passwordEncoder, password), nickname, height, weight, position, level);
     }
 }

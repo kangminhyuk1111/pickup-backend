@@ -1,5 +1,6 @@
 package core.pickupbackend.member.service;
 
+import core.pickupbackend.member.application.service.DefaultPasswordService;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -8,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PasswordServiceTest {
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-    private final PasswordService passwordService = new PasswordService(passwordEncoder);
+    private final DefaultPasswordService passwordService = new DefaultPasswordService(passwordEncoder);
 
     @Test
     void 비밀번호가_일치하면_true를_반환한다() {
@@ -40,7 +41,7 @@ class PasswordServiceTest {
     @Test
     void PasswordService_인스턴스가_정상적으로_생성된다() {
         // when
-        PasswordService service = new PasswordService(passwordEncoder);
+        DefaultPasswordService service = new DefaultPasswordService(passwordEncoder);
 
         // then
         assertThat(service).isNotNull();

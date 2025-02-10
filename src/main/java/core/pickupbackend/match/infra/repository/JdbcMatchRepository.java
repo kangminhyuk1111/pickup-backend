@@ -95,7 +95,7 @@ public class JdbcMatchRepository implements MatchRepository {
                 match.getCost(),
                 match.getRules(),
                 match.getStatus().name(),
-                match.getId());
+                id);
 
         return findById(id).orElseThrow(() -> new ApplicationMatchException(ErrorCode.NOT_FOUND_MATCH));
     }
