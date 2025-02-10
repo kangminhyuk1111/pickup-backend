@@ -16,7 +16,7 @@ public interface MemberRepository {
 
     List<Member> findAll();
 
-    void update(Member member);
+    Member update(Member member);
 
     void delete(Long id);
 }

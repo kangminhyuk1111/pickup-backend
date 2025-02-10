@@ -65,12 +65,12 @@ public class DefaultMemberService implements MemberService {
     }
 
     @Transactional
-    public void updateMemberById(final UpdateMemberRequest dto) {
+    public Member updateMemberById(final UpdateMemberRequest dto) {
         Member existingMember = memberRepository.findByEmail(dto.email())
                 .orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
 
         Member updatedMember = dto.toEntity(existingMember.getId(),passwordEncoder);
 
-        memberRepository.update(updatedMember);
+        return memberRepository.update(updatedMember);
     }
 }

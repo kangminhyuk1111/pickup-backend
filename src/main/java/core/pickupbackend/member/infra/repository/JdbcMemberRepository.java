@@ -78,7 +78,7 @@ public class JdbcMemberRepository implements MemberRepository {
     }
 
     @Override
-    public void update(final Member member) {
+    public Member update(final Member member) {
         String sql = """
                 UPDATE users 
                 SET email = ?, password = ?, nickname = ?, profile_image = ?,
@@ -105,6 +105,8 @@ public class JdbcMemberRepository implements MemberRepository {
         if (updatedRows == 0) {
             throw new ApplicationException(ErrorCode.NOT_FOUND_USER);
         }
+
+        return findById(member.getId()).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
     }
 
     @Override
