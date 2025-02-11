@@ -1,8 +1,7 @@
 package core.pickupbackend.member.infra.web.controller;
 
 import core.pickupbackend.auth.provider.TokenProvider;
-import core.pickupbackend.global.common.code.StatusCode;
-import core.pickupbackend.global.common.response.BaseResponse;
+import core.pickupbackend.member.application.in.MemberService;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.dto.request.AddMemberRequest;
 import core.pickupbackend.member.dto.request.UpdateMemberRequest;
@@ -28,7 +27,7 @@ public class MemberController {
 
     private final static Logger logger = LoggerFactory.getLogger(MemberController.class);
 
-    private final DefaultMemberService memberService;
+    private final MemberService memberService;
     private final TokenProvider tokenProvider;
 
     public MemberController(final DefaultMemberService memberService, final TokenProvider tokenProvider) {
@@ -83,7 +82,7 @@ public class MemberController {
     @PutMapping()
     public ResponseEntity<MemberUpdateResponse> updateMemberById(@RequestBody UpdateMemberRequest dto) {
         logger.info("/member update request: {}", dto);
-        Member updatedMember = memberService.updateMemberById(dto);
+        Member updatedMember = memberService.updateMember(dto);
         return ResponseEntity.ok(MemberUpdateResponse.from(updatedMember));
     }
 }

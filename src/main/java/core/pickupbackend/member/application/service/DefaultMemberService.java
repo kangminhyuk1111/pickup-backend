@@ -42,10 +42,12 @@ public class DefaultMemberService implements MemberService {
         return memberRepository.findAll();
     }
 
+    @Override
     public Member getMemberById(final Long id) {
         return memberRepository.findById(id).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
     }
 
+    @Override
     public Member getMemberByEmail(final String email) {
         return memberRepository.findByEmail(email).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_EMAIL));
     }

@@ -1,4 +1,9 @@
 package core.pickupbackend.member.application.in;
 
-public interface MemberService extends FindAllMemberUseCase, CreateMemberUseCase {
-}
+public interface MemberService extends
+        GetAllMemberUseCase,
+        CreateMemberUseCase,
+        GetMemberByIdUseCase,
+        GetMemberByEmailUseCase,
+        DeleteMemberByIdUseCase,
+        UpdateByIdUseCase { }
