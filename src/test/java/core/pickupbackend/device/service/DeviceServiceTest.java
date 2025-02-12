@@ -3,7 +3,7 @@ package core.pickupbackend.device.service;
 import core.pickupbackend.device.application.service.DefaultDeviceService;
 import core.pickupbackend.device.domain.Device;
 import core.pickupbackend.device.domain.type.DeviceType;
-import core.pickupbackend.device.dto.*;
+import core.pickupbackend.device.dto.request.*;
 import core.pickupbackend.device.fake.FakeDeviceRepository;
 import core.pickupbackend.device.application.out.DeviceRepository;
 import core.pickupbackend.global.exception.ApplicationException;

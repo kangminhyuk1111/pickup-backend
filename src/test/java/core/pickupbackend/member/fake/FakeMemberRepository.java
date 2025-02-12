@@ -68,8 +68,9 @@ public class FakeMemberRepository implements MemberRepository {
     }
 
     @Override
-    public void update(Member member) {
+    public Member update(Member member) {
         store.put(member.getId(), member);
+        return member;
     }
 
     public void clearStore() {

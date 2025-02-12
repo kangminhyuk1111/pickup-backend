@@ -1,4 +1,6 @@
 package core.pickupbackend.match.dto.request;
 
-public record UpdateParticipationRequest(Long participationId) {
+import core.pickupbackend.match.domain.ParticipationStatus;
+
+public record UpdateParticipationRequest(Long participationId, ParticipationStatus status) {
 }

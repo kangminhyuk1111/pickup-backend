@@ -2,6 +2,7 @@ package core.pickupbackend.court.controller;
 
 import core.pickupbackend.court.domain.Court;
 import core.pickupbackend.court.domain.CourtReview;
+import core.pickupbackend.court.dto.response.CourtResponse;
 import core.pickupbackend.court.service.CourtService;
 import core.pickupbackend.global.common.code.StatusCode;
 import core.pickupbackend.global.common.response.BaseResponse;
@@ -30,16 +31,18 @@ public class CourtController {
     @Operation(summary = "전체 코트 정보 조회", security = { @SecurityRequirement(name = "bearerAuth") })
     @GetMapping
     @ResponseBody
-    public BaseResponse<List<Court>> getAllCourts() {
+    public List<CourtResponse> getAllCourts() {
         logger.debug("/courts request");
-        return new BaseResponse<>(StatusCode.SUCCESS, courtService.getAllCourts());
+        final List<Court> courts = courtService.getAllCourts();
+        return CourtResponse.from(courts);
     }
 
     @Operation(summary = "코트 정보 단건 조회", security = { @SecurityRequirement(name = "bearerAuth") })
     @GetMapping("/{courtId}")
     @ResponseBody
-    public BaseResponse<Court> getCourtReviewByCourtId(@PathVariable final Long courtId) {
+    public CourtResponse getCourtReviewByCourtId(@PathVariable final Long courtId) {
         logger.debug("/courts/:id request: {}", courtId);
-        return new BaseResponse<>(StatusCode.SUCCESS, courtService.getCourtById(courtId));
+        final Court court = courtService.getCourtById(courtId);
+        return CourtResponse.from(court);
     }
 }

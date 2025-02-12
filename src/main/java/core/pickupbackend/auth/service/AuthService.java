@@ -1,8 +1,8 @@
 package core.pickupbackend.auth.service;
 
 import core.pickupbackend.auth.domain.AuthCredential;
-import core.pickupbackend.auth.dto.LoginRequest;
-import core.pickupbackend.auth.dto.LogoutRequest;
+import core.pickupbackend.auth.dto.request.LoginRequest;
+import core.pickupbackend.auth.dto.request.LogoutRequest;
 import core.pickupbackend.auth.repostiroy.JwtRepository;
 import core.pickupbackend.device.application.service.DefaultDeviceService;
 import core.pickupbackend.global.exception.ApplicationException;

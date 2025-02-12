@@ -1,4 +1,4 @@
-package core.pickupbackend.auth.dto;
+package core.pickupbackend.auth.dto.request;
 
 public record LoginRequest(String email, String password) {
 }

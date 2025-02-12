@@ -2,8 +2,8 @@ package core.pickupbackend.device.application.service;
 
 import core.pickupbackend.device.application.in.DeviceService;
 import core.pickupbackend.device.domain.Device;
-import core.pickupbackend.device.dto.*;
 import core.pickupbackend.device.application.out.DeviceRepository;
+import core.pickupbackend.device.dto.request.*;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import org.springframework.stereotype.Service;

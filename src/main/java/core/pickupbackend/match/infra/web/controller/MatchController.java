@@ -3,7 +3,6 @@ package core.pickupbackend.match.infra.web.controller;
 import core.pickupbackend.global.common.code.StatusCode;
 import core.pickupbackend.global.common.response.BaseResponse;
 import core.pickupbackend.match.application.in.MatchService;
-import core.pickupbackend.match.application.out.ParticipationRepository;
 import core.pickupbackend.match.domain.Participation;
 import core.pickupbackend.match.dto.request.CreateParticipationRequest;
 import core.pickupbackend.match.dto.request.UpdateMatchRequest;
@@ -13,11 +12,15 @@ import core.pickupbackend.match.dto.request.UpdateParticipationRequest;
 import core.pickupbackend.match.dto.response.MatchParticipationResponse;
 import core.pickupbackend.match.application.service.DefaultMatchService;
 import core.pickupbackend.match.application.service.DefaultParticipationService;
+import core.pickupbackend.match.dto.response.MatchResponse;
+import core.pickupbackend.match.dto.response.MatchesResponse;
+import core.pickupbackend.match.dto.response.ParticipationResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,7 +36,6 @@ public class MatchController {
     private final DefaultParticipationService participationService;
 
     public MatchController(final DefaultMatchService matchService, final DefaultParticipationService participationService) {
-        logger.debug("create match controller");
         this.participationService = participationService;
         this.matchService = matchService;
     }
@@ -41,59 +43,61 @@ public class MatchController {
     @Operation(summary = "매치 생성", security = { @SecurityRequirement(name = "bearerAuth") })
     @PostMapping
     @ResponseBody
-    public BaseResponse<Match> createMatch(@RequestBody final CreateMatchRequest createMatchDto, @RequestHeader("Authorization") final String accessToken) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public MatchResponse createMatch(@RequestBody final CreateMatchRequest createMatchDto, @RequestHeader("Authorization") final String accessToken) {
         logger.debug("/createMatch request: {}", createMatchDto.toString());
         final String token = accessToken.replace("Bearer ", "");
-        Match match = matchService.create(token, createMatchDto);
-        return new BaseResponse<>(StatusCode.SUCCESS, match);
+        final Match match = matchService.create(token, createMatchDto);
+        return MatchResponse.from(match);
     }
 
     @Operation(summary = "매치 정보 전체 조회")
     @GetMapping
     @ResponseBody
-    public BaseResponse<List<Match>> getMatches() {
+    public MatchesResponse getMatches() {
         logger.debug("/getMatches request");
-        List<Match> matches = matchService.findAll();
-        return new BaseResponse<>(StatusCode.SUCCESS, matches);
+        final List<Match> matches = matchService.findAll();
+        return MatchesResponse.from(matches);
     }
 
     @Operation(summary = "매치 정보 단건 조회")
     @GetMapping("/{id}")
     @ResponseBody
-    public BaseResponse<Match> getMatchById(@PathVariable("id") final Long id) {
+    public MatchResponse getMatchById(@PathVariable("id") final Long id) {
         logger.debug("/getMatchById request: {}", id);
-        Match match = matchService.findById(id);
-        return new BaseResponse<>(StatusCode.SUCCESS, match);
+        final Match match = matchService.findById(id);
+        return MatchResponse.from(match);
     }
 
     @Operation(summary = "매치 정보 업데이트", security = { @SecurityRequirement(name = "bearerAuth") })
     @PutMapping("/{id}")
     @ResponseBody
-    public BaseResponse<Match> updateMatch(@PathVariable("id") final Long id, @RequestBody final UpdateMatchRequest updateMatchDto, @RequestHeader("Authorization") final String accessToken) {
+    public MatchResponse updateMatch(@PathVariable("id") final Long id, @RequestBody final UpdateMatchRequest updateMatchDto, @RequestHeader("Authorization") final String accessToken) {
         logger.debug("/updateMatch request: {}", updateMatchDto.toString());
         final String token = accessToken.replace("Bearer ", "");
-        Match match = matchService.update(token, id, updateMatchDto);
-        return new BaseResponse<>(StatusCode.SUCCESS, match);
+        final Match match = matchService.update(token, id, updateMatchDto);
+        return MatchResponse.from(match);
     }
 
     @Operation(summary = "매치 삭제", security = { @SecurityRequirement(name = "bearerAuth") })
     @DeleteMapping("/{matchId}")
     @ResponseBody
-    public BaseResponse<Void> deleteMatch(@RequestHeader("Authorization") final String accessToken, @PathVariable("matchId") final Long matchId) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteMatch(@RequestHeader("Authorization") final String accessToken, @PathVariable("matchId") final Long matchId) {
         logger.debug("/deleteMatch request: {}", matchId);
         final String token = accessToken.replace("Bearer ", "");
         matchService.deleteById(token, matchId);
-        return new BaseResponse<>(StatusCode.SUCCESS);
     }
 
     @Operation(summary = "매치 참여 신청", security = { @SecurityRequirement(name = "bearerAuth") })
     @PostMapping("/participation")
     @ResponseBody
-    public BaseResponse<Participation> addParticipation(@RequestHeader("Authorization") final String accessToken, @RequestBody final CreateParticipationRequest createParticipationDto) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public ParticipationResponse addParticipation(@RequestHeader("Authorization") final String accessToken, @RequestBody final CreateParticipationRequest createParticipationDto) {
         logger.debug("/addParticipation request: {}", createParticipationDto.toString());
         final String token = accessToken.replace("Bearer ", "");
-        Participation participation = participationService.createParticipation(token, createParticipationDto);
-        return new BaseResponse<>(StatusCode.SUCCESS, participation);
+        final Participation participation = participationService.createParticipation(token, createParticipationDto);
+        return ParticipationResponse.from(participation);
     }
 
     @Operation(summary = "매치와 매치 참여자의 정보를 조회", security = { @SecurityRequirement(name = "bearerAuth") })
@@ -107,20 +111,11 @@ public class MatchController {
     }
 
     @Operation(summary = "매치 참여자 상태 수락", security = { @SecurityRequirement(name = "bearerAuth") })
-    @PostMapping("/accept")
+    @PostMapping("/status")
     @ResponseBody
-    public BaseResponse<Participation> acceptParticipation(@RequestBody final UpdateParticipationRequest updateParticipationRequest) {
-        logger.debug("/accept request: {}", updateParticipationRequest);
-        final Participation participation = matchService.matchAccept(updateParticipationRequest);
-        return new BaseResponse<>(StatusCode.SUCCESS, participation);
-    }
-
-    @Operation(summary = "매치 참여자 상태 거절", security = { @SecurityRequirement(name = "bearerAuth") })
-    @PostMapping("/rejected")
-    @ResponseBody
-    public BaseResponse<Participation> rejectedParticipation(@RequestBody final UpdateParticipationRequest updateParticipationRequest) {
-        logger.debug("/accept request: {}", updateParticipationRequest);
-        final Participation participation = matchService.matchRejected(updateParticipationRequest);
-        return new BaseResponse<>(StatusCode.SUCCESS, participation);
+    public ParticipationResponse updateParticipationStatus(@RequestBody final UpdateParticipationRequest updateParticipationRequest) {
+        logger.debug("/status request: {}", updateParticipationRequest);
+        final Participation participation = matchService.updateStatus(updateParticipationRequest);
+        return ParticipationResponse.from(participation);
     }
 }

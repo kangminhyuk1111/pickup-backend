@@ -24,6 +24,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+import static core.pickupbackend.match.domain.ParticipationStatus.ACCEPTED;
+import static core.pickupbackend.match.domain.ParticipationStatus.REJECTED;
+
 @Service
 public class DefaultMatchService implements MatchService {
 
@@ -103,14 +106,16 @@ public class DefaultMatchService implements MatchService {
     }
 
     @Override
-    public Participation matchAccept(final UpdateParticipationRequest updateParticipationRequest) {
+    public Participation updateStatus(final UpdateParticipationRequest updateParticipationRequest) {
         final Participation participation = participationRepository.findParticipationById(updateParticipationRequest.participationId());
 
-        final Participation accept = participation.accept();
+        switch (updateParticipationRequest.status()) {
+            case ACCEPTED -> participation.accept();
+            case REJECTED -> participation.rejected();
+            default -> throw new ApplicationMatchException(ErrorCode.NOT_FOUND_STATUS);
+        }
 
-        participationRepository.updateParticipation(accept);
-
-        return accept;
+        return participationRepository.updateParticipation(participation);
     }
 
     @Override

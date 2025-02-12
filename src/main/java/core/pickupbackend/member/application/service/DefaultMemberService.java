@@ -67,7 +67,7 @@ public class DefaultMemberService implements MemberService {
     }
 
     @Transactional
-    public Member updateMemberById(final UpdateMemberRequest dto) {
+    public Member updateMember(final UpdateMemberRequest dto) {
         Member existingMember = memberRepository.findByEmail(dto.email())
                 .orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
 

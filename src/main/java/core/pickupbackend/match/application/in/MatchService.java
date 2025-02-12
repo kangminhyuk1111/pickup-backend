@@ -7,7 +7,7 @@ public interface MatchService extends
         FindMatchByIdUseCase,
         DeleteMatchUseCase,
         FindMatchParticipationUseCase,
-        MatchAcceptUseCase,
+        UpdateStatusUseCase,
         MatchRejectedUseCase
 {
 }
