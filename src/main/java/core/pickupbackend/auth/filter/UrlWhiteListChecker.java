@@ -43,6 +43,9 @@ public class UrlWhiteListChecker {
 
         // Swagger Documentation
         addSwaggerPatterns();
+
+        // fcm
+        addPattern("/notification/**");
     }
 
     private void addSwaggerPatterns() {

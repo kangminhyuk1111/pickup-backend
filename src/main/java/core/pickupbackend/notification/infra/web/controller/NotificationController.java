@@ -41,7 +41,7 @@ public class NotificationController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void sendMultiple(@RequestBody final NotificationCommand<List<String>> pushRequestDto) throws FirebaseMessagingException {
         logger.debug("send multi request: {}", pushRequestDto);
-        pushMessageService.sendMultiCast(pushRequestDto);
+        pushMessageService.sendMulti(pushRequestDto);
     }
 
     @Operation(summary = "푸시알림 단건 요청", security = { @SecurityRequirement(name = "bearerAuth") })

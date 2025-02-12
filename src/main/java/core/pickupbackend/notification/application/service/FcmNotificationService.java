@@ -55,7 +55,7 @@ public class FcmNotificationService implements NotificationPort {
     }
 
     @Override
-    public List<NotificationResult> sendMultiCast(final NotificationCommand<List<String>> request) throws FirebaseMessagingException {
+    public List<NotificationResult> sendMulti(final NotificationCommand<List<String>> request) throws FirebaseMessagingException {
         final MulticastMessage message = MulticastMessage.builder()
                 .addAllTokens(request.getTargetToken())
                 .setNotification(createNotification(request.getTitle(), request.getBody()))

@@ -41,7 +41,7 @@ class FcmNotificationServiceTest {
                 "테스트 내용"
         );
 
-        final List<NotificationResult> notificationResults = notificationService.sendMultiCast(request);
+        final List<NotificationResult> notificationResults = notificationService.sendMulti(request);
 
         assertThat(notificationResults).hasSize(2);
 

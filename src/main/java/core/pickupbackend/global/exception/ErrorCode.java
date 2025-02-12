@@ -14,7 +14,7 @@ public enum ErrorCode {
 
     // 400 Bad Request - 잘못된 요청
     PASSWORD_NOT_MATCHES(HttpStatus.BAD_REQUEST, "비밀번호가 올바르지 않습니다."),
-    MEMBER_ALREADY_EXIST(HttpStatus.BAD_REQUEST, "이미 가입된 이메일 입니다."),
+    EMAIL_ALREADY_EXIST(HttpStatus.BAD_REQUEST, "이미 가입된 이메일 입니다."),
     EMAIL_PATTERN_EXCEPTION(HttpStatus.BAD_REQUEST, "올바른 이메일 형식이 아닙니다."),
     USERNAME_VALID_EXCEPTION(HttpStatus.BAD_REQUEST, "유저네임은 4에서 16자 사이만 허용합니다."),
     PASSWORD_VALID_EXCEPTION(HttpStatus.BAD_REQUEST, "유효하지 않은 패스워드 형식입니다."),

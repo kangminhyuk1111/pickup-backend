@@ -34,7 +34,7 @@ public class FakeNotificationService implements NotificationPort {
     }
 
     @Override
-    public List<NotificationResult> sendMultiCast(NotificationCommand<List<String>> request) {
+    public List<NotificationResult> sendMulti(NotificationCommand<List<String>> request) {
         if (shouldFail) {
             throw new MessagePushException(ErrorCode.MESSAGE_NOT_PUSHED);
         }

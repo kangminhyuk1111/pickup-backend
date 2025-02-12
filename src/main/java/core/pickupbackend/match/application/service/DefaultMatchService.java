@@ -10,9 +10,7 @@ import core.pickupbackend.match.domain.Participation;
 import core.pickupbackend.match.dto.request.CreateMatchRequest;
 import core.pickupbackend.match.dto.request.UpdateMatchRequest;
 import core.pickupbackend.match.dto.request.UpdateParticipationRequest;
-import core.pickupbackend.match.dto.response.MatchParticipationResponse;
-import core.pickupbackend.match.dto.response.ParticipationMemberResponse;
-import core.pickupbackend.match.dto.response.ParticipationWithUserResponse;
+import core.pickupbackend.match.dto.response.*;
 import core.pickupbackend.match.application.out.MatchRepository;
 import core.pickupbackend.match.application.out.ParticipationRepository;
 import core.pickupbackend.member.domain.Member;
@@ -70,7 +68,7 @@ public class DefaultMatchService implements MatchService {
 
                     final List<ParticipationWithUserResponse> participationResponses = getParticipationWithUserResponses(matchParticipations);
 
-                    return new MatchParticipationResponse(match, participationResponses);
+                    return new MatchParticipationResponse(MatchResponse.from(match), participationResponses);
                 }).toList();
     }
 
@@ -137,8 +135,8 @@ public class DefaultMatchService implements MatchService {
         return matchParticipations.stream()
                 .map(participation -> {
                     final Member participationMember = memberService.getMemberById(participation.getUserId());
-                    final ParticipationMemberResponse memberDto = new ParticipationMemberResponse(participationMember);
-                    return new ParticipationWithUserResponse(memberDto, participation);
+                    final ParticipationMemberResponse memberDto = ParticipationMemberResponse.from(participationMember);
+                    return new ParticipationWithUserResponse(memberDto, ParticipationResponse.from(participation));
                 }).toList();
     }
 

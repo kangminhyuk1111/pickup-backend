@@ -7,5 +7,5 @@ import core.pickupbackend.notification.dto.response.NotificationResult;
 import java.util.List;
 
 public interface MultiNotificationUseCase {
-    List<NotificationResult> sendMultiCast(NotificationCommand<List<String>> notificationRequestDto) throws FirebaseMessagingException;
+    List<NotificationResult> sendMulti(NotificationCommand<List<String>> notificationRequestDto) throws FirebaseMessagingException;
 }

@@ -28,8 +28,9 @@ jwt:
 logging:
   level:
     root: warn
-    core.pickupbackend: debug
+    core.pickupbackend: DEBUG
     org.springframework.jdbc.core: TRACE
+    com.google.firebase: DEBUG
 
 log:
   path: src/main/resources/log

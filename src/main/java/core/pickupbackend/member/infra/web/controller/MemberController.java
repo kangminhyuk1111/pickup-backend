@@ -4,6 +4,7 @@ import core.pickupbackend.auth.provider.TokenProvider;
 import core.pickupbackend.member.application.in.MemberService;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.dto.request.AddMemberRequest;
+import core.pickupbackend.member.dto.request.CheckEmailDuplicateRequest;
 import core.pickupbackend.member.dto.request.UpdateMemberRequest;
 import core.pickupbackend.member.application.service.DefaultMemberService;
 import core.pickupbackend.member.dto.response.MemberResponse;
@@ -83,5 +84,12 @@ public class MemberController {
         logger.info("/member update request: {}", dto);
         Member updatedMember = memberService.updateMember(dto);
         return MemberUpdateResponse.from(updatedMember);
+    }
+
+    @Operation(summary = "유저 이메일 중복 검사")
+    @GetMapping
+    public Boolean checkDuplicateEmail(@RequestBody CheckEmailDuplicateRequest dto) {
+        logger.info("/member check duplicate email request");
+        return memberService.checkDuplicateEmail(dto);
     }
 }

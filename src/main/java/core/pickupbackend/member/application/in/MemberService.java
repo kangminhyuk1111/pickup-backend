@@ -6,4 +6,6 @@ public interface MemberService extends
         GetMemberByIdUseCase,
         GetMemberByEmailUseCase,
         DeleteMemberByIdUseCase,
-        UpdateByIdUseCase { }
+        UpdateByIdUseCase,
+        EmailDuplicateCheckUseCase
+{ }

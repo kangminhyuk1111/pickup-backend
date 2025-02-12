@@ -6,6 +6,7 @@ import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.member.application.in.MemberService;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.dto.request.AddMemberRequest;
+import core.pickupbackend.member.dto.request.CheckEmailDuplicateRequest;
 import core.pickupbackend.member.dto.request.UpdateMemberRequest;
 import core.pickupbackend.member.application.out.MemberRepository;
 import org.slf4j.Logger;
@@ -34,6 +35,8 @@ public class DefaultMemberService implements MemberService {
     @Transactional
     @Override
     public Member createMember(final AddMemberRequest dto) {
+        checkEmailAlreadyExist(dto.email());
+
         return memberRepository.save(dto.toEntity(passwordEncoder));
     }
 
@@ -52,11 +55,6 @@ public class DefaultMemberService implements MemberService {
         return memberRepository.findByEmail(email).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_EMAIL));
     }
 
-    public Member findMemberByToken(final String token) {
-        final String email = tokenProvider.extractEmailFromToken(token);
-        return memberRepository.findByEmail(email).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
-    }
-
     public Member getMemberByNickname(final String nickname) {
         return memberRepository.findByNickname(nickname).orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
     }
@@ -71,8 +69,21 @@ public class DefaultMemberService implements MemberService {
         Member existingMember = memberRepository.findByEmail(dto.email())
                 .orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
 
-        Member updatedMember = dto.toEntity(existingMember.getId(),passwordEncoder);
+        Member updatedMember = dto.toEntity(existingMember.getId(), passwordEncoder);
 
         return memberRepository.update(updatedMember);
+    }
+
+    @Override
+    public boolean checkDuplicateEmail(final CheckEmailDuplicateRequest dto) {
+        checkEmailAlreadyExist(dto.email());
+
+        return true;
+    }
+
+    private void checkEmailAlreadyExist(final String email) {
+        memberRepository.findByEmail(email).ifPresent(member -> {
+            throw new ApplicationException(ErrorCode.EMAIL_ALREADY_EXIST);
+        });
     }
 }
