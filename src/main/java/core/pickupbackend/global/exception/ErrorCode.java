@@ -63,7 +63,8 @@ public enum ErrorCode {
     MESSAGE_NOT_PUSHED(HttpStatus.INTERNAL_SERVER_ERROR, "메세지가 정상적으로 전송되지 못했습니다."),
 
     // enum
-    NOT_FOUND_STATUS(HttpStatus.NOT_FOUND, "상태값이 올바르지 않습니다.");
+    NOT_FOUND_STATUS(HttpStatus.NOT_FOUND, "상태값이 올바르지 않습니다."),
+    CREATOR_CAN_NOT_CREATE_PARTICIPATION(HttpStatus.BAD_REQUEST, "작성자는 매칭 신청이 불가능 합니다.");
 
 
     private HttpStatus status;

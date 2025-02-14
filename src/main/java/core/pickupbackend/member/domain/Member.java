@@ -98,6 +98,10 @@ public class Member implements Serializable {
         return password.getPassword();
     }
 
+    public Password getPasswordObject() {
+        return password;
+    }
+
     public String getNickname() {
         return nickname;
     }

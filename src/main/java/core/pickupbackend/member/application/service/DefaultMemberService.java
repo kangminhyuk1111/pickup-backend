@@ -69,7 +69,7 @@ public class DefaultMemberService implements MemberService {
         Member existingMember = memberRepository.findByEmail(dto.email())
                 .orElseThrow(() -> new ApplicationException(ErrorCode.NOT_FOUND_USER));
 
-        Member updatedMember = dto.toEntity(existingMember.getId(), passwordEncoder);
+        Member updatedMember = dto.toEntity(existingMember.getId(), passwordEncoder, existingMember);
 
         return memberRepository.update(updatedMember);
     }

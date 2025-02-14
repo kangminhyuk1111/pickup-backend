@@ -5,14 +5,17 @@ import core.pickupbackend.member.domain.type.Level;
 import core.pickupbackend.member.domain.type.Position;
 import core.pickupbackend.member.domain.vo.Password;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Nullable;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.Optional;
 
 public record UpdateMemberRequest(
         @Schema(description = "이메일", example = "test@gmail.com")
         String email,
 
         @Schema(description = "비밀번호", example = "test1234@")
-        String password,
+        Optional<String> password,
 
         @Schema(description = "닉네임", example = "농구왕")
         String nickname,
@@ -29,7 +32,11 @@ public record UpdateMemberRequest(
         @Schema(description = "실력 레벨", example = "BEGINNER")
         Level level
 ) {
-    public Member toEntity(final Long id, final PasswordEncoder passwordEncoder) {
-        return new Member(id, email, new Password(passwordEncoder, password), nickname, height, weight, position, level);
+    public Member toEntity(final Long id, final PasswordEncoder passwordEncoder, final Member existingMember) {
+        Password updatedPassword = password
+                .map(pwd -> new Password(passwordEncoder, pwd))
+                .orElseGet(existingMember::getPasswordObject);
+
+        return new Member(id, email, updatedPassword, nickname, height, weight, position, level);
     }
 }

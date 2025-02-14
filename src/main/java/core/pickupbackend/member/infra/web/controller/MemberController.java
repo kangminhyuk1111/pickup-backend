@@ -87,7 +87,7 @@ public class MemberController {
     }
 
     @Operation(summary = "유저 이메일 중복 검사")
-    @GetMapping
+    @GetMapping("/check-email")
     public Boolean checkDuplicateEmail(@RequestBody CheckEmailDuplicateRequest dto) {
         logger.info("/member check duplicate email request");
         return memberService.checkDuplicateEmail(dto);
