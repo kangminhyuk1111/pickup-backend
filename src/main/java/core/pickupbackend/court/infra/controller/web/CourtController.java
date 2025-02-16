@@ -1,11 +1,9 @@
-package core.pickupbackend.court.controller;
+package core.pickupbackend.court.infra.controller.web;
 
 import core.pickupbackend.court.domain.Court;
-import core.pickupbackend.court.domain.CourtReview;
+import core.pickupbackend.court.dto.request.GetCourtCommand;
 import core.pickupbackend.court.dto.response.CourtResponse;
-import core.pickupbackend.court.service.CourtService;
-import core.pickupbackend.global.common.code.StatusCode;
-import core.pickupbackend.global.common.response.BaseResponse;
+import core.pickupbackend.court.application.service.DefaultCourtService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,9 +20,9 @@ public class CourtController {
 
     private final static Logger logger = LoggerFactory.getLogger(CourtController.class);
 
-    private final CourtService courtService;
+    private final DefaultCourtService courtService;
 
-    public CourtController(final CourtService courtService) {
+    public CourtController(final DefaultCourtService courtService) {
         this.courtService = courtService;
     }
 
@@ -40,9 +38,9 @@ public class CourtController {
     @Operation(summary = "코트 정보 단건 조회", security = { @SecurityRequirement(name = "bearerAuth") })
     @GetMapping("/{courtId}")
     @ResponseBody
-    public CourtResponse getCourtReviewByCourtId(@PathVariable final Long courtId) {
-        logger.debug("/courts/:id request: {}", courtId);
-        final Court court = courtService.getCourtById(courtId);
+    public CourtResponse getCourtReviewByCourtId(@PathVariable final GetCourtCommand command) {
+        logger.debug("/courts/:id request: {}", command);
+        final Court court = courtService.getCourtById(command);
         return CourtResponse.from(court);
     }
 }

@@ -1,4 +1,4 @@
 package core.pickupbackend.auth.dto.request;
 
-public record LogoutRequest(String email) {
+public record LogoutCommand(String email) {
 }

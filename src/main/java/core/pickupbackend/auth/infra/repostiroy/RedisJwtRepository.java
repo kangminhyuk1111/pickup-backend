@@ -1,7 +1,8 @@
-package core.pickupbackend.auth.repostiroy;
+package core.pickupbackend.auth.infra.repostiroy;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import core.pickupbackend.auth.application.out.JwtRepository;
 import core.pickupbackend.auth.domain.AuthCredential;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.time.Duration;
 
 @Repository
-public class JwtRepository {
+public class RedisJwtRepository implements JwtRepository {
 
     private static final Duration TOKEN_EXPIRATION = Duration.ofHours(1);
 
@@ -20,7 +21,7 @@ public class JwtRepository {
     private final ObjectMapper objectMapper;
     private final ValueOperations<String, String> valueOperations;
 
-    public JwtRepository(final RedisTemplate<String, String> redisTemplate, final ObjectMapper objectMapper) {
+    public RedisJwtRepository(final RedisTemplate<String, String> redisTemplate, final ObjectMapper objectMapper) {
         this.redisTemplate = redisTemplate;
         this.objectMapper = objectMapper;
         this.valueOperations = redisTemplate.opsForValue();
@@ -46,6 +47,11 @@ public class JwtRepository {
         }
     }
 
+    public void delete(final String accessToken) {
+        final AuthCredential authCredential = findByJti(accessToken);
+        redisTemplate.delete(authCredential.jti());
+    }
+
     private String generateTokenJson(final AuthCredential authCredential) {
         try {
             return objectMapper.writeValueAsString(authCredential);
@@ -54,8 +60,4 @@ public class JwtRepository {
         }
     }
 
-    public void delete(final String accessToken) {
-        final AuthCredential authCredential = findByJti(accessToken);
-        redisTemplate.delete(authCredential.jti());
-    }
 }

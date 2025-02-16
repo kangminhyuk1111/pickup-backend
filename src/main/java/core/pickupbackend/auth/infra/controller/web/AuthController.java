@@ -1,12 +1,10 @@
-package core.pickupbackend.auth.controller;
+package core.pickupbackend.auth.infra.controller.web;
 
 import core.pickupbackend.auth.domain.AuthCredential;
-import core.pickupbackend.auth.dto.request.LoginRequest;
-import core.pickupbackend.auth.dto.request.LogoutRequest;
+import core.pickupbackend.auth.dto.request.LoginCommand;
+import core.pickupbackend.auth.dto.request.LogoutCommand;
 import core.pickupbackend.auth.dto.response.LoginResponse;
-import core.pickupbackend.auth.service.AuthService;
-import core.pickupbackend.global.common.response.BaseResponse;
-import core.pickupbackend.global.common.code.StatusCode;
+import core.pickupbackend.auth.application.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
@@ -30,7 +28,7 @@ public class AuthController {
     @Operation(summary = "로그인")
     @PostMapping("/login")
     @ResponseBody
-    public LoginResponse login(@RequestBody LoginRequest loginRequestDto) {
+    public LoginResponse login(@RequestBody LoginCommand loginRequestDto) {
         logger.debug("/login request: {}", loginRequestDto);
         final AuthCredential authCredential = authService.login(loginRequestDto);
         return LoginResponse.from(authCredential);
@@ -39,7 +37,7 @@ public class AuthController {
     @Operation(summary = "로그아웃")
     @PostMapping("/logout")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void logout(@RequestHeader("Authorization") String accessToken, @RequestBody LogoutRequest logoutRequestDto) {
+    public void logout(@RequestHeader("Authorization") String accessToken, @RequestBody LogoutCommand logoutRequestDto) {
         logger.debug("/logout request: {}", logoutRequestDto);
         authService.logout(accessToken, logoutRequestDto);
     }

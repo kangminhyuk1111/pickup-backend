@@ -1,7 +1,8 @@
-package core.pickupbackend.court.repository;
+package core.pickupbackend.court.infra.repository;
 
+import core.pickupbackend.court.application.out.LoadCourtPort;
 import core.pickupbackend.court.domain.Court;
-import core.pickupbackend.court.mapper.CourtRowMapper;
+import core.pickupbackend.court.domain.mapper.CourtRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class JdbcCourtRepository implements CourtRepository {
+public class JdbcCourtRepository implements LoadCourtPort {
 
     private final JdbcTemplate jdbcTemplate;
     private final RowMapper<Court> courtRowMapper = new CourtRowMapper();
@@ -20,7 +21,7 @@ public class JdbcCourtRepository implements CourtRepository {
     }
 
     @Override
-    public List<Court> getAllCourts() {
+    public List<Court> loadAllCourts() {
         String sql = """
                     SELECT c.id, c.name, c.location, c.address, c.latitude, c.longitude, c.hoops, c.surface, c.lighting, c.parking, c.rating, c.best_time,
                            GROUP_CONCAT(DISTINCT ci.image_url ORDER BY ci.image_url SEPARATOR ',') AS images,
@@ -34,7 +35,7 @@ public class JdbcCourtRepository implements CourtRepository {
     }
 
     @Override
-    public Optional<Court> getCourtById(final Long courtId) {
+    public Optional<Court> loadCourtById(final Long courtId) {
         return Optional.empty();
     }
 }

@@ -1,7 +1,7 @@
 package core.pickupbackend.auth.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import core.pickupbackend.auth.service.JwtService;
+import core.pickupbackend.auth.application.service.JwtService;
 import core.pickupbackend.global.common.response.ErrorResponse;
 import core.pickupbackend.global.exception.ErrorCode;
 import jakarta.servlet.FilterChain;

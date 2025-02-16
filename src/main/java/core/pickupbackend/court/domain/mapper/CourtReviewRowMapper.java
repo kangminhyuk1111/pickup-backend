@@ -1,4 +1,4 @@
-package core.pickupbackend.court.mapper;
+package core.pickupbackend.court.domain.mapper;
 
 import core.pickupbackend.court.domain.CourtReview;
 import org.springframework.jdbc.core.RowMapper;

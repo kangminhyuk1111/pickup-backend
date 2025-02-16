@@ -1,9 +1,9 @@
-package core.pickupbackend.auth.service;
+package core.pickupbackend.auth.application.service;
 
 import core.pickupbackend.auth.domain.AuthCredential;
 import core.pickupbackend.auth.provider.JtiProvider;
 import core.pickupbackend.auth.provider.TokenProvider;
-import core.pickupbackend.auth.repostiroy.JwtRepository;
+import core.pickupbackend.auth.infra.repostiroy.RedisJwtRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,12 +11,12 @@ public class JwtService {
 
     private final TokenProvider tokenProvider;
     private final JtiProvider jtiProvider;
-    private final JwtRepository jwtRepository;
+    private final RedisJwtRepository jwtRepository;
 
-    public JwtService(final TokenProvider tokenProvider, final JtiProvider jtiProvider, final JwtRepository jwtRepository, final JwtRepository jwtRepository1) {
+    public JwtService(final TokenProvider tokenProvider, final JtiProvider jtiProvider, final RedisJwtRepository jwtRepository) {
         this.tokenProvider = tokenProvider;
         this.jtiProvider = jtiProvider;
-        this.jwtRepository = jwtRepository1;
+        this.jwtRepository = jwtRepository;
     }
 
     public AuthCredential generateAuthCredential(String email) {
