@@ -40,7 +40,7 @@ public class AuthService implements LoginUseCase, LogoutUseCase {
             throw new ApplicationException(ErrorCode.PASSWORD_NOT_MATCHES);
         }
         
-        final AuthCredential authCredential = jwtService.generateAuthCredential(loginCommand.email());
+        final AuthCredential authCredential = jwtService.generateAuthCredential(member.getEmail(), member.getId());
 
         jwtRepository.save(authCredential);
         

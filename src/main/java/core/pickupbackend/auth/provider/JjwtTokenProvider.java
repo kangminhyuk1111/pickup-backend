@@ -16,9 +16,10 @@ public class JjwtTokenProvider implements TokenProvider{
     }
 
     @Override
-    public String createToken(final String email, final String jti) {
+    public String createToken(final String email, final Long userId, final String jti) {
         return Jwts.builder()
                 .subject(email)
+                .claim( "userId", userId )
                 .id(jti)
                 .expiration(keyProvider.getExpiration())
                 .issuedAt(new Date())

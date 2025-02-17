@@ -6,7 +6,7 @@ import java.util.Date;
 
 public interface TokenProvider {
 
-    String createToken(String email, String jti);
+    String createToken(String email, Long userId, String jti);
 
     Claims extractClaimsFromToken(String token);
 

@@ -19,11 +19,11 @@ public class JwtService {
         this.jwtRepository = jwtRepository;
     }
 
-    public AuthCredential generateAuthCredential(String email) {
+    public AuthCredential generateAuthCredential(String email, Long userId) {
         final String jti = jtiProvider.generateJti();
 
-        final String accessToken = generateAccessToken(email, jti);
-        final String refreshToken = generateRefreshToken(email, jti);
+        final String accessToken = generateAccessToken(email, userId, jti);
+        final String refreshToken = generateRefreshToken(email, userId, jti);
 
         return new AuthCredential(jti, accessToken, refreshToken);
     }
@@ -35,11 +35,11 @@ public class JwtService {
         return findByJti != null;
     }
 
-    private String generateAccessToken(final String email, final String jti) {
-        return tokenProvider.createToken(email, jti);
+    private String generateAccessToken(final String email, final Long userId, final String jti) {
+        return tokenProvider.createToken(email, userId, jti);
     }
 
-    private String generateRefreshToken(final String email, final String jti) {
-        return tokenProvider.createToken(email, jti);
+    private String generateRefreshToken(final String email, final Long userId, final String jti) {
+        return tokenProvider.createToken(email, userId, jti);
     }
 }
