@@ -6,6 +6,4 @@ import java.util.Date;
 public interface KeyProvider {
 
     SecretKey getSecretKey();
-
-    Date getExpiration();
 }

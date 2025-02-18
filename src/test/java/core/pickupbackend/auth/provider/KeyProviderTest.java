@@ -21,15 +21,4 @@ public class KeyProviderTest {
         assertThat(secretKey).isNotNull();
         assertThat(secretKey.getAlgorithm()).isEqualTo("HmacSHA256");
     }
-
-    @Test
-    void 만료시간을_생성한다() {
-        // when
-        Date expiration = keyProvider.getExpiration();
-
-        // then
-        assertThat(expiration).isNotNull();
-        assertThat(expiration).isAfter(new Date());
-        assertThat(expiration).isBefore(new Date(System.currentTimeMillis() + 3600001)); // 1시간 + 1밀리초
-    }
 }

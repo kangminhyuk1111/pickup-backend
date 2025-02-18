@@ -1,5 +1,6 @@
 package core.pickupbackend.auth.provider;
 
+import core.pickupbackend.auth.domain.type.TokenType;
 import core.pickupbackend.auth.fake.FakeTokenProvider;
 import io.jsonwebtoken.Claims;
 import org.junit.jupiter.api.Test;
@@ -18,9 +19,10 @@ class TokenProviderTest {
         // given
         String email = "test@example.com";
         String jti = "test-jti";
+        Long userId = 1L;
 
         // when
-        String token = tokenProvider.createToken(email, jti);
+        String token = tokenProvider.createToken(email, userId, jti, TokenType.ACCESS);
 
         // then
         assertThat(token).isNotNull();
@@ -31,7 +33,9 @@ class TokenProviderTest {
         // given
         String email = "test@example.com";
         String jti = "test-jti";
-        String token = tokenProvider.createToken(email, jti);
+        Long userId = 1L;
+        String token = tokenProvider.createToken(email, userId, jti, TokenType.ACCESS);
+
 
         // when
         Claims claims = tokenProvider.extractClaimsFromToken(token);
@@ -57,7 +61,8 @@ class TokenProviderTest {
     void 토큰에서_이메일을_추출한다() {
         // given
         String email = "test@example.com";
-        String token = tokenProvider.createToken(email, "test-jti");
+        Long userId = 1L;
+        String token = tokenProvider.createToken(email, userId,"test-jti", TokenType.ACCESS);
 
         // when
         String extractedEmail = tokenProvider.extractEmailFromToken(token);
@@ -69,7 +74,8 @@ class TokenProviderTest {
     @Test
     void 토큰에서_만료시간을_추출한다() {
         // given
-        String token = tokenProvider.createToken("test@example.com", "test-jti");
+        Long userId = 1L;
+        String token = tokenProvider.createToken("test@example.com", userId,"test-jti", TokenType.ACCESS);
 
         // when
         Date expiration = tokenProvider.extractExpirationTimeFromToken(token);
@@ -82,7 +88,8 @@ class TokenProviderTest {
     void 토큰에서_JTI를_추출한다() {
         // given
         String jti = "test-jti";
-        String token = tokenProvider.createToken("test@example.com", jti);
+        Long userId = 1L;
+        String token = tokenProvider.createToken("test@example.com", userId, jti, TokenType.ACCESS);
 
         // when
         String extractedJti = tokenProvider.extractJtiFromToken(token);

@@ -47,8 +47,8 @@ public class RedisJwtRepository implements JwtRepository {
         }
     }
 
-    public void delete(final String accessToken) {
-        final AuthCredential authCredential = findByJti(accessToken);
+    public void delete(final String token) {
+        final AuthCredential authCredential = findByJti(token);
         redisTemplate.delete(authCredential.jti());
     }
 

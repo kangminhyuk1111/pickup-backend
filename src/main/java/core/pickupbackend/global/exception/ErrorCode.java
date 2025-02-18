@@ -26,6 +26,7 @@ public enum ErrorCode {
     // 401 Unauthorized - 인증 실패
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "인증되지 않은 유저입니다."),
     INVALID_ACCESS_TOKEN(HttpStatus.UNAUTHORIZED, "Access Token이 만료되었습니다."),
+    INVALID_REFRESH_TOKEN(HttpStatus.UNAUTHORIZED, "Refresh Token이 만료되었습니다."),
     TOKEN_NOT_FOUND(HttpStatus.UNAUTHORIZED, "토큰이 존재하지 않거나 형식이 잘못되었습니다."),
     JTI_NOT_FOUND(HttpStatus.UNAUTHORIZED, "jti 토큰을 찾을 수 없습니다."),
     REFRESH_NOT_FOUND(HttpStatus.UNAUTHORIZED, "refresh token을 찾을 수 없습니다."),
@@ -64,7 +65,8 @@ public enum ErrorCode {
 
     // enum
     NOT_FOUND_STATUS(HttpStatus.NOT_FOUND, "상태값이 올바르지 않습니다."),
-    CREATOR_CAN_NOT_CREATE_PARTICIPATION(HttpStatus.BAD_REQUEST, "작성자는 매칭 신청이 불가능 합니다.");
+    CREATOR_CAN_NOT_CREATE_PARTICIPATION(HttpStatus.BAD_REQUEST, "작성자는 매칭 신청이 불가능 합니다."),
+    INVALID_INPUT_VALUE(HttpStatus.BAD_REQUEST, "빈값은 입력할 수 없습니다.");
 
 
     private HttpStatus status;

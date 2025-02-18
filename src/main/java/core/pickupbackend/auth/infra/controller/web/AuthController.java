@@ -41,4 +41,13 @@ public class AuthController {
         logger.debug("/logout request: {}", logoutRequestDto);
         authService.logout(accessToken, logoutRequestDto);
     }
+
+    @Operation(summary = "RefreshToken 요청")
+    @PostMapping("/refresh")
+    @ResponseBody
+    public LoginResponse refreshToken(@RequestBody String refreshToken) {
+        logger.debug("/refresh token: {}", refreshToken);
+        final AuthCredential authCredential = authService.refreshToken(refreshToken);
+        return LoginResponse.from(authCredential);
+    }
 }

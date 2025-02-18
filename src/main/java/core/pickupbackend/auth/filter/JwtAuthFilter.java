@@ -48,7 +48,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         final String accessToken = authHeader.substring(7);
 
-        if (!jwtService.isAlreadyLogin(accessToken)) {
+        if (!jwtService.isValidToken(accessToken)) {
             sendErrorResponse(response);
             return;
         }

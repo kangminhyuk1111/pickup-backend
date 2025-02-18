@@ -23,9 +23,4 @@ public class ResourcesKeyProvider implements KeyProvider{
         }
         return Keys.hmacShaKeyFor(key.getBytes());
     }
-
-    @Override
-    public Date getExpiration() {
-        return new Date(System.currentTimeMillis() + Duration.ofDays(1).toMillis());
-    }
 }

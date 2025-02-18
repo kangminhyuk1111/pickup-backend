@@ -7,5 +7,5 @@ public interface JwtRepository {
 
     AuthCredential findByJti(final String jti);
 
-    void delete(final String accessToken);
+    void delete(final String token);
 }

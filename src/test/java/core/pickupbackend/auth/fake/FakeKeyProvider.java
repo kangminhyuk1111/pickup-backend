@@ -15,9 +15,4 @@ public class FakeKeyProvider implements KeyProvider {
     public SecretKey getSecretKey() {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     }
-
-    @Override
-    public Date getExpiration() {
-        return new Date(System.currentTimeMillis() + EXPIRATION_TIME);
-    }
 }
