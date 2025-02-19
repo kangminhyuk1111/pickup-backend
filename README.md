@@ -55,5 +55,6 @@ PUT /member 엔드포인트 수정 요청 건 - password 필드를 optional 처�
 - locationDetail을 varchar(200) 이니 세부적인 장소 기입하도록 해주시면 될 것 같습니다. ex) 동작공원 농구코트 3번째
 
 ## DB 구조
-![image](https://github.com/user-attachments/assets/3428f756-882d-462a-ad4d-b0f7e62b7134)
+![image](https://github.com/user-attachments/assets/faa08ae4-f110-41ef-bdb2-8f594dd7b1ac)
+
 
