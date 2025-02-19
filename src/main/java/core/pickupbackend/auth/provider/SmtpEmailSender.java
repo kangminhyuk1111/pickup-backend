@@ -1,4 +1,4 @@
-package core.pickupbackend.auth.infra.repostiroy;
+package core.pickupbackend.auth.provider;
 
 import core.pickupbackend.auth.application.out.EmailSender;
 import org.springframework.mail.MailException;

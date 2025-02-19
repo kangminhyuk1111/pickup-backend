@@ -4,7 +4,6 @@ import core.pickupbackend.auth.application.service.EmailService;
 import core.pickupbackend.auth.dto.request.EmailIssueRequest;
 import core.pickupbackend.auth.dto.request.EmailVerifyRequest;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -22,7 +21,7 @@ public class EmailVerifyController {
         this.emailService = emailService;
     }
 
-    @Operation(summary = "인증 코드 생성 및 발송", security = { @SecurityRequirement(name = "bearerAuth") })
+    @Operation(summary = "인증 코드 생성 및 발송")
     @PostMapping("/issue-mail")
     @ResponseStatus(HttpStatus.OK)
     public void issueMail(@RequestBody EmailIssueRequest emailIssueRequest) {
@@ -30,7 +29,7 @@ public class EmailVerifyController {
         emailService.sendVerificationCode(emailIssueRequest);
     }
 
-    @Operation(summary = "인증 코드 검증", security = { @SecurityRequirement(name = "bearerAuth") })
+    @Operation(summary = "인증 코드 검증")
     @PostMapping("/verify-mail")
     @ResponseStatus(HttpStatus.OK)
     public boolean verifyMail(@RequestBody EmailVerifyRequest emailVerifyRequest) {
