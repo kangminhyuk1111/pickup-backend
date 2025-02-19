@@ -66,7 +66,11 @@ public enum ErrorCode {
     // enum
     NOT_FOUND_STATUS(HttpStatus.NOT_FOUND, "상태값이 올바르지 않습니다."),
     CREATOR_CAN_NOT_CREATE_PARTICIPATION(HttpStatus.BAD_REQUEST, "작성자는 매칭 신청이 불가능 합니다."),
-    INVALID_INPUT_VALUE(HttpStatus.BAD_REQUEST, "빈값은 입력할 수 없습니다.");
+    INVALID_INPUT_VALUE(HttpStatus.BAD_REQUEST, "빈값은 입력할 수 없습니다."),
+
+    // mail
+    VERIFICATION_NOT_MATCHED(HttpStatus.BAD_REQUEST, "인증 코드가 유효하지 않습니다."),
+    VERIFICATION_KEY_NOT_MATCHED(HttpStatus.BAD_REQUEST, "존재하지 않는 이메일 입니다.");
 
 
     private HttpStatus status;

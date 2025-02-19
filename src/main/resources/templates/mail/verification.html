@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickup 인증 코드</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .header {
+            background: linear-gradient(to right, #f97316, #ec4899);
+            padding: 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            padding: 32px 24px;
+        }
+
+        .greeting {
+            margin-bottom: 24px;
+        }
+
+        .greeting h2 {
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .greeting p {
+            color: #4b5563;
+        }
+
+        .verification-container {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .verification-label {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        .verification-code {
+            font-size: 36px;
+            letter-spacing: 8px;
+            font-weight: 700;
+            background: linear-gradient(to right, #f97316, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 16px 0;
+            padding: 8px;
+            display: inline-block;
+        }
+
+        .expiry-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .clock-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            color: #f97316;
+        }
+
+        .instructions {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .instructions h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #f97316;
+        }
+
+        .instructions ol {
+            padding-left: 24px;
+            color: #374151;
+        }
+
+        .instructions li {
+            margin-bottom: 8px;
+        }
+
+        .notice {
+            background-color: #f9fafb;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 24px;
+            border-left: 4px solid #f97316;
+        }
+
+        .notice p {
+            margin-bottom: 8px;
+        }
+
+        .notice strong {
+            color: #f97316;
+        }
+
+        .footer {
+            background-color: #f9fafb;
+            padding: 16px;
+            text-align: center;
+            font-size: 12px;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .social-links {
+            margin-top: 12px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin: 0 8px;
+            background: linear-gradient(to right, #f97316, #ec4899);
+            border-radius: 50%;
+        }
+
+        @media (max-width: 600px) {
+            .email-container {
+                width: 100%;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .verification-code {
+                font-size: 30px;
+                letter-spacing: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="header">
+        <h1>PICKUP</h1>
+    </div>
+
+    <div class="content">
+        <div class="greeting">
+            <h2>안녕하세요!</h2>
+            <p>회원가입을 위한 인증 코드를 보내드립니다.</p>
+        </div>
+
+        <div class="verification-container">
+            <div class="verification-label">아래 코드를 인증 화면에 입력해주세요</div>
+            <div class="verification-code" th:text="${verificationCode}">123456</div>
+            <div class="expiry-info">
+                <svg xmlns="http://www.w3.org/2000/svg" class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                인증코드는 30분간 유효합니다
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>인증 방법</h3>
+            <ol>
+                <li>회원가입 페이지로 돌아가세요</li>
+                <li>위 6자리 코드를 인증 코드 입력란에 입력하세요</li>
+                <li>'인증 확인' 버튼을 클릭하세요</li>
+                <li>인증이 완료되면 회원가입을 계속 진행할 수 있습니다</li>
+            </ol>
+        </div>
+
+        <div class="notice">
+            <p><strong>•</strong> 본 인증코드는 30분 후에 만료됩니다.</p>
+            <p><strong>•</strong> 코드 입력에 문제가 있다면 다시 인증코드를 요청하세요.</p>
+            <p><strong>•</strong> 본인이 요청하지 않았다면 이 메일을 무시하셔도 됩니다.</p>
+            <p><strong>•</strong> 절대 이 코드를 타인과 공유하지 마세요.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 PICKUP. All rights reserved.</p>
+        <p>본 메일은 발신 전용이며 회신되지 않습니다.</p>
+        <div class="social-links">
+            <span class="social-icon"></span>
+            <span class="social-icon"></span>
+            <span class="social-icon"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -63,14 +63,4 @@ public class DatabaseExceptionHandler {
         logger.error(errorResponse.getMessage());
         return new ResponseEntity<>(errorResponse, status);
     }
-
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleException(Exception e) {
-        final String message = "서버 오류가 발생했습니다: " + e.getMessage();
-        final HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
-        final Integer code = status.value();
-        final ErrorResponse errorResponse = new ErrorResponse(message, code, status);
-        logger.error(errorResponse.getMessage());
-        return new ResponseEntity<>(errorResponse, status);
-    }
 }
