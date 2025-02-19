@@ -69,6 +69,11 @@ public class FakeMatchRepository implements MatchRepository {
         return store.size();
     }
 
+    @Override
+    public List<String> findAllDistricts() {
+        return store.values().stream().map(Match::getDistrict).toList();
+    }
+
     public void clearStore() {
         store.clear();
         sequence.set(1L);
