@@ -13,7 +13,8 @@ public class Match {
     private String title;
     private String description;
     private String courtName;
-    private String location;
+    private String district;
+    private String locationDetail;
     private LocalDate date;
     private LocalTime time;
     private Level level;
@@ -29,11 +30,12 @@ public class Match {
     public Match() {
     }
 
-    public Match(final String title, final String description, final String courtName, final String location, final LocalDate date, final LocalTime time, final Level level, final int currentPlayers, final int maxPlayers, final Long hostId,final long cost, final String rules) {
+    public Match(final String title, final String description, final String courtName, final String district, final String locationDetail, final LocalDate date, final LocalTime time, final Level level, final int currentPlayers, final int maxPlayers, final Long hostId, final long cost, final String rules) {
         validateTitle(title);
         validateDescription(description);
         validateCourtName(courtName);
-        validateLocation(location);
+        validateLocation(district);
+        validateLocation(locationDetail);
         validateDateAndTime(date, time);
         validatePlayers(currentPlayers, maxPlayers);
         validateCost(cost);
@@ -41,7 +43,8 @@ public class Match {
         this.title = title;
         this.description = description;
         this.courtName = courtName;
-        this.location = location;
+        this.district = district;
+        this.locationDetail = locationDetail;
         this.date = date;
         this.time = time;
         this.level = level;
@@ -128,8 +131,12 @@ public class Match {
         return courtName;
     }
 
-    public String getLocation() {
-        return location;
+    public String getDistrict() {
+        return district;
+    }
+
+    public String getLocationDetail() {
+        return locationDetail;
     }
 
     public LocalDate getDate() {
@@ -192,8 +199,12 @@ public class Match {
         this.courtName = courtName;
     }
 
-    public void setLocation(final String location) {
-        this.location = location;
+    public void setDistrict(final String district) {
+        this.district = district;
+    }
+
+    public void setLocationDetail(final String locationDetail) {
+        this.locationDetail = locationDetail;
     }
 
     public void setDate(final LocalDate date) {
@@ -247,7 +258,8 @@ public class Match {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", courtName='" + courtName + '\'' +
-                ", location='" + location + '\'' +
+                ", district='" + district + '\'' +
+                ", locationDetail='" + locationDetail + '\'' +
                 ", date=" + date +
                 ", time=" + time +
                 ", level=" + level +

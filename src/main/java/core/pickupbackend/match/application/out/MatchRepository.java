@@ -11,11 +11,15 @@ public interface MatchRepository {
 
     Optional<Match> findById(Long matchId);
 
-    List<Match> findAll();
+    List<Match> findAll(Integer page, Integer size);
 
     Match update(Long matchId, Match match);
 
     void deleteById(Long matchId);
 
     List<Match> findByMemberId(Long memberId);
+
+    Integer countAll();
+
+    List<String> findAllDistricts();
 }

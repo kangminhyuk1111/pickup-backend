@@ -19,7 +19,10 @@ public record UpdateMatchRequest(
         String courtName,
 
         @Schema(example = "서울시 서초구")
-        String location,
+        String district,
+
+        @Schema(example = "서초대로 80")
+        String locationDetail,
 
         @JsonFormat(pattern = "yyyy-MM-dd")
         @Schema(example = "2025-02-10")
@@ -49,7 +52,8 @@ public record UpdateMatchRequest(
                 title,
                 description,
                 courtName,
-                location,
+                district,
+                locationDetail,
                 date,
                 time,
                 level,

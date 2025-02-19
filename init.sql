@@ -1,6 +1,7 @@
 SELECT CURRENT_USER();
 
 USE pickup_db;
+
 # 테이블 생성
 CREATE TABLE `court` (
                          `id` bigint NOT NULL AUTO_INCREMENT,
@@ -119,16 +120,8 @@ CREATE TABLE `match_participation` (
     CONSTRAINT `match_participation_ibfk_2` FOREIGN KEY (`matching_id`) REFERENCES `match` (`id`) ON DELETE CASCADE)
     ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-ALTER TABLE `match`
-    DROP FOREIGN KEY `match_ibfk_1`,
-    ADD CONSTRAINT `fk_match_host_cascade`  -- 새로운 이름으로 변경
-        FOREIGN KEY (`host_id`)
-            REFERENCES `users` (`id`)
-            ON DELETE CASCADE;
-
-ALTER TABLE `court_reviews`
-    DROP FOREIGN KEY `fk_review_user`,
-    ADD CONSTRAINT `fk_review_user_cascade`
-        FOREIGN KEY (`user_id`)
-            REFERENCES `users` (`id`)
-            ON DELETE CASCADE;
+CREATE TABLE districts (
+                           id INT AUTO_INCREMENT PRIMARY KEY,
+                           name VARCHAR(20) NOT NULL UNIQUE,
+                           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

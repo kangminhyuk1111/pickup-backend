@@ -8,6 +8,6 @@ public interface MatchService extends
         DeleteMatchUseCase,
         FindMatchParticipationUseCase,
         UpdateStatusUseCase,
-        MatchRejectedUseCase
-{
+        MatchRejectedUseCase,
+        FindAllDistricts {
 }

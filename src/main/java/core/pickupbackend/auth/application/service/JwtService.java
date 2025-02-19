@@ -32,7 +32,7 @@ public class JwtService {
     }
 
     public boolean isValidToken(String accessToken) {
-        if (tokenProvider.validateToken(accessToken)) {
+        if (!tokenProvider.validateToken(accessToken)) {
             throw new ApplicationException(ErrorCode.INVALID_ACCESS_TOKEN);
         }
 

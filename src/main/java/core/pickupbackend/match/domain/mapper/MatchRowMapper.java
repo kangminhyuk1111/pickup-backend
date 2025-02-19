@@ -19,7 +19,8 @@ public class MatchRowMapper implements RowMapper<Match> {
         match.setTitle(rs.getString("title"));
         match.setDescription(rs.getString("description"));
         match.setCourtName(rs.getString("court_name"));
-        match.setLocation(rs.getString("location"));
+        match.setDistrict(rs.getString("district"));
+        match.setLocationDetail(rs.getString("location_detail"));
         match.setDate(rs.getDate("date").toLocalDate());
         match.setTime(rs.getTime("time").toLocalTime());
         match.setLevel(Level.valueOf(rs.getString("level")));

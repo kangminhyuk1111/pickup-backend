@@ -31,7 +31,7 @@ public class FakeMatchRepository implements MatchRepository {
     }
 
     @Override
-    public List<Match> findAll() {
+    public List<Match> findAll(final Integer page, final Integer size) {
         return new ArrayList<>(store.values());
     }
 
@@ -62,6 +62,11 @@ public class FakeMatchRepository implements MatchRepository {
     @Override
     public List<Match> findByMemberId(final Long memberId) {
         return List.of();
+    }
+
+    @Override
+    public Integer countAll() {
+        return store.size();
     }
 
     public void clearStore() {

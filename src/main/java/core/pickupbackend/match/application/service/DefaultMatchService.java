@@ -73,8 +73,11 @@ public class DefaultMatchService implements MatchService {
     }
 
     @Override
-    public List<Match> findAll() {
-        return matchRepository.findAll();
+    public MatchesPagingResponse findAll(Integer page, Integer size) {
+        int totalCount = matchRepository.countAll();
+        List<Match> matches = matchRepository.findAll(page, size);
+
+        return MatchesPagingResponse.from(matches, totalCount, page);
     }
 
     @Transactional
@@ -140,4 +143,8 @@ public class DefaultMatchService implements MatchService {
                 }).toList();
     }
 
+    @Override
+    public List<String> findAlldistricts() {
+        return matchRepository.findAllDistricts();
+    }
 }

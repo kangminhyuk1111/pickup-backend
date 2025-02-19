@@ -9,12 +9,9 @@ import core.pickupbackend.match.dto.request.UpdateMatchRequest;
 import core.pickupbackend.match.domain.Match;
 import core.pickupbackend.match.dto.request.CreateMatchRequest;
 import core.pickupbackend.match.dto.request.UpdateParticipationRequest;
-import core.pickupbackend.match.dto.response.MatchParticipationResponse;
+import core.pickupbackend.match.dto.response.*;
 import core.pickupbackend.match.application.service.DefaultMatchService;
 import core.pickupbackend.match.application.service.DefaultParticipationService;
-import core.pickupbackend.match.dto.response.MatchResponse;
-import core.pickupbackend.match.dto.response.MatchesResponse;
-import core.pickupbackend.match.dto.response.ParticipationResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -54,10 +51,12 @@ public class MatchController {
     @Operation(summary = "매치 정보 전체 조회")
     @GetMapping
     @ResponseBody
-    public MatchesResponse getMatches() {
-        logger.debug("/getMatches request");
-        final List<Match> matches = matchService.findAll();
-        return MatchesResponse.from(matches);
+    public MatchesPagingResponse findAllMatches(
+            @RequestParam(required = false, defaultValue = "0") Integer page,
+            @RequestParam(required = false, defaultValue = "10") Integer size
+    ) {
+        logger.debug("/findAllMatches request");
+        return matchService.findAll(page, size);
     }
 
     @Operation(summary = "매치 정보 단건 조회")
@@ -117,5 +116,13 @@ public class MatchController {
         logger.debug("/status request: {}", updateParticipationRequest);
         final Participation participation = matchService.updateStatus(updateParticipationRequest);
         return ParticipationResponse.from(participation);
+    }
+
+    @Operation(summary = "위치 필터 리스트", security = { @SecurityRequirement(name = "bearerAuth") })
+    @GetMapping("/districts")
+    @ResponseBody
+    public List<String> districts(@RequestHeader("Authorization") final String accessToken) {
+        logger.debug("/filter request: {}", accessToken);
+        return matchService.findAlldistricts();
     }
 }

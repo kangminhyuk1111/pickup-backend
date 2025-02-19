@@ -1,9 +1,7 @@
 package core.pickupbackend.match.application.in;
 
-import core.pickupbackend.match.domain.Match;
-
-import java.util.List;
+import core.pickupbackend.match.dto.response.MatchesPagingResponse;
 
 public interface FindAllMatchesUseCase {
-    List<Match> findAll();
+    MatchesPagingResponse findAll(Integer page, Integer size);
 }

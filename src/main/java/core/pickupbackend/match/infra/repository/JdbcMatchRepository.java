@@ -34,8 +34,8 @@ public class JdbcMatchRepository implements MatchRepository {
 
     @Override
     public Match save(Match match) {
-        String sql = "INSERT INTO `match` (title, description, court_name, location, date, time, level, current_players, max_players, cost, rules, host_id, created_at, updated_at) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())";
+        String sql = "INSERT INTO `match` (title, description, court_name, district, location_detail, date, time, level, current_players, max_players, cost, rules, host_id, created_at, updated_at) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())";
 
         final KeyHolder keyHolder = new GeneratedKeyHolder();
 
@@ -44,15 +44,16 @@ public class JdbcMatchRepository implements MatchRepository {
             ps.setString(1, match.getTitle());
             ps.setString(2, match.getDescription());
             ps.setString(3, match.getCourtName());
-            ps.setString(4, match.getLocation());
-            ps.setDate(5, Date.valueOf(match.getDate()));
-            ps.setTime(6, Time.valueOf(match.getTime()));
-            ps.setString(7, match.getLevel().name());
-            ps.setInt(8, match.getCurrentPlayers());
-            ps.setInt(9, match.getMaxPlayers());
-            ps.setLong(10, match.getCost());
-            ps.setString(11, match.getRules());
-            ps.setLong(12, match.getHostId());
+            ps.setString(4, match.getDistrict());
+            ps.setString(5, match.getLocationDetail());
+            ps.setDate(6, Date.valueOf(match.getDate()));
+            ps.setTime(7, Time.valueOf(match.getTime()));
+            ps.setString(8, match.getLevel().name());
+            ps.setInt(9, match.getCurrentPlayers());
+            ps.setInt(10, match.getMaxPlayers());
+            ps.setLong(11, match.getCost());
+            ps.setString(12, match.getRules());
+            ps.setLong(13, match.getHostId());
             return ps;
         }, keyHolder);
 
@@ -68,9 +69,10 @@ public class JdbcMatchRepository implements MatchRepository {
     }
 
     @Override
-    public List<Match> findAll() {
-        String sql = "SELECT * FROM `match`";
-        return jdbcTemplate.query(sql, rowMapper);
+    public List<Match> findAll(Integer page, Integer size) {
+        int offset = page * size;
+        String sql = "SELECT * FROM `match` ORDER BY `date` DESC, `time` DESC LIMIT ? OFFSET ?";
+        return jdbcTemplate.query(sql, rowMapper, size, offset);
     }
 
     public Optional<Match> findByHostId(final Long hostId) {
@@ -80,13 +82,14 @@ public class JdbcMatchRepository implements MatchRepository {
 
     @Override
     public Match update(Long id, Match match) {
-        String sql = "UPDATE `match` SET title = ?, description = ?, court_name = ?, location = ?, date = ?, time = ?, level = ?, current_players = ?, max_players = ?, cost = ?, rules = ?, status = ?, updated_at = NOW() WHERE id = ?";
+        String sql = "UPDATE `match` SET title = ?, description = ?, court_name = ?, district = ? , locationDetail = ?, date = ?, time = ?, level = ?, current_players = ?, max_players = ?, cost = ?, rules = ?, status = ?, updated_at = NOW() WHERE id = ?";
 
         jdbcTemplate.update(sql,
                 match.getTitle(),
                 match.getDescription(),
                 match.getCourtName(),
-                match.getLocation(),
+                match.getDistrict(),
+                match.getLocationDetail(),
                 match.getDate(),
                 match.getTime(),
                 match.getLevel().name(),
@@ -110,5 +113,17 @@ public class JdbcMatchRepository implements MatchRepository {
     public List<Match> findByMemberId(final Long memberId) {
         String sql = "SELECT * FROM `match` WHERE host_id = ?";
         return jdbcTemplate.query(sql, rowMapper, memberId);
+    }
+
+    @Override
+    public Integer countAll() {
+        String sql = "SELECT COUNT(*) FROM `match`";
+        return jdbcTemplate.queryForObject(sql, Integer.class);
+    }
+
+    @Override
+    public List<String> findAllDistricts() {
+        String sql = "SELECT name FROM `districts`";
+        return jdbcTemplate.queryForList(sql, String.class);
     }
 }
