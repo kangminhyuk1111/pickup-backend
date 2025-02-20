@@ -51,7 +51,6 @@ public class JdbcDeviceRepository implements DeviceRepository {
     @Override
     public Optional<Device> findById(final Long id) {
         String sql = "SELECT * FROM pickup_db.device WHERE id = ?";
-
         List<Device> results = jdbcTemplate.query(sql, rowMapper, id);
 
         return results.isEmpty() ? Optional.empty() : Optional.of(results.get(0));
@@ -60,7 +59,6 @@ public class JdbcDeviceRepository implements DeviceRepository {
     @Override
     public Optional<Device> findByFcmToken(final String deviceToken) {
         String sql = "SELECT * FROM pickup_db.device WHERE fcm_token = ?";
-
         List<Device> results = jdbcTemplate.query(sql, rowMapper, deviceToken);
 
         return results.isEmpty() ? Optional.empty() : Optional.of(results.get(0));
@@ -69,48 +67,30 @@ public class JdbcDeviceRepository implements DeviceRepository {
     @Override
     public List<Device> findAll() {
         String sql = "SELECT * FROM pickup_db.device";
-
         return jdbcTemplate.query(sql, rowMapper);
     }
 
     @Override
     public void deleteById(final Long id) {
         String sql = "DELETE FROM pickup_db.device WHERE id = ?";
-
         jdbcTemplate.update(sql, id);
-    }
-
-    @Override
-    public void updateById(final Long id) {
-        String sql = "UPDATE pickup_db.device SET last_login_at = CURRENT_TIMESTAMP "
-                + "WHERE id = ?";
-
-        jdbcTemplate.update(sql, id);
-    }
-
-    @Override
-    public Device updateByMemberId(final Device device) {
-        String sql = "UPDATE pickup_db.device SET member_id = ?, updated_at = CURRENT_TIMESTAMP "
-                + "WHERE id = ?";
-
-        jdbcTemplate.update(sql,
-                device.getMemberId(),
-                device.getId());
-
-        return findById(device.getId()).orElseThrow();
     }
 
     @Override
     public List<Device> findByMemberId(final Long memberId) {
         String sql = "SELECT * FROM pickup_db.device WHERE member_id = ?";
-
         return jdbcTemplate.query(sql, rowMapper, memberId);
     }
 
     @Override
     public void deleteByFcmToken(final String fcmToken) {
         String sql = "DELETE FROM pickup_db.device WHERE fcm_token = ?";
-
         jdbcTemplate.update(sql, fcmToken);
+    }
+
+    @Override
+    public void updateStatus(final Long deviceId, final boolean status) {
+        String sql = "UPDATE pickup_db.device SET status = ? WHERE id = ?";
+        jdbcTemplate.update(sql, status, deviceId);
     }
 }

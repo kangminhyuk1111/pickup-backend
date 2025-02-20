@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -50,12 +51,12 @@ public class DeviceServiceTest {
         final Member member = createTestMember();
         final Device device = deviceService.save(dto);
         final Device findDevice = deviceService.findDeviceByFcmToken(new FindByTokenRequest(device.getFcmToken()));
-        final UpdateDeviceReqeustDto updateDeviceReqeustDto = new UpdateDeviceReqeustDto(member.getId(), findDevice.getId());
+        final UpdateDeviceRequestDto updateDeviceRequestDto = new UpdateDeviceRequestDto(findDevice.getId(), false);
 
-        final Device updateDevice = deviceService.updateDeviceByMemberId(updateDeviceReqeustDto);
+        deviceService.updateStatus(updateDeviceRequestDto);
 
-        assertThat(updateDevice).isNotNull();
-        assertThat(updateDevice.getMemberId()).isEqualTo(member.getId());
+        final Device updatedDevice = deviceRepository.findById(findDevice.getId()).get();
+        assertThat(updatedDevice.isStatus()).isFalse();
     }
 
     @Test
@@ -63,15 +64,12 @@ public class DeviceServiceTest {
         final Member member = createTestMember();
         final Device device = deviceService.save(createTestDeviceDto());
 
-        final UpdateDeviceReqeustDto updateDeviceReqeustDto = new UpdateDeviceReqeustDto(member.getId(), device.getId());
-        final Device updateDevice = deviceService.updateDeviceByMemberId(updateDeviceReqeustDto);
-
-        final FindDeviceByMemberIdRequestDto findDeviceByMemberIdRequestDto = new FindDeviceByMemberIdRequestDto(updateDeviceReqeustDto.memberId());
+        final FindDeviceByMemberIdRequestDto findDeviceByMemberIdRequestDto = new FindDeviceByMemberIdRequestDto(member.getId());
 
         final List<Device> findDevices = deviceService.findDeviceByMemberId(findDeviceByMemberIdRequestDto);
 
         assertThat(findDevices.size()).isEqualTo(1);
-        assertThat(findDevices.stream().map(findDevice -> findDevice.getFcmToken().equals(updateDevice.getFcmToken())).findFirst()).isNotNull();
+        assertThat(findDevices.stream().map(findDevice -> findDevice.getFcmToken().equals(device.getFcmToken())).findFirst()).isNotNull();
     }
 
     @Test
@@ -87,11 +85,10 @@ public class DeviceServiceTest {
     }
 
     private CreateDeviceDto createTestDeviceDto() {
-        final String fcmToken = "fcm_token";
+        final String fcmToken = "eP2aFd0RToWVLlJwDWNHvG:APA91bFSrT3OQFYe1gKbFVDtHFaZmPxn2hHGdT7P_QFhRTcXL4HBfDzW6DxTZqPQfGQ7vKY8jVqC4vzW34XLwLvQbXjP7vH3h9GLzLmVKUkE2TzfGq0ZQGDl7KxOv3vYnO4Vkjl1s8Fc";
         final DeviceType deviceType = DeviceType.ANDROID;
-        return new CreateDeviceDto(fcmToken, deviceType);
+        return new CreateDeviceDto(fcmToken, 1L, deviceType, true);
     }
-
     private Member createTestMember() {
         return new Member(1L, "test@gmail.com", new Password(new BCryptPasswordEncoder(), "testpassword"), "test", 200, 100, Position.SF, Level.BEGINNER);
     }

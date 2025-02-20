@@ -10,6 +10,7 @@ public record DeviceResponse(
         Long memberId,
         String fcmToken,
         DeviceType deviceType,
+        boolean status,
         LocalDateTime createdAt,
         LocalDateTime updatedAt,
         LocalDateTime lastLoginAt
@@ -20,6 +21,7 @@ public record DeviceResponse(
                 device.getMemberId(),
                 device.getFcmToken(),
                 device.getDeviceType(),
+                device.isStatus(),
                 device.getCreatedAt(),
                 device.getUpdatedAt(),
                 device.getLastLoginAt()

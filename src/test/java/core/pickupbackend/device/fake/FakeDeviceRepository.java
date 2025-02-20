@@ -56,36 +56,6 @@ public class FakeDeviceRepository implements DeviceRepository {
     }
 
     @Override
-    public void updateById(Long id) {
-        store.computeIfPresent(id, (key, device) ->
-                new Device(
-                        device.getId(),
-                        device.getMemberId(),
-                        device.getFcmToken(),
-                        device.getDeviceType(),
-                        LocalDateTime.now(),
-                        device.getCreatedAt(),
-                        LocalDateTime.now()
-                )
-        );
-    }
-
-    @Override
-    public Device updateByMemberId(final Device device) {
-        return store.computeIfPresent(device.getId(), (key, existingDevice) ->
-                new Device(
-                        existingDevice.getId(),
-                        device.getMemberId(),  // 새로운 memberId로 업데이트
-                        existingDevice.getFcmToken(),
-                        existingDevice.getDeviceType(),
-                        existingDevice.getLastLoginAt(),
-                        existingDevice.getCreatedAt(),
-                        LocalDateTime.now()  // updatedAt 현재 시간으로 업데이트
-                )
-        );
-    }
-
-    @Override
     public List<Device> findByMemberId(final Long memberId) {
         return store.values().stream().filter(value -> value.getMemberId().equals(memberId)).toList();
     }
@@ -94,5 +64,21 @@ public class FakeDeviceRepository implements DeviceRepository {
     public void deleteByFcmToken(final String fcmToken) {
         final Optional<Device> findByFcmToken = findByFcmToken(fcmToken);
         findByFcmToken.ifPresent(device -> store.remove(device.getId()));
+    }
+
+    @Override
+    public void updateStatus(final Long deviceId, final boolean status) {
+        store.computeIfPresent(deviceId, (key, existingDevice) ->
+                new Device(
+                        existingDevice.getId(),
+                        existingDevice.getMemberId(),
+                        existingDevice.getFcmToken(),
+                        existingDevice.getDeviceType(),
+                        status, // active 상태 업데이트
+                        existingDevice.getLastLoginAt(),
+                        existingDevice.getCreatedAt(),
+                        LocalDateTime.now()  // updatedAt 현재 시간으로 업데이트
+                )
+        );
     }
 }

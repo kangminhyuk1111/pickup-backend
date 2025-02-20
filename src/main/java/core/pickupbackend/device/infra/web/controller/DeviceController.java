@@ -6,6 +6,7 @@ import core.pickupbackend.device.dto.request.CreateDeviceDto;
 import core.pickupbackend.device.dto.request.DeleteDeviceRequestDto;
 import core.pickupbackend.device.dto.request.DeviceUnregisterRequest;
 import core.pickupbackend.device.application.service.DefaultDeviceService;
+import core.pickupbackend.device.dto.request.UpdateDeviceRequestDto;
 import core.pickupbackend.device.dto.response.DeviceResponse;
 import core.pickupbackend.global.common.code.StatusCode;
 import core.pickupbackend.global.common.response.BaseResponse;
@@ -38,7 +39,15 @@ public class DeviceController {
     @Operation(summary = "디바이스 토큰 삭제")
     @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void unregisterDevice(@RequestBody DeviceUnregisterRequest request) {
-        deviceService.deleteToken(new DeleteDeviceRequestDto(request.fcmToken()));
+    public void unregisterDevice(@RequestBody DeleteDeviceRequestDto dto) {
+        deviceService.deleteToken(dto);
+    }
+
+    /* 3. 디바이스 상태 업데이트 */
+    @Operation(summary = "디바이스 상태 업데이트")
+    @PutMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void updateStatus(@RequestBody UpdateDeviceRequestDto dto) {
+        deviceService.updateStatus(dto);
     }
 }

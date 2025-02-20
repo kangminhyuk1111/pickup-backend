@@ -16,6 +16,7 @@ public class Device {
     private Long memberId;
     private String fcmToken;
     private DeviceType deviceType;
+    private boolean status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime lastLoginAt;
@@ -29,11 +30,12 @@ public class Device {
         this.deviceType = deviceType;
     }
 
-    public Device(final String fcmToken, final Long memberId, final DeviceType deviceType) {
+    public Device(final String fcmToken, final Long memberId, final DeviceType deviceType, final boolean status) {
         validateFcmToken(fcmToken);
         this.fcmToken = fcmToken;
         this.memberId = memberId;
         this.deviceType = deviceType;
+        this.status = status;
     }
 
     public Device(final Long id, final Long memberId, final String fcmToken, final DeviceType deviceType, final LocalDateTime createdAt, final LocalDateTime updatedAt, final LocalDateTime lastLoginAt) {
@@ -42,6 +44,17 @@ public class Device {
         this.memberId = memberId;
         this.fcmToken = fcmToken;
         this.deviceType = deviceType;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.lastLoginAt = lastLoginAt;
+    }
+
+    public Device(final Long id, final Long memberId, final String fcmToken, final DeviceType deviceType, final boolean status, final LocalDateTime createdAt, final LocalDateTime updatedAt, final LocalDateTime lastLoginAt) {
+        this.id = id;
+        this.memberId = memberId;
+        this.fcmToken = fcmToken;
+        this.deviceType = deviceType;
+        this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.lastLoginAt = lastLoginAt;
@@ -75,6 +88,10 @@ public class Device {
 
     public DeviceType getDeviceType() {
         return deviceType;
+    }
+
+    public boolean isStatus() {
+        return status;
     }
 
     public LocalDateTime getCreatedAt() {

@@ -17,11 +17,9 @@ public interface DeviceRepository {
 
     void deleteById(Long id);
 
-    void updateById(Long id);
-
-    Device updateByMemberId(Device device);
-
     List<Device> findByMemberId(Long memberId);
 
     void deleteByFcmToken(String fcmToken);
+
+    void updateStatus(Long deviceId, boolean status);
 }
