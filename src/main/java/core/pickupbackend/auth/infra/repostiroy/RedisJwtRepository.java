@@ -6,8 +6,7 @@ import core.pickupbackend.auth.application.out.JwtRepository;
 import core.pickupbackend.auth.domain.AuthCredential;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.time.Duration;
@@ -16,25 +15,24 @@ import java.time.Duration;
 public class RedisJwtRepository implements JwtRepository {
 
     private static final Duration TOKEN_EXPIRATION = Duration.ofHours(1);
+    private static final String KEY_PREFIX = "jwt:access:";
 
-    private final RedisTemplate<String, String> redisTemplate;
+    private final StringRedisTemplate redisTemplate;
     private final ObjectMapper objectMapper;
-    private final ValueOperations<String, String> valueOperations;
 
-    public RedisJwtRepository(final RedisTemplate<String, String> redisTemplate, final ObjectMapper objectMapper) {
+    public RedisJwtRepository(final StringRedisTemplate redisTemplate, final ObjectMapper objectMapper) {
         this.redisTemplate = redisTemplate;
         this.objectMapper = objectMapper;
-        this.valueOperations = redisTemplate.opsForValue();
     }
 
     // 저장
     public void save(AuthCredential authCredential) {
         final String tokenJson = generateTokenJson(authCredential);
-        valueOperations.set(authCredential.jti(), tokenJson, TOKEN_EXPIRATION);
+        redisTemplate.opsForValue().set(KEY_PREFIX + authCredential.jti(), tokenJson, TOKEN_EXPIRATION);
     }
 
     public AuthCredential findByJti(final String jti) {
-        final String value = valueOperations.get(jti);
+        final String value = redisTemplate.opsForValue().get(KEY_PREFIX + jti);
 
         if (value == null) {
             throw new ApplicationException(ErrorCode.TOKEN_NOT_FOUND);
@@ -59,5 +57,4 @@ public class RedisJwtRepository implements JwtRepository {
             throw new ApplicationException(ErrorCode.BLANK_EXCEPTION);
         }
     }
-
 }

@@ -7,6 +7,7 @@ import core.pickupbackend.auth.dto.request.EmailIssueRequest;
 import core.pickupbackend.auth.dto.request.EmailVerifyRequest;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +21,7 @@ public class EmailService implements EmailVerifyUseCase {
         this.emailSender = emailSender;
     }
 
+    @Async
     @Override
     public void sendVerificationCode(final EmailIssueRequest emailIssueRequest) {
         final Long verificationCode = mailVerifyRepository.issueCode(emailIssueRequest.email());

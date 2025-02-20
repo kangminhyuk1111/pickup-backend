@@ -62,6 +62,8 @@ public enum ErrorCode {
     // Device
     DEVICE_NOT_FOUND(HttpStatus.NOT_FOUND, "디바이스 정보를 찾을 수 없습니다."),
     MESSAGE_NOT_PUSHED(HttpStatus.INTERNAL_SERVER_ERROR, "메세지가 정상적으로 전송되지 못했습니다."),
+    FCM_TOKEN_NOT_BLANK(HttpStatus.NOT_FOUND, "FCM 토큰은 비어있을 수 없습니다."),
+    FCM_TOKEN_NOT_VALID(HttpStatus.NOT_FOUND, "FCM 토큰은 비어있을 수 없습니다."),
 
     // enum
     NOT_FOUND_STATUS(HttpStatus.NOT_FOUND, "상태값이 올바르지 않습니다."),
@@ -72,10 +74,9 @@ public enum ErrorCode {
     VERIFICATION_NOT_MATCHED(HttpStatus.BAD_REQUEST, "인증 코드가 유효하지 않습니다."),
     VERIFICATION_KEY_NOT_MATCHED(HttpStatus.BAD_REQUEST, "잘못된 이메일 인증 요청입니다.");
 
-
-    private HttpStatus status;
-    private Integer code;
-    private String message;
+    private final HttpStatus status;
+    private final Integer code;
+    private final String message;
 
     ErrorCode(HttpStatus status, String message) {
         this.status = status;
