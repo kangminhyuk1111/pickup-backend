@@ -23,7 +23,7 @@ class DeviceTest {
         // given
         Long id = 1L;
         Long memberId = 100L;
-        String fcmToken = "test-fcm-token";
+        String fcmToken = "eP2aFd0RToWVLlJwDWNHvG:APA91bFSrT3OQFYe1gKbFVDtHFaZmPxn2hHGdT7P_QFhRTcXL4HBfDzW6DxTZqPQfGQ7vKY8jVqC4vzW34XLwLvQbXjP7vH3h9GLzLmVKUkE2TzfGq0ZQGDl7KxOv3vYnO4Vkjl1s8Fc";
         DeviceType deviceType = DeviceType.ANDROID;
         LocalDateTime now = LocalDateTime.now();
 
@@ -69,7 +69,7 @@ class DeviceTest {
     @Test
     void FCM_토큰을_조회한다() {
         // given
-        String fcmToken = "test-fcm-token";
+        String fcmToken = "eP2aFd0RToWVLlJwDWNHvG:APA91bFSrT3OQFYe1gKbFVDtHFaZmPxn2hHGdT7P_QFhRTcXL4HBfDzW6DxTZqPQfGQ7vKY8jVqC4vzW34XLwLvQbXjP7vH3h9GLzLmVKUkE2TzfGq0ZQGDl7KxOv3vYnO4Vkjl1s8Fc";
         Device device = createDeviceWithToken(fcmToken);
 
         // when
@@ -132,10 +132,12 @@ class DeviceTest {
     }
 
     private Device createDevice(Long id) {
+        final String fcmToken = "eP2aFd0RToWVLlJwDWNHvG:APA91bFSrT3OQFYe1gKbFVDtHFaZmPxn2hHGdT7P_QFhRTcXL4HBfDzW6DxTZqPQfGQ7vKY8jVqC4vzW34XLwLvQbXjP7vH3h9GLzLmVKUkE2TzfGq0ZQGDl7KxOv3vYnO4Vkjl1s8Fc";
+
         return new Device(
                 id,
                 1L,
-                "fcm-token",
+                fcmToken,
                 DeviceType.ANDROID,
                 LocalDateTime.now(),
                 LocalDateTime.now(),
@@ -144,10 +146,12 @@ class DeviceTest {
     }
 
     private Device createDeviceWithMemberId(Long memberId) {
+        final String fcmToken = "eP2aFd0RToWVLlJwDWNHvG:APA91bFSrT3OQFYe1gKbFVDtHFaZmPxn2hHGdT7P_QFhRTcXL4HBfDzW6DxTZqPQfGQ7vKY8jVqC4vzW34XLwLvQbXjP7vH3h9GLzLmVKUkE2TzfGq0ZQGDl7KxOv3vYnO4Vkjl1s8Fc";
+
         return new Device(
                 1L,
                 memberId,
-                "fcm-token",
+                fcmToken,
                 DeviceType.ANDROID,
                 LocalDateTime.now(),
                 LocalDateTime.now(),
@@ -168,10 +172,12 @@ class DeviceTest {
     }
 
     private Device createDeviceWithType(DeviceType deviceType) {
+        final String fcmToken = "eP2aFd0RToWVLlJwDWNHvG:APA91bFSrT3OQFYe1gKbFVDtHFaZmPxn2hHGdT7P_QFhRTcXL4HBfDzW6DxTZqPQfGQ7vKY8jVqC4vzW34XLwLvQbXjP7vH3h9GLzLmVKUkE2TzfGq0ZQGDl7KxOv3vYnO4Vkjl1s8Fc";
+
         return new Device(
                 1L,
                 1L,
-                "fcm-token",
+                fcmToken,
                 deviceType,
                 LocalDateTime.now(),
                 LocalDateTime.now(),
@@ -180,10 +186,12 @@ class DeviceTest {
     }
 
     private Device createDeviceWithTimes(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime lastLoginAt) {
+        final String fcmToken = "eP2aFd0RToWVLlJwDWNHvG:APA91bFSrT3OQFYe1gKbFVDtHFaZmPxn2hHGdT7P_QFhRTcXL4HBfDzW6DxTZqPQfGQ7vKY8jVqC4vzW34XLwLvQbXjP7vH3h9GLzLmVKUkE2TzfGq0ZQGDl7KxOv3vYnO4Vkjl1s8Fc";
+
         return new Device(
                 1L,
                 1L,
-                "fcm-token",
+                fcmToken,
                 DeviceType.ANDROID,
                 createdAt != null ? createdAt : LocalDateTime.now(),
                 updatedAt != null ? updatedAt : LocalDateTime.now(),

@@ -18,10 +18,12 @@ public class DeviceRepositoryTest {
 
     private final LocalDateTime now = LocalDateTime.now();
 
+    final String fcmToken = "eP2aFd0RToWVLlJwDWNHvG:APA91bFSrT3OQFYe1gKbFVDtHFaZmPxn2hHGdT7P_QFhRTcXL4HBfDzW6DxTZqPQfGQ7vKY8jVqC4vzW34XLwLvQbXjP7vH3h9GLzLmVKUkE2TzfGq0ZQGDl7KxOv3vYnO4Vkjl1s8Fc";
+    
     @Test
     void 아이디가_없는_경우_새로운_디바이스를_생성한다() {
         // given
-        Device device = createDevice(null, 1L, "token1", DeviceType.ANDROID);
+        Device device = createDevice(null, 1L, fcmToken, DeviceType.ANDROID);
 
         // when
         Device savedDevice = repository.save(device);
@@ -36,7 +38,7 @@ public class DeviceRepositoryTest {
     @Test
     void 아이디가_있는_경우_기존_디바이스를_업데이트한다() {
         // given
-        Device device = createDevice(1L, 1L, "token1", DeviceType.ANDROID);
+        Device device = createDevice(1L, 1L, fcmToken, DeviceType.ANDROID);
 
         // when
         Device savedDevice = repository.save(device);
@@ -48,7 +50,7 @@ public class DeviceRepositoryTest {
     @Test
     void 존재하는_아이디로_조회하면_디바이스를_반환한다() {
         // given
-        Device device = repository.save(createDevice(null, 1L, "token1", DeviceType.ANDROID));
+        Device device = repository.save(createDevice(null, 1L, fcmToken, DeviceType.ANDROID));
 
         // when
         Optional<Device> foundDevice = repository.findById(device.getId());
@@ -70,10 +72,10 @@ public class DeviceRepositoryTest {
     @Test
     void 존재하는_토큰으로_조회하면_디바이스를_반환한다() {
         // given
-        Device device = repository.save(createDevice(null, 1L, "token1", DeviceType.ANDROID));
+        Device device = repository.save(createDevice(null, 1L, fcmToken, DeviceType.ANDROID));
 
         // when
-        Optional<Device> foundDevice = repository.findByFcmToken("token1");
+        Optional<Device> foundDevice = repository.findByFcmToken(fcmToken);
 
         // then
         assertThat(foundDevice).isPresent();
@@ -101,8 +103,8 @@ public class DeviceRepositoryTest {
     @Test
     void 디바이스가_있는_경우_모든_디바이스를_반환한다() {
         // given
-        repository.save(createDevice(null, 1L, "token1", DeviceType.ANDROID));
-        repository.save(createDevice(null, 2L, "token2", DeviceType.IOS));
+        repository.save(createDevice(null, 1L, fcmToken, DeviceType.ANDROID));
+        repository.save(createDevice(null, 2L, fcmToken+"test", DeviceType.IOS));
 
         // when
         List<Device> devices = repository.findAll();
@@ -114,7 +116,7 @@ public class DeviceRepositoryTest {
     @Test
     void 존재하는_아이디로_삭제하면_디바이스가_제거된다() {
         // given
-        Device device = repository.save(createDevice(null, 1L, "token1", DeviceType.ANDROID));
+        Device device = repository.save(createDevice(null, 1L, fcmToken, DeviceType.ANDROID));
 
         // when
         repository.deleteById(device.getId());
@@ -126,8 +128,8 @@ public class DeviceRepositoryTest {
     @Test
     void 디바이스_삭제시_다른_디바이스는_영향받지_않는다() {
         // given
-        Device device1 = repository.save(createDevice(null, 1L, "token1", DeviceType.ANDROID));
-        Device device2 = repository.save(createDevice(null, 2L, "token2", DeviceType.IOS));
+        Device device1 = repository.save(createDevice(null, 1L, fcmToken, DeviceType.ANDROID));
+        Device device2 = repository.save(createDevice(null, 2L, fcmToken+"test", DeviceType.IOS));
 
         // when
         repository.deleteById(device1.getId());

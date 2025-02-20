@@ -29,7 +29,7 @@ public class JdbcCourtRepository implements LoadCourtPort {
                     FROM court c
                              LEFT JOIN court_images ci ON c.id = ci.court_id
                              LEFT JOIN court_facilities cf ON c.id = cf.court_id
-                    GROUP BY c.id;
+                    GROUP BY c.id; 
                 """;
         return jdbcTemplate.query(sql, courtRowMapper);
     }
