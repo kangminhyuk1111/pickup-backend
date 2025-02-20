@@ -29,6 +29,13 @@ public class Device {
         this.deviceType = deviceType;
     }
 
+    public Device(final String fcmToken, final Long memberId, final DeviceType deviceType) {
+        validateFcmToken(fcmToken);
+        this.fcmToken = fcmToken;
+        this.memberId = memberId;
+        this.deviceType = deviceType;
+    }
+
     public Device(final Long id, final Long memberId, final String fcmToken, final DeviceType deviceType, final LocalDateTime createdAt, final LocalDateTime updatedAt, final LocalDateTime lastLoginAt) {
         validateFcmToken(fcmToken);
         this.id = id;
