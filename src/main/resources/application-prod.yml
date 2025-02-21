@@ -37,10 +37,13 @@ jwt:
   secretkey: ${JWT_SECRET_KEY:1q2w3e4r5t6y7u8i9o0p1q2w3e4r5t6y7u8i9o0p!}
 
 # log
+# log
 logging:
   level:
-    root: ${LOG_LEVEL_ROOT:INFO}
-    core.pickupbackend: ${LOG_LEVEL_APP:DEBUG}
+    root: warn
+    core.pickupbackend: DEBUG
+    org.springframework.jdbc.core: DEBUG
+    com.google.firebase: DEBUG
 
 # fcm
 fcm:

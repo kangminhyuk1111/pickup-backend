@@ -1,4 +1,4 @@
-package core.pickupbackend.match.infra.repository;
+package core.pickupbackend.match.infra.repository;L
 
 import core.pickupbackend.global.exception.ApplicationMatchException;
 import core.pickupbackend.global.exception.ErrorCode;
@@ -79,8 +79,6 @@ public class JdbcMatchRepository implements MatchRepository {
         String sql = "SELECT * FROM `match` WHERE host_id = ?";
         return Optional.ofNullable(jdbcTemplate.queryForObject(sql, rowMapper, hostId));
     }
-
-
 
     @Override
     public Match update(Long id, Match match) {

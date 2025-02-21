@@ -42,7 +42,7 @@ logging:
   level:
     root: warn
     core.pickupbackend: DEBUG
-    org.springframework.jdbc.core: TRACE
+    org.springframework.jdbc.core: DEBUG
     com.google.firebase: DEBUG
 
 log:
