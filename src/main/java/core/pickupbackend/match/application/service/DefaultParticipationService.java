@@ -40,11 +40,14 @@ public class DefaultParticipationService implements ParticipationService {
         final String email = tokenProvider.extractEmailFromToken(token);
         final Member member = memberService.getMemberByEmail(email);
 
-        // 매치 생성자 검증
         Match match = matchService.findById(createParticipationRequest.matchingId());
 
         if (match.getHostId().equals(member.getId())) {
             throw new ApplicationException(ErrorCode.CREATOR_CAN_NOT_CREATE_PARTICIPATION);
+        }
+
+        if (match.getCurrentPlayers() >= match.getMaxPlayers()) {
+            throw new ApplicationException(ErrorCode.MATCH_IS_FULL);
         }
 
         return this.participationRepository.createParticipation(createParticipationRequest.toEntity(member.getId()));

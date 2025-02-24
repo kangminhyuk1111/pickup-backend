@@ -41,6 +41,7 @@ public enum ErrorCode {
     DATE_PAST_EXCEPTION(HttpStatus.BAD_REQUEST, "날짜는 과거가 입력될 수 없습니다."),
     PLAYERS_NEGATIVE_EXCEPTION(HttpStatus.BAD_REQUEST, "모집 인원은 반드시 1명 이상이여야 합니다."),
     COAST_NEGATIVE_EXCEPTION(HttpStatus.BAD_REQUEST, "금액은 반드시 입력해야 합니다."),
+    MATCH_IS_FULL(HttpStatus.BAD_REQUEST, "매치가 가득 찼습니다."),
 
     // COURT
     COURT_NAME_NOT_NULL(HttpStatus.BAD_REQUEST, "농구장 이름은 필수입니다"),

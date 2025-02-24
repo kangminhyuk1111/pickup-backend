@@ -1,4 +1,4 @@
-package core.pickupbackend.match.infra.repository;L
+package core.pickupbackend.match.infra.repository;
 
 import core.pickupbackend.global.exception.ApplicationMatchException;
 import core.pickupbackend.global.exception.ErrorCode;

@@ -3,12 +3,17 @@ package core.pickupbackend.match.domain;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.global.exception.ApplicationMatchException;
 import core.pickupbackend.member.domain.type.Level;
+import org.springframework.data.annotation.Version;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Match {
+
+    @Version
+    private Long version;
+
     private Long id;
     private String title;
     private String description;
