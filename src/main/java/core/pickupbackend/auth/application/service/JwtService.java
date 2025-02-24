@@ -31,12 +31,12 @@ public class JwtService {
         return new AuthCredential(jti, accessToken, refreshToken);
     }
 
-    public boolean isValidToken(String accessToken) {
-        if (!tokenProvider.validateToken(accessToken)) {
+    public boolean isValidToken(String token) {
+        if (!tokenProvider.validateToken(token)) {
             throw new ApplicationException(ErrorCode.INVALID_ACCESS_TOKEN);
         }
 
-        final String jti = tokenProvider.extractJtiFromToken(accessToken);
+        final String jti = tokenProvider.extractJtiFromToken(token);
         final AuthCredential findAuthCredentialByJti = jwtRepository.findByJti(jti);
 
         return findAuthCredentialByJti != null;

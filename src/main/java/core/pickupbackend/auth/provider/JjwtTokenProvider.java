@@ -1,7 +1,11 @@
 package core.pickupbackend.auth.provider;
 
 import core.pickupbackend.auth.domain.type.TokenType;
+import core.pickupbackend.global.exception.ApplicationException;
+import core.pickupbackend.global.exception.ErrorCode;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import org.springframework.stereotype.Component;
 
@@ -67,10 +71,24 @@ public class JjwtTokenProvider implements TokenProvider{
 
     @Override
     public Boolean validateToken(final String token) {
-        final Claims claims = Jwts.parser()
-                .setSigningKey(keyProvider.getSecretKey()).build().parseSignedClaims(token).getPayload();
+        try {
+            Claims claims = Jwts.parser()
+                    .verifyWith(keyProvider.getSecretKey())
+                    .build()
+                    .parseSignedClaims(token)
+                    .getPayload();
 
-        return !claims.getExpiration().before(new Date());
+            if (claims.getExpiration().before(new Date())) {
+                throw new ApplicationException(ErrorCode.TOKEN_EXPIRED);
+            }
+            return true;
+        } catch (ExpiredJwtException e) {
+            // 토큰 만료 에러
+            throw new ApplicationException(ErrorCode.TOKEN_EXPIRED);
+        } catch (JwtException e) {
+            // 기타 JWT 관련 에러
+            throw new ApplicationException(ErrorCode.INVALID_TOKEN);
+        }
     }
 
     private Date getAccessTokenExpiration() {

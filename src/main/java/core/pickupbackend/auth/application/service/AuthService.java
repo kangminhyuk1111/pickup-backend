@@ -7,19 +7,19 @@ import core.pickupbackend.auth.application.out.JwtRepository;
 import core.pickupbackend.auth.domain.AuthCredential;
 import core.pickupbackend.auth.dto.request.LoginCommand;
 import core.pickupbackend.auth.dto.request.LogoutCommand;
-import core.pickupbackend.auth.infra.repostiroy.RedisJwtRepository;
 import core.pickupbackend.auth.provider.TokenProvider;
 import core.pickupbackend.global.exception.ApplicationException;
 import core.pickupbackend.global.exception.ErrorCode;
 import core.pickupbackend.member.domain.Member;
 import core.pickupbackend.member.application.service.DefaultMemberService;
 import core.pickupbackend.member.application.service.DefaultPasswordService;
-import io.jsonwebtoken.Claims;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AuthService implements LoginUseCase, LogoutUseCase, TokenRefreshUseCase {
+
+    private static final String KET_PREFIX = "jwt:access:";
 
     private final DefaultPasswordService passwordService;
     private final DefaultMemberService memberService;
@@ -70,14 +70,15 @@ public class AuthService implements LoginUseCase, LogoutUseCase, TokenRefreshUse
 
     @Override
     public AuthCredential refreshToken(final String refreshToken) {
-        if (jwtService.isValidToken(refreshToken)) {
+        if (!jwtService.isValidToken(refreshToken)) {
             throw new ApplicationException(ErrorCode.INVALID_REFRESH_TOKEN);
         }
 
         final String email = tokenProvider.extractEmailFromToken(refreshToken);
         final Long userId = tokenProvider.extractUserIdFromToken(refreshToken);
+        final String jti = tokenProvider.extractJtiFromToken(refreshToken);
 
-        jwtRepository.delete(refreshToken);
+        jwtRepository.delete(jti);
 
         final AuthCredential authCredential = jwtService.generateAuthCredential(email, userId);
 

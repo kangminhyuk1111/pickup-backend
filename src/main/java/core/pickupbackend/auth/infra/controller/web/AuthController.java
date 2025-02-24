@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
 
 @Tag(name = "로그인, 로그아웃 API")
 @RestController
@@ -45,8 +46,9 @@ public class AuthController {
     @Operation(summary = "RefreshToken 요청")
     @PostMapping("/refresh")
     @ResponseBody
-    public LoginResponse refreshToken(@RequestBody String refreshToken) {
-        logger.debug("/refresh token: {}", refreshToken);
+    public LoginResponse refreshToken(@RequestHeader("Refresh-Token") String refreshToken) {
+        logger.debug("Received headers: {}", RequestContextHolder.currentRequestAttributes());
+        logger.debug("Refresh token header value: {}", refreshToken);
         final AuthCredential authCredential = authService.refreshToken(refreshToken);
         return LoginResponse.from(authCredential);
     }

@@ -32,7 +32,8 @@ public class RedisJwtRepository implements JwtRepository {
     }
 
     public AuthCredential findByJti(final String jti) {
-        final String value = redisTemplate.opsForValue().get(KEY_PREFIX + jti);
+        final String key = KEY_PREFIX + jti;
+        final String value = redisTemplate.opsForValue().get(key);
 
         if (value == null) {
             throw new ApplicationException(ErrorCode.TOKEN_NOT_FOUND);

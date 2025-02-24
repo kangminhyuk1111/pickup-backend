@@ -73,7 +73,10 @@ public enum ErrorCode {
 
     // mail
     VERIFICATION_NOT_MATCHED(HttpStatus.BAD_REQUEST, "인증 코드가 유효하지 않습니다."),
-    VERIFICATION_KEY_NOT_MATCHED(HttpStatus.BAD_REQUEST, "잘못된 이메일 인증 요청입니다.");
+    VERIFICATION_KEY_NOT_MATCHED(HttpStatus.BAD_REQUEST, "잘못된 이메일 인증 요청입니다."),
+    TOKEN_EXPIRED(HttpStatus.BAD_REQUEST, "토큰이 만료되었습니다."),
+    INVALID_TOKEN_SIGNATURE(HttpStatus.BAD_REQUEST, "토큰의 서명 값이 일치하지 않습니다."),
+    INVALID_TOKEN(HttpStatus.BAD_REQUEST, "토큰이 만료되었습니다.");
 
     private final HttpStatus status;
     private final Integer code;
