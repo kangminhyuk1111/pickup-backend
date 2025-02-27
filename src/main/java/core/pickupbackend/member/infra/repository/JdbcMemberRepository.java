@@ -119,6 +119,7 @@ public class JdbcMemberRepository implements MemberRepository {
         }
     }
 
+    @Override
     public boolean existsByEmail(String email) {
         String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
         Integer count = template.queryForObject(sql, Integer.class, email);

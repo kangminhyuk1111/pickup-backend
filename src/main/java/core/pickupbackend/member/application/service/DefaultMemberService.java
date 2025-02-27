@@ -76,14 +76,13 @@ public class DefaultMemberService implements MemberService {
 
     @Override
     public boolean checkDuplicateEmail(final CheckEmailDuplicateRequest dto) {
-        checkEmailAlreadyExist(dto.email());
-
-        return true;
+        return !checkEmailAlreadyExist(dto.email());
     }
 
-    private void checkEmailAlreadyExist(final String email) {
-        memberRepository.findByEmail(email).ifPresent(member -> {
-            throw new ApplicationException(ErrorCode.EMAIL_ALREADY_EXIST);
-        });
+    /*
+    * 이메일 존재시 true 존재하지 않을시 false
+    * */
+    private boolean checkEmailAlreadyExist(final String email) {
+        return memberRepository.existsByEmail(email);
     }
 }

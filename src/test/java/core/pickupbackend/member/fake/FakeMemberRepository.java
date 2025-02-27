@@ -68,6 +68,12 @@ public class FakeMemberRepository implements MemberRepository {
     }
 
     @Override
+    public boolean existsByEmail(final String email) {
+        return store.values().stream()
+                .anyMatch(member -> member.getEmail().equals(email));
+    }
+
+    @Override
     public Member update(Member member) {
         store.put(member.getId(), member);
         return member;

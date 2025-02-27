@@ -20,6 +20,7 @@ public class UrlWhiteListChecker {
         addPattern("/auth/**");                // 인증 관련 모든 엔드포인트
         addPattern("/public/**");              // 공개 API 엔드포인트
         addPattern("/auth/refresh");           // refresh token
+        addPattern("/member/check-email");     // check email
 
         // Member APIs
         addPattern("/member", "GET", "POST");  // 회원 목록 조회 및 생성
